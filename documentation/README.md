@@ -6,9 +6,8 @@
 
 ## SiteMap
 
-[SiteMap URL](https://octopus.do/bl8tt29s3it)
-
-![Sitemap](sitemap.png)
+![Front-end Sitemap](sitemaps/frontend_sitemap.jpg)
+![Back-end Sitemap](sitemaps/backend_sitemap.jpg)
 
 ## Wireframes
 
