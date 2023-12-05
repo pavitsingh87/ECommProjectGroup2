@@ -479,5 +479,9 @@ Implementing the value-added features for the Hockey Shockey e-commerce website 
 
 These changes will augment the existing ERD to accommodate the additional features, ensuring that the database structure remains flexible, scalable, and capable of supporting the enhanced functionality of the Hockey Shockey e-commerce website.
 
+## 11. Our Team
+
+
+
 
 
