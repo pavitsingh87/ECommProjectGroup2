@@ -280,6 +280,84 @@ Implementing robust security measures both on the server and within the web appl
 - Rationale: Enhances browser security and protects against certain types of web vulnerabilities.
 It's crucial to note that cybersecurity is an ongoing process, and security measures should be continuously updated and adapted to address emerging threats and vulnerabilities. Regular security assessments, audits, and penetration testing are essential to maintaining a robust security posture for the Hockey Shockey e-commerce website.
 
+## 8. Database
+
+The database for the Hockey Shockey e-commerce website is designed to efficiently store and manage data related to products, users, orders, and other essential entities. The database structure follows normalization principles to ensure data integrity, minimize redundancy, and support scalability.
+
+**Primary Entities:**
+
+1. Users:
+
+**Attributes:**
+	- UserID (Primary Key)
+	- Username
+	- Email
+	- Password (Hashed)
+	- Role (e.g., Customer, Admin)
+- Normalization: This table is in the first normal form (1NF) to eliminate duplicate data and ensure atomic values in each column. User roles are stored separately to support flexibility in role management.
+
+2. Products:
+
+**Attributes:**
+	- ProductID (Primary Key)
+	- Name
+	- Description
+	- Price
+	- StockQuantity
+	- BrandID (Foreign Key)
+	- CategoryID (Foreign Key)
+- Normalization: The Products table is in the third normal form (3NF). Product attributes are stored separately in related tables for brands and categories to avoid data redundancy.
+
+3. Brands:
+
+**Attributes:**
+	- BrandID (Primary Key)
+	- Name
+- Normalization: This table is in the first normal form (1NF). It stores unique brand names, preventing data duplication and ensuring consistency.
+
+4. Categories:
+
+**Attributes:**
+	- CategoryID (Primary Key)
+	- Name
+- Normalization: Similar to Brands, the Categories table is in the first normal form (1NF) to store unique category names without redundancy.
+
+5. Orders:
+
+**Attributes:**
+	- OrderID (Primary Key)
+	- UserID (Foreign Key)
+	- OrderDate
+	- TotalAmount
+	- OrderStatus
+- Normalization: The Orders table is in the second normal form (2NF) by separating OrderDate and TotalAmount, ensuring dependencies on the primary key are minimized.
+
+6. OrderDetails:
+
+**Attributes:**
+	- OrderDetailID (Primary Key)
+	- OrderID (Foreign Key)
+	- ProductID (Foreign Key)
+	- Quantity
+	- Subtotal
+- Normalization: This table is in the third normal form (3NF) by separating the data related to order line items, avoiding transitive dependencies.
+Normalization/Denormalization Considerations:
+
+- Normalization Choice:
+
+	- The database leans towards normalization to maintain data integrity, reduce redundancy, and facilitate efficient updates.
+	- Normalized structures support scalability and make it easier to manage and update data without inconsistencies.
+
+**Denormalization for Performance:**
+
+- Some degree of denormalization may be considered for performance optimization in certain scenarios, such as generating complex reports or improving query speed.
+- Materialized views or caching mechanisms can be implemented for specific use cases without compromising the overall normalized structure.
+
+**Balancing Read and Write Operations:**
+
+- The design aims for a balance between read and write operations, ensuring that common queries for product information, user details, and order history are efficient, while still allowing for straightforward updates and inserts.
+
+By following normalization principles, the database for the Hockey Shockey e-commerce website is designed to provide a solid foundation for data integrity, scalability, and efficient data retrieval. The balance between normalization and judicious denormalization is maintained to meet the specific requirements of the e-commerce platform.
 
 
 
