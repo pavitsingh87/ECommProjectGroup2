@@ -98,6 +98,7 @@ The proposed design solution aims to blend aesthetics with functionality, creati
 ![Product Details](screenshots/product_details.png);
 
 ![Product List](screenshots/product_list.png);
+![Signup](screenshots/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -151,11 +152,11 @@ These user personas and use case statements are crafted to represent a diverse r
 
 **Front end**
 
-![Front end](frontend-sitemap.png);
+![Front end](sitemaps/frontend-sitemap.png);
 
 **Back end**
 
-![Back end](backend-sitemap.png);
+![Back end](sitemaps/backend-sitemap.png);
 
 ## 7. Server
 
