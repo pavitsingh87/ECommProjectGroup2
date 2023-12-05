@@ -133,3 +133,55 @@ Easy-to-use filters for sorting products based on brand, price, and popularity.
 The proposed design solution aims to blend aesthetics with functionality, creating a compelling and efficient e-commerce platform for hockey enthusiasts. Through a visually dynamic interface, user-centric features, and robust security measures, the Hockey Shockey website will not only showcase premium hockey accessories but also provide an immersive and enjoyable shopping experience for our diverse audience.
 
 ## 5. User Personas/Use Case statements
+
+1. Guest Shopper - Sarah, the Hockey Parent
+
+**Demographic:**
+- Age: 35
+- Occupation: Marketing Professional
+- Relationship to Hockey: Parent of a youth hockey player
+**Use Case Statement:**
+- Objective: Sarah wants to explore and purchase hockey gear for her child who recently joined a youth hockey league.
+- Interaction: Visits the site, browses youth hockey equipment, reads reviews, and makes a purchase securely as a guest.
+
+2. Authenticated Shopper - Alex, the Competitive Player
+
+**Demographic:**
+- Age: 25
+- Occupation: Software Developer
+- Relationship to Hockey: Active competitive hockey player
+**Use Case Statement:**
+- Objective: Alex is looking for specific advanced-level hockey gear for his competitive matches.
+- Interaction: Logs into his account, reviews past purchases, adds items to his wishlist, and completes a secure checkout with his saved payment details.
+
+3. Authenticated Shopper - Taylor, the Hockey Enthusiast
+
+**Demographic:**
+- Age: 40
+- Occupation: Teacher
+- Relationship to Hockey: Enthusiastic fan, occasional player
+**Use Case Statement:**
+- Objective: Taylor wants to purchase hockey-themed merchandise and accessories to support their favorite team.
+- Interaction: Logs into the account, explores fan merchandise, shares selected items on social media, and completes a purchase using a promotional discount.
+
+4. Customer Service Representative (CSR) - Jordan
+
+**Demographic:**
+- Age: 28
+- Occupation: Customer Service Representative
+- Relationship to Hockey: Limited knowledge about hockey equipment
+**Use Case Statement:**
+- Objective: Jordan assists customers with inquiries, order tracking, and product information.
+- Interaction: Accesses the CSR dashboard, responds to customer queries via live chat or email, and helps troubleshoot any issues related to orders or products.
+
+5. Admin - Mackenzie, the E-commerce Manager
+
+**Demographic:**
+- Age: 30
+- Occupation: E-commerce Manager
+- Relationship to Hockey: Passionate about the sport, responsible for the online store's performance
+**Use Case Statement:**
+- Objective: Mackenzie oversees the website's performance, manages inventory, and monitors sales analytics.
+- Interaction: Accesses the admin dashboard, updates product listings, reviews sales reports, and manages promotions to optimize the site's performance.
+
+These user personas and use case statements are crafted to represent a diverse range of potential users for the Hockey Shockey e-commerce website. Understanding the needs and behaviors of these users helps in tailoring the front-end user experience to ensure that the site is user-friendly, engaging, and capable of meeting the unique requirements of each user type.
