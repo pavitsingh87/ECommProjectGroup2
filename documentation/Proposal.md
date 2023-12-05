@@ -185,3 +185,101 @@ The proposed design solution aims to blend aesthetics with functionality, creati
 - Interaction: Accesses the admin dashboard, updates product listings, reviews sales reports, and manages promotions to optimize the site's performance.
 
 These user personas and use case statements are crafted to represent a diverse range of potential users for the Hockey Shockey e-commerce website. Understanding the needs and behaviors of these users helps in tailoring the front-end user experience to ensure that the site is user-friendly, engaging, and capable of meeting the unique requirements of each user type.
+
+## 6. Sitemaps
+
+**Front end**
+
+**Back end**
+
+## 7. Server
+Implementing robust security measures both on the server and within the web application is critical for safeguarding user data, maintaining the integrity of transactions, and protecting against various cyber threats. Here's an overview of security measures for both the server and the web application in the Hockey Shockey project:
+
+**Server Security:**
+
+1. Firewall Protection:
+
+- Implementation: Deploy a firewall to monitor and control incoming and outgoing network traffic.
+- Rationale: Protects the server from unauthorized access and helps filter potentially malicious traffic.
+
+2. Regular Software Updates:
+
+- Implementation: Keep the server's operating system, web server software, and other dependencies up-to-date.
+- Rationale: Ensures that known vulnerabilities are patched, reducing the risk of exploitation.
+
+3. Intrusion Detection and Prevention Systems (IDPS):
+
+- Implementation: Implement IDPS to detect and respond to suspicious activities.
+- Rationale: Enhances the server's ability to detect and mitigate potential security threats.
+
+4. Secure File Permissions:
+
+- Implementation: Apply the principle of least privilege to file and directory permissions.
+- Rationale: Limits the potential impact of a security breach by restricting access to sensitive files.
+
+5. SSH Key Authentication:
+
+- Implementation: Use SSH key-based authentication instead of password-based authentication.
+- Rationale: Strengthens server access security by reducing the risk of unauthorized access through compromised passwords.
+
+6. Security Headers:
+
+- Implementation: Configure security headers in the server configuration.
+- Rationale: Enhances browser security and protects against specific types of attacks, such as clickjacking.
+
+**Web Application Security:**
+
+1. SSL/TLS Encryption:
+
+- Implementation: Enable HTTPS using SSL/TLS certificates for secure data transmission.
+- Rationale: Encrypts data in transit, securing sensitive information during user interactions.
+
+2. Cross-Site Scripting (XSS) Protection:
+
+- Implementation: Implement input validation and output encoding to prevent XSS attacks.
+- Rationale: Mitigates the risk of injecting malicious scripts into web pages.
+
+3. Cross-Site Request Forgery (CSRF) Protection:
+
+- Implementation: Use anti-CSRF tokens in forms to protect against CSRF attacks.
+- Rationale: Ensures that requests to the server are legitimate and originated from the intended user.
+
+4. SQL Injection Prevention:
+
+- Implementation: Use parameterized queries and prepared statements to prevent SQL injection.
+- Rationale: Protects against malicious SQL injection attacks on the database.
+
+5. Session Management:
+
+- Implementation: Implement secure session management practices, including session timeout and secure session storage.
+- Rationale: Reduces the risk of session hijacking and unauthorized access.
+
+6. File Upload Security:
+
+- Implementation: Validate and sanitize file uploads, and restrict file types.
+- Rationale: Prevents malicious file uploads and potential security vulnerabilities.
+
+7. Content Security Policy (CSP):
+
+- Implementation: Implement CSP headers to control the sources of content that the browser can load.
+- Rationale: Mitigates the risk of content injection and unauthorized script execution.
+
+8. Error Handling:
+
+- Implementation: Customize error messages to reveal minimal information in production.
+- Rationale: Minimizes the information exposed to potential attackers in error scenarios.
+
+9. Web Application Firewall (WAF):
+
+- Implementation: Employ a WAF to filter and monitor HTTP traffic between a web application and the Internet.
+- Rationale: Adds an additional layer of security by filtering out malicious traffic before it reaches the web application.
+
+10. Security Headers:
+
+- Implementation: Utilize security headers, such as Strict-Transport-Security and X-Content-Type-Options.
+- Rationale: Enhances browser security and protects against certain types of web vulnerabilities.
+It's crucial to note that cybersecurity is an ongoing process, and security measures should be continuously updated and adapted to address emerging threats and vulnerabilities. Regular security assessments, audits, and penetration testing are essential to maintaining a robust security posture for the Hockey Shockey e-commerce website.
+
+
+
+
