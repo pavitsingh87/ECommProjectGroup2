@@ -33,6 +33,7 @@ html {
 }
 body {
   margin: 0;
+  font-family: 'Roboto', Arial, Helvetica sans-serif;
 }
 a {
   background: transparent;
@@ -169,8 +170,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.text-white {
+  color: #f1f1f1;
+}
 .navbar {
-  background-color: #544087;
+  background-color: #fff;
 }
 .navbar .navbar-nav {
   display: flex;
@@ -179,10 +183,17 @@ table {
   gap: 40px;
 }
 .navbar .nav-link {
-  color: #f1f1f1;
+  color: #544087;
   --bs-nav-link-font-size: 20px;
   font-size: var(--bs-nav-link-font-size);
 }
-.util-nav {
+.navbar .navbar-info {
+  width: 20%;
+}
+.promotion-nav {
   color: #f1f1f1;
+  background-color: #544087;
+}
+.nav-item i {
+  color: #544087;
 }
