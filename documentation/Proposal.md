@@ -4,7 +4,7 @@ PROPOSAL
 
 From: 
 To: Steve George
-Date: October 12, 2023
+Date: December 04, 2023
 
 ## 1. Description
 
