@@ -48,7 +48,6 @@ The option for user accounts caters to players who may want to track their purch
 
 The integration of social media features aligns with the social nature of sports, allowing users to share their purchases, experiences, and recommendations with their networks.
 
-
 ## 3. Project Details
 
 **Project Overview:**
@@ -88,8 +87,8 @@ Seamless integration with popular social media platforms for easy sharing of pro
 
 Multiple shipping options for customer flexibility. Order tracking functionality to keep customers informed about the status of their purchases.
 
-
 ## 4. Proposed Design Solution
+
 The proposed design solution aims to blend aesthetics with functionality, creating a compelling and efficient e-commerce platform for hockey enthusiasts. Through a visually dynamic interface, user-centric features, and robust security measures, the Hockey Shockey website will not only showcase premium hockey accessories but also provide an immersive and enjoyable shopping experience for our diverse audience.
 
 ![Logo](logo.png)
@@ -100,46 +99,49 @@ The proposed design solution aims to blend aesthetics with functionality, creati
 
 ![Product List](screenshots/product_list.png);
 
-
 ## 5. User Personas/Use Case statements
 
 1. Guest Shopper - Sarah, the Hockey Parent
 
 **Demographic:**
+
 - Age: 35
 - Occupation: Marketing Professional
 - Relationship to Hockey: Parent of a youth hockey player
-**Use Case Statement:**
+  **Use Case Statement:**
 - Objective: Sarah wants to explore and purchase hockey gear for her child who recently joined a youth hockey league.
 - Interaction: Visits the site, browses youth hockey equipment, reads reviews, and makes a purchase securely as a guest.
 
 2. Authenticated Shopper - Alex, the Competitive Player
 
 **Demographic:**
+
 - Age: 25
 - Occupation: Software Developer
 - Relationship to Hockey: Active competitive hockey player
-**Use Case Statement:**
+  **Use Case Statement:**
 - Objective: Alex is looking for specific advanced-level hockey gear for his competitive matches.
 - Interaction: Logs into his account, reviews past purchases, adds items to his wishlist, and completes a secure checkout with his saved payment details.
 
 3. Customer Service Representative (CSR) - Jordan
 
 **Demographic:**
+
 - Age: 28
 - Occupation: Customer Service Representative
 - Relationship to Hockey: Limited knowledge about hockey equipment
-**Use Case Statement:**
+  **Use Case Statement:**
 - Objective: Jordan assists customers with inquiries, order tracking, and product information.
 - Interaction: Accesses the CSR dashboard, responds to customer queries via live chat or email, and helps troubleshoot any issues related to orders or products.
 
 4. Admin - Mackenzie, the E-commerce Manager
 
 **Demographic:**
+
 - Age: 30
 - Occupation: E-commerce Manager
 - Relationship to Hockey: Passionate about the sport, responsible for the online store's performance
-**Use Case Statement:**
+  **Use Case Statement:**
 - Objective: Mackenzie oversees the website's performance, manages inventory, and monitors sales analytics.
 - Interaction: Accesses the admin dashboard, updates product listings, reviews sales reports, and manages promotions to optimize the site's performance.
 
@@ -154,6 +156,7 @@ These user personas and use case statements are crafted to represent a diverse r
 **Back end**
 
 ## 7. Server
+
 Implementing robust security measures both on the server and within the web application is critical for safeguarding user data, maintaining the integrity of transactions, and protecting against various cyber threats. Here's an overview of security measures for both the server and the web application in the Hockey Shockey project:
 
 **Server Security:**
@@ -239,7 +242,7 @@ Implementing robust security measures both on the server and within the web appl
 
 - Implementation: Utilize security headers, such as Strict-Transport-Security and X-Content-Type-Options.
 - Rationale: Enhances browser security and protects against certain types of web vulnerabilities.
-It's crucial to note that cybersecurity is an ongoing process, and security measures should be continuously updated and adapted to address emerging threats and vulnerabilities. Regular security assessments, audits, and penetration testing are essential to maintaining a robust security posture for the Hockey Shockey e-commerce website.
+  It's crucial to note that cybersecurity is an ongoing process, and security measures should be continuously updated and adapted to address emerging threats and vulnerabilities. Regular security assessments, audits, and penetration testing are essential to maintaining a robust security posture for the Hockey Shockey e-commerce website.
 
 ## 8. Database
 
@@ -249,65 +252,45 @@ The database for the Hockey Shockey e-commerce website is designed to efficientl
 
 1. Users:
 
-**Attributes:**
-	- UserID (Primary Key)
-	- Username
-	- Email
-	- Password (Hashed)
-	- Role (e.g., Customer, Admin)
+**Attributes:** - UserID (Primary Key) - Username - Email - Password (Hashed) - Role (e.g., Customer, Admin)
+
 - Normalization: This table is in the first normal form (1NF) to eliminate duplicate data and ensure atomic values in each column. User roles are stored separately to support flexibility in role management.
 
 2. Products:
 
-**Attributes:**
-	- ProductID (Primary Key)
-	- Name
-	- Description
-	- Price
-	- StockQuantity
-	- BrandID (Foreign Key)
-	- CategoryID (Foreign Key)
+**Attributes:** - ProductID (Primary Key) - Name - Description - Price - StockQuantity - BrandID (Foreign Key) - CategoryID (Foreign Key)
+
 - Normalization: The Products table is in the third normal form (3NF). Product attributes are stored separately in related tables for brands and categories to avoid data redundancy.
 
 3. Brands:
 
-**Attributes:**
-	- BrandID (Primary Key)
-	- Name
+**Attributes:** - BrandID (Primary Key) - Name
+
 - Normalization: This table is in the first normal form (1NF). It stores unique brand names, preventing data duplication and ensuring consistency.
 
 4. Categories:
 
-**Attributes:**
-	- CategoryID (Primary Key)
-	- Name
+**Attributes:** - CategoryID (Primary Key) - Name
+
 - Normalization: Similar to Brands, the Categories table is in the first normal form (1NF) to store unique category names without redundancy.
 
 5. Orders:
 
-**Attributes:**
-	- OrderID (Primary Key)
-	- UserID (Foreign Key)
-	- OrderDate
-	- TotalAmount
-	- OrderStatus
+**Attributes:** - OrderID (Primary Key) - UserID (Foreign Key) - OrderDate - TotalAmount - OrderStatus
+
 - Normalization: The Orders table is in the second normal form (2NF) by separating OrderDate and TotalAmount, ensuring dependencies on the primary key are minimized.
 
 6. OrderDetails:
 
-**Attributes:**
-	- OrderDetailID (Primary Key)
-	- OrderID (Foreign Key)
-	- ProductID (Foreign Key)
-	- Quantity
-	- Subtotal
+**Attributes:** - OrderDetailID (Primary Key) - OrderID (Foreign Key) - ProductID (Foreign Key) - Quantity - Subtotal
+
 - Normalization: This table is in the third normal form (3NF) by separating the data related to order line items, avoiding transitive dependencies.
-Normalization/Denormalization Considerations:
+  Normalization/Denormalization Considerations:
 
 - Normalization Choice:
 
-	- The database leans towards normalization to maintain data integrity, reduce redundancy, and facilitate efficient updates.
-	- Normalized structures support scalability and make it easier to manage and update data without inconsistencies.
+  - The database leans towards normalization to maintain data integrity, reduce redundancy, and facilitate efficient updates.
+  - Normalized structures support scalability and make it easier to manage and update data without inconsistencies.
 
 **Denormalization for Performance:**
 
@@ -442,8 +425,5 @@ These changes will augment the existing ERD to accommodate the additional featur
 
 ## 11. Our Team
 
-
-
-
-
-
+![Front-end Sitemap](sitemaps/frontend_sitemap.jpg)
+![Back-end Sitemap](sitemaps/backend_sitemap.jpg)
