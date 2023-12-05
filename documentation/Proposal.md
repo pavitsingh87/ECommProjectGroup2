@@ -8,7 +8,7 @@ Date: December 04, 2023
 
 ## 1. Description
 
-Hockey Shockey is excited to invite proposals for the development of a state-of-the-art e-commerce website dedicated to selling premium hockey accessories. The goal of this project is to create a user-friendly online platform that caters to the needs of hockey enthusiasts, providing them with a seamless shopping experience for a wide range of high-quality hockey gear and accessories.
+Hockey Shockey is excited to invite proposals for the development of a state-of-the-art e-commerce website dedicated to selling premium hockey clothings and accessories. The goal of this project is to create a user-friendly online platform that caters to the needs of hockey enthusiasts, providing them with a seamless shopping experience for a wide range of high-quality hockey clothings and accessories.
 
 ## 2. Target audiences
 
@@ -16,17 +16,15 @@ The primary target audience for the Hockey Shockey e-commerce website project co
 
 1. Primary Audience:
 
-- Hockey Players: This includes players of all skill levels, from beginners to professionals, who are actively engaged in playing hockey.
-- Hockey Enthusiasts: Individuals who have a strong passion for hockey, even if they are not actively playing. This group may include fans, parents, and supporters of hockey teams.
+The primary audience encompasses hockey players at all proficiency levels, ranging from beginners honing their skills to seasoned professionals engaged in the sport. Additionally, the platform targets hockey enthusiasts—individuals with a fervent passion for the game, whether or not they actively participate. This inclusive category spans across dedicated fans, supportive parents, and ardent backers of various hockey teams.
 
 2. Secondary Audience:
 
-- Parents and Guardians: Those who are responsible for purchasing hockey gear and accessories for their children who play hockey.
-- Coaches and Instructors: Individuals involved in coaching or training hockey players who may be seeking equipment for their teams or athletes.
+The website aims to attract parents and guardians who play a pivotal role in acquiring hockey gear and accessories for their children actively involved in the sport. Furthermore, coaches and instructors form an essential segment of the secondary audience, as they seek reliable sources for procuring equipment essential for training and nurturing their teams or individual athletes.
 
 3. Tertiary Audience:
 
-- Gift Shoppers: People looking for hockey-related gifts for friends, family members, or colleagues who are hockey enthusiasts or players.
+Our tertiary audiences are the Gift Shoppers, who are looking for gifts for friends, family members, or colleagues who are hockey enthusiasts or players.
 
 **Influence on Design Choices:**
 
@@ -365,51 +363,51 @@ Adding value to the Hockey Shockey e-commerce website involves incorporating fea
 
 1. Personalized Recommendations:
 
-- Implement an intelligent recommendation engine that analyzes user behavior and purchase history to provide personalized product suggestions. This enhances the shopping experience and encourages additional purchases.
+Implement an intelligent recommendation engine that analyzes user behavior and purchase history to provide personalized product suggestions. This enhances the shopping experience and encourages additional purchases.
 
 2. Virtual Try-On for Gear:
 
-- Integrate a virtual try-on feature that allows users to visualize how hockey gear (e.g., helmets, jerseys) looks on them using augmented reality (AR) technology. This helps customers make more informed purchase decisions.
+Integrate a virtual try-on feature that allows users to visualize how hockey gear (e.g., helmets, jerseys) looks on them using augmented reality (AR) technology. This helps customers make more informed purchase decisions.
 
 3. Interactive Product Demos:
 
-- Include interactive 3D or video demonstrations for key products, providing customers with a closer look at the features and functionality of high-end hockey equipment.
+Include interactive 3D or video demonstrations for key products, providing customers with a closer look at the features and functionality of high-end hockey equipment.
 
 4. Gamified Loyalty Program:
 
-- Develop a gamified loyalty program where customers earn points, badges, or rewards for making purchases, leaving reviews, and engaging with the site. This encourages repeat business and customer engagement.
+Develop a gamified loyalty program where customers earn points, badges, or rewards for making purchases, leaving reviews, and engaging with the site. This encourages repeat business and customer engagement.
 
 5. Live Chat Support:
 
-- Integrate a live chat support system to enable real-time communication between customers and customer service representatives. This feature enhances customer support and provides quick assistance during the shopping process.
+Integrate a live chat support system to enable real-time communication between customers and customer service representatives. This feature enhances customer support and provides quick assistance during the shopping process.
 
 6. In-Depth Product Guides:
 
-- Create comprehensive product guides, including video tutorials and in-depth articles, to educate customers about choosing the right hockey gear based on their skill level, playing style, and preferences.
+Create comprehensive product guides, including video tutorials and in-depth articles, to educate customers about choosing the right hockey gear based on their skill level, playing style, and preferences.
 
 7. Social Media Integration for User-Generated Content:
 
-- Enhance social media integration by allowing users to share their purchases, reviews, and experiences directly from the website. User-generated content can be showcased to build a sense of community around the brand.
+Enhance social media integration by allowing users to share their purchases, reviews, and experiences directly from the website. User-generated content can be showcased to build a sense of community around the brand.
 
 8. Customization Options:
 
-- Enable users to customize certain products, such as jerseys or equipment, with personalized colors, names, or logos. This feature adds a layer of personalization to the shopping experience.
+Enable users to customize certain products, such as jerseys or equipment, with personalized colors, names, or logos. This feature adds a layer of personalization to the shopping experience.
 
 9. Augmented Reality (AR) Fitting Room:
 
-- Integrate AR technology to create a virtual fitting room where users can virtually try on products like hockey jerseys or apparel before making a purchase, enhancing the online shopping experience.
+Integrate AR technology to create a virtual fitting room where users can virtually try on products like hockey jerseys or apparel before making a purchase, enhancing the online shopping experience.
 
 10. Dynamic Pricing and Discounts:
 
-- Implement dynamic pricing strategies based on user behavior, seasonal trends, or inventory levels. Introduce smart discounts and promotions to incentivize purchases and optimize revenue.
+Implement dynamic pricing strategies based on user behavior, seasonal trends, or inventory levels. Introduce smart discounts and promotions to incentivize purchases and optimize revenue.
 
 11. One-Click Reorder:
 
-- Streamline the reordering process by incorporating a one-click reorder option for users who frequently purchase the same products. This reduces friction for repeat customers.
+Streamline the reordering process by incorporating a one-click reorder option for users who frequently purchase the same products. This reduces friction for repeat customers.
 
 12. Real-Time Inventory Alerts:
 
-- Provide users with the option to receive real-time alerts or notifications when their favorite products are back in stock, helping them stay informed and enabling timely purchases.
+Provide users with the option to receive real-time alerts or notifications when their favorite products are back in stock, helping them stay informed and enabling timely purchases.
 
 These value-added features not only enhance the functionality of the Hockey Shockey e-commerce website but also contribute to a more immersive and personalized user experience. The implementation of these features within the specified budget can elevate the website's competitiveness and appeal to a broader audience of hockey enthusiasts.
 
