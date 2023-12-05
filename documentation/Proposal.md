@@ -413,5 +413,71 @@ Adding value to the Hockey Shockey e-commerce website involves incorporating fea
 
 These value-added features not only enhance the functionality of the Hockey Shockey e-commerce website but also contribute to a more immersive and personalized user experience. The implementation of these features within the specified budget can elevate the website's competitiveness and appeal to a broader audience of hockey enthusiasts.
 
+## 10. Revised ERD for Value Adds
+
+Implementing the value-added features for the Hockey Shockey e-commerce website involves considering additional entities, relationships, and attributes in the Entity-Relationship Diagram (ERD). Here's a brief description of the changes that might be required:
+
+1. Personalized Recommendations:
+
+- Change: Introduce a new entity for user preferences or recommendations.
+- Description: This entity would store data related to user preferences, purchase history, and recommended products, establishing relationships with the Users and Products entities.
+
+2. Virtual Try-On for Gear:
+
+- Change: Enhance the Products entity with attributes related to virtual try-on options.
+- Description: Add attributes such as "AR_Model_Link" or "Virtual_Try_On_Available" to the Products entity to indicate whether a product supports virtual try-on.
+
+3. Interactive Product Demos:
+
+- Change: Introduce a new entity for interactive demonstrations.
+- Description: Create an entity that includes details about interactive demos, linking to specific products and possibly including multimedia resources like videos or 3D models.
+
+4. Gamified Loyalty Program:
+
+- Change: Introduce a Loyalty entity.
+- Description: This entity would store information about customer loyalty points, badges, and rewards. It establishes relationships with the Users entity to associate loyalty data with specific users.
+
+5. Live Chat Support:
+
+- Change: Introduce a new entity for chat interactions.
+- Description: Create an entity to log chat interactions, associating them with specific users and potentially orders. This ensures a record of customer support interactions.
+
+6. In-Depth Product Guides:
+
+- Change: Enhance the Products entity with attributes for guide resources.
+- Description: Add attributes like "Product_Guide_Link" to the Products entity, allowing links to in-depth guides associated with specific products.
+
+7. Social Media Integration for User-Generated Content:
+
+- Change: Consider adding a SocialMedia entity.
+- Description: If detailed tracking of user-generated content is required, create an entity to store social media-related data, connecting it to the Users and Products entities.
+
+8. Customization Options:
+
+- Change: Modify the Products entity to include customization attributes.
+- Description: Add attributes like "Customizable_Colors" or "Personalization_Options" to denote which products are customizable.
+
+9. Augmented Reality (AR) Fitting Room:
+
+- Change: Enhance the Products entity with AR-related attributes.
+- Description: Include attributes such as "AR_Fitting_Room_Link" or "AR_Supported" in the Products entity to enable virtual fitting room capabilities.
+
+10. Dynamic Pricing and Discounts:
+
+- Change: Consider adding a Pricing entity.
+- Description: Create an entity to manage dynamic pricing strategies, linking it to the Products entity and possibly introducing attributes for discount rules.
+
+11. One-Click Reorder:
+
+- Change: Enhance the Orders entity with attributes for reorder history.
+- Description: Add attributes such as "Reorder_History" to the Orders entity, facilitating the identification of frequently reordered products.
+
+12. Real-Time Inventory Alerts:
+
+- Change: Modify the Products entity to include inventory alert attributes.
+- Description: Introduce attributes like "Inventory_Alert_Status" or "Alert_Threshold" in the Products entity to enable real-time inventory notifications.
+
+These changes will augment the existing ERD to accommodate the additional features, ensuring that the database structure remains flexible, scalable, and capable of supporting the enhanced functionality of the Hockey Shockey e-commerce website.
+
 
 
