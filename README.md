@@ -379,19 +379,22 @@ This simplified ERD focuses specifically on the Wishlist feature, allowing users
 
 ## 11. Our Team
 
-Pavit Singh Makkar - Project Manager:
+- Pavit Singh Makkar - Project Manager:
 
 Role: As the Project Manager, Pavit oversees the entire project lifecycle. His responsibilities include project planning, coordination, and ensuring that the team is aligned with the project goals. Pavit plays a crucial role in resource management, timelines, and communication within the team.
 
-**Andres - Full Stack Developer:**
+- Andres - Full Stack Developer:
 
 Role: Andres is our Full Stack Developer responsible for both front-end and back-end development. He works on creating a seamless and interactive user experience, handling everything from user interfaces to server-side logic. Andres contributes to the technical architecture and ensures the website's functionality aligns with the project's objectives.
-**Avneet - Database Administrator:**
+
+- Avneet - Database Administrator:
 
 Role: Avneet specializes in database management and optimization. As the Database Administrator, Avneet designs and maintains the database architecture, ensuring data integrity, scalability, and efficient retrieval. Avneet is crucial for the secure and organized storage of user and product-related information.
-**Simron Shrestha - Design:**
+
+- Simron Shrestha - Design:**
 
 Role: Simron is our talented designer, responsible for creating the visual identity of the Hockey Shockey e-commerce website. Simron's role involves crafting visually appealing user interfaces, ensuring a seamless and engaging user experience. Simron's designs align with the brand image and enhance the overall aesthetics of the platform.
-**Dipesh Ram Shrestha - HTML, CSS, JavaScript:**
+
+- Dipesh Ram Shrestha - HTML, CSS, JavaScript:
 
 Role: Dipesh specializes in front-end development, working with HTML, CSS, and JavaScript. His role involves translating design concepts into functional and responsive web pages. Dipesh ensures that the website's front-end is not only visually appealing but also optimized for performance and usability.
