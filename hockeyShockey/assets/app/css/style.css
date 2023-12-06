@@ -241,3 +241,25 @@ table {
 .products-page .card-img-top {
   object-fit: scale-down;
 }
+.sidebar-img {
+  width: -webkit-fill-available;
+}
+.signup-small-text {
+  margin-bottom: 40px;
+}
+.signup-input {
+  margin-bottom: 30px;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: #999;
+}
+.signup-btn {
+  background-color: #544087;
+  color: white;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.signup-small-text a {
+  color: #212121;
+}
