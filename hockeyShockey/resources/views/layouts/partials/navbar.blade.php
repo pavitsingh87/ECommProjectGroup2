@@ -1,4 +1,11 @@
-<!-- Navbar -->
+<header>
+        <nav class="navbar navbar-light promotion-nav">
+            <div class="container">
+                <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+                <p>ShopNow</p>
+            </div>
+        </nav>
+        <!-- Navbar -->
 <nav data-mdb-navbar-init class="navbar navbar-expand-lg navbar-fixed-top border-bottom border-2">
             <div class="container">
                 <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarExample01"
@@ -40,3 +47,4 @@
             </div>
         </nav>
         <!-- Navbar -->
+    </header>
