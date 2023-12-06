@@ -14,6 +14,7 @@ hockey clothings and accessories. The goal of this project is to
 create a user-friendly online platform that caters to the needs of
 hockey enthusiasts, providing them with a seamless shopping experience
 for a wide range of high-quality hockey clothings and accessories.
+The project is to develop HockeyShockey, your premier destination for all things hockey! Step into the thrilling world of the fastest sport on ice with our one-stop ecommerce platform. HockeyShockey is more than just a store; it's an immersive experience designed for passionate hockey enthusiasts. Whether you're a seasoned player or a die-hard fan, we bring you a curated collection of high-quality jerseys, and accessories that embody the spirit of the game.
 
 ## 2. Target audiences
 
@@ -155,6 +156,7 @@ diverse audience.
 ![Product Details](screenshots/product_details.png);
 
 ![Product List](screenshots/product_list.png);
+![Signup](screenshots/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -226,129 +228,51 @@ requirements of each user type.
 **Front end**
 
 ![Front-end Sitemap](sitemaps/frontend_sitemap.jpg)
+![Front end](sitemaps/frontend-sitemap.png);
 
 **Back end**
 
 ![Back-end Sitemap](sitemaps/backend_sitemap.jpg)
 
+![Back end](sitemaps/backend-sitemap.png);
+
 ## 7. Server
 
-## 8. Security
+**Front-End:**
 
-**On the Server**
+HTML
+CSS
+JavaScript
 
-1. Firewall Protection:
+**Back-End:**
 
-- Implementation: Deploy a firewall to monitor and control incoming
-  and outgoing network traffic.
-- Rationale: Protects the server from unauthorized access and helps
-  filter potentially malicious traffic.
+PHP version 8.1.2-1ubuntu2.14 (cli)
+Built on Aug 18, 2023
+PHP Copyright: The PHP Group
+Zend Engine version 4.1.2
+Zend Engine Copyright: Zend Technologies
+Zend OPcache version 8.1.2-1ubuntu2.14
+OPcache Copyright: Zend Technologies
 
-2. Regular Software Updates:
+**Database:**
 
-- Implementation: Keep the server's operating system, web server
-  software, and other dependencies up-to-date.
-- Rationale: Ensures that known vulnerabilities are patched, reducing
-  the risk of exploitation.
+MySQL version 8.0.35-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
 
-3. Intrusion Detection and Prevention Systems (IDPS):
+**Server:**
 
-- Implementation: Implement IDPS to detect and respond to suspicious activities.
-- Rationale: Enhances the server's ability to detect and mitigate
-  potential security threats.
+Apache Server
 
-4. Secure File Permissions:
+**Cloud Hosting:**
 
-- Implementation: Apply the principle of least privilege to file and
-  directory permissions.
-- Rationale: Limits the potential impact of a security breach by
-  restricting access to sensitive files.
+Amazon AWS EC2
 
-5. SSH Key Authentication:
+**Authentication:**
 
-- Implementation: Use SSH key-based authentication instead of
-  password-based authentication.
-- Rationale: Strengthens server access security by reducing the risk
-  of unauthorized access through compromised passwords.
+JSON Web Tokens (JWT) for user authentication
 
-6. Security Headers:
+**Additional Tools:**
 
-- Implementation: Configure security headers in the server configuration.
-- Rationale: Enhances browser security and protects against specific
-  types of attacks, such as clickjacking.
-
-**In the Web Application**
-
-1. SSL/TLS Encryption:
-
-- Implementation: Enable HTTPS using SSL/TLS certificates for secure
-  data transmission.
-- Rationale: Encrypts data in transit, securing sensitive information
-  during user interactions.
-
-2. Cross-Site Scripting (XSS) Protection:
-
-- Implementation: Implement input validation and output encoding to
-  prevent XSS attacks.
-- Rationale: Mitigates the risk of injecting malicious scripts into web pages.
-
-3. Cross-Site Request Forgery (CSRF) Protection:
-
-- Implementation: Use anti-CSRF tokens in forms to protect against CSRF attacks.
-- Rationale: Ensures that requests to the server are legitimate and
-  originated from the intended user.
-
-4. SQL Injection Prevention:
-
-- Implementation: Use parameterized queries and prepared statements to
-  prevent SQL injection.
-- Rationale: Protects against malicious SQL injection attacks on the database.
-
-5. Session Management:
-
-- Implementation: Implement secure session management practices,
-  including session timeout and secure session storage.
-- Rationale: Reduces the risk of session hijacking and unauthorized access.
-
-6. File Upload Security:
-
-- Implementation: Validate and sanitize file uploads, and restrict file types.
-- Rationale: Prevents malicious file uploads and potential security
-  vulnerabilities.
-
-7. Content Security Policy (CSP):
-
-- Implementation: Implement CSP headers to control the sources of
-  content that the browser can load.
-- Rationale: Mitigates the risk of content injection and unauthorized
-  script execution.
-
-8. Error Handling:
-
-- Implementation: Customize error messages to reveal minimal
-  information in production.
-- Rationale: Minimizes the information exposed to potential attackers
-  in error scenarios.
-
-9. Web Application Firewall (WAF):
-
-- Implementation: Employ a WAF to filter and monitor HTTP traffic
-  between a web application and the Internet.
-- Rationale: Adds an additional layer of security by filtering out
-  malicious traffic before it reaches the web application.
-
-10. Security Headers:
-
-- Implementation: Utilize security headers, such as
-  Strict-Transport-Security and X-Content-Type-Options.
-- Rationale: Enhances browser security and protects against certain
-  types of web vulnerabilities.
-  It's crucial to note that cybersecurity is an ongoing process, and
-  security measures should be continuously updated and adapted to
-  address emerging threats and vulnerabilities. Regular security
-  assessments, audits, and penetration testing are essential to
-  maintaining a robust security posture for the Hockey Shockey
-  e-commerce website.
+Composer version 2.6.5 (as of Oct 6, 2023)
 
 ## 8. Database
 
