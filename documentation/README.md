@@ -2,6 +2,8 @@
 
 # HOCKEY SHOCKEY:
 
+![Logo](logo.png)
+
 From: HS Pvt. Ltd.
 To: Steve George
 Date: December 04, 2023
@@ -141,8 +143,6 @@ user-centric features, and robust security measures, the Hockey
 Shockey website will not only showcase premium hockey accessories but
 also provide an immersive and enjoyable shopping experience for our
 diverse audience.
-
-![Logo](logo.png)
 
 ![Home page:](screenshots/homepage.png);
 
