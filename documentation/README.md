@@ -2,7 +2,7 @@
 
 # HOCKEY SHOCKEY:
 
-![Logo](logo.png)
+![Logo](documentation/logo.png)
 
 From: HS Pvt. Ltd.
 To: Steve George
@@ -10,13 +10,7 @@ Date: December 04, 2023
 
 ## 1. Description
 
-Hockey Shockey is excited to invite proposals for the development of a
-state-of-the-art e-commerce website dedicated to selling premium
-hockey clothings and accessories. The goal of this project is to
-create a user-friendly online platform that caters to the needs of
-hockey enthusiasts, providing them with a seamless shopping experience
-for a wide range of high-quality hockey clothings and accessories.
-The project is to develop HockeyShockey, your premier destination for all things hockey! Step into the thrilling world of the fastest sport on ice with our one-stop ecommerce platform. HockeyShockey is more than just a store; it's an immersive experience designed for passionate hockey enthusiasts. Whether you're a seasoned player or a die-hard fan, we bring you a curated collection of high-quality jerseys, and accessories that embody the spirit of the game.
+HockeyShockey, your ultimate destination for all things related to the exhilarating sport of hockey! This project aims to bring to life an ecommerce platform that goes beyond being just a store; it aspires to be an immersive experience tailored for passionate hockey enthusiasts. Whether you're a seasoned player or a devoted fan, HockeyShockey is committed to providing you with a thoughtfully curated collection featuring high-quality jerseys and accessories that truly capture the essence and spirit of the game. Join us as we embark on this exciting venture to create a digital space where the excitement of hockey comes to life!
 
 ## 2. Target audiences
 
@@ -109,13 +103,13 @@ Shockey website will not only showcase premium hockey accessories but
 also provide an immersive and enjoyable shopping experience for our
 diverse audience.
 
-![Home page:](screenshots/homepage.png);
+![Home page:](documentation/screenshots/homepage.png);
 
-![Product Details](screenshots/product_details.png);
+![Product Details](documentation/screenshots/product_details.png);
 
-![Product List](screenshots/product_list.png);
+![Product List](documentation/screenshots/product_list.png);
 
-![Signup](wireframes/signup.png)
+![Signup](documentation/wireframes/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -190,11 +184,11 @@ requirements of each user type.
 
 **Front end**
 
-![Front end](sitemaps/frontend-sitemap.png);
+![Front end](documentation/sitemaps/frontend-sitemap.png);
 
 **Back end**
 
-![Back end](sitemaps/backend-sitemap.png);
+![Back end](documentation/sitemaps/backend-sitemap.png);
 
 ## 7. Server
 
@@ -385,19 +379,22 @@ This simplified ERD focuses specifically on the Wishlist feature, allowing users
 
 ## 11. Our Team
 
-Pavit Singh Makkar - Project Manager:
+- Pavit Singh Makkar - Project Manager:
 
 Role: As the Project Manager, Pavit oversees the entire project lifecycle. His responsibilities include project planning, coordination, and ensuring that the team is aligned with the project goals. Pavit plays a crucial role in resource management, timelines, and communication within the team.
 
-**Andres - Full Stack Developer:**
+- Andres - Full Stack Developer:
 
 Role: Andres is our Full Stack Developer responsible for both front-end and back-end development. He works on creating a seamless and interactive user experience, handling everything from user interfaces to server-side logic. Andres contributes to the technical architecture and ensures the website's functionality aligns with the project's objectives.
-**Avneet - Database Administrator:**
+
+- Avneet - Database Administrator:
 
 Role: Avneet specializes in database management and optimization. As the Database Administrator, Avneet designs and maintains the database architecture, ensuring data integrity, scalability, and efficient retrieval. Avneet is crucial for the secure and organized storage of user and product-related information.
-**Simron Shrestha - Design:**
+
+- Simron Shrestha - Design:
 
 Role: Simron is our talented designer, responsible for creating the visual identity of the Hockey Shockey e-commerce website. Simron's role involves crafting visually appealing user interfaces, ensuring a seamless and engaging user experience. Simron's designs align with the brand image and enhance the overall aesthetics of the platform.
-**Dipesh Ram Shrestha - HTML, CSS, JavaScript:**
+
+- Dipesh Ram Shrestha - HTML, CSS, JavaScript:
 
 Role: Dipesh specializes in front-end development, working with HTML, CSS, and JavaScript. His role involves translating design concepts into functional and responsive web pages. Dipesh ensures that the website's front-end is not only visually appealing but also optimized for performance and usability.
