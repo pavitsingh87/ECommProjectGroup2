@@ -41,40 +41,6 @@ Description: Gift shoppers looking for hockey-related gifts for friends, family 
 
 Significance: Design considerations should include features that make the shopping experience easy and appealing for gift buyers.
 
-**Influence on Design Choices:**
-
-1. User Interface (UI) Design:
-
-The design should be visually appealing, capturing the excitement and
-energy associated with the sport of hockey. Easy navigation and a
-clean layout are crucial to cater to users with varying levels of
-technological proficiency, including both players and non-players.
-
-2. Product Catalog:
-
-The catalog should be well-organized with clear categories, making it
-easy for players and enthusiasts to find specific gear or browse for
-inspiration. High-quality images and detailed product descriptions are
-essential to help customers make informed purchase decisions.
-
-3. Responsive Design:
-
-Given the diverse target audience, a responsive design is imperative
-to ensure a seamless shopping experience across various devices,
-including mobile phones and tablets.
-
-4. Personalized User Accounts:
-
-The option for user accounts caters to players who may want to track
-their purchase history and preferences. It also facilitates a smoother
-shopping experience for returning customers.
-
-5. Social Media Integration:
-
-The integration of social media features aligns with the social nature
-of sports, allowing users to share their purchases, experiences, and
-recommendations with their networks.
-
 ## 3. Project Details
 
 **Project Overview:**
@@ -125,8 +91,7 @@ preferences, order history, and wishlist features.
 7. Social Media Integration:
 
 Seamless integration with popular social media platforms for easy
-sharing of products and promotions. Social login options for user
-convenience.
+sharing of products and promotions.
 
 8. Shipping and Order Tracking:
 
@@ -150,7 +115,7 @@ diverse audience.
 
 ![Product List](screenshots/product_list.png);
 
-![Signup](screenshots/signup.png)
+![Signup](wireframes/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -371,31 +336,6 @@ redundancy, and support scalability.
                     - modified_at TIMESTAMP
                     - deleted_at TIMESTAMP
 
-**Normalization/Denormalization Considerations:**
-
-- Normalization Choice:
-
-      - The database leans towards normalization to maintain data
-
-  integrity, reduce redundancy, and facilitate efficient updates. - Normalized structures support scalability and make it easier to
-  manage and update data without inconsistencies.
-
-**Denormalization for Performance:**
-
-- Some degree of denormalization may be considered for performance
-  optimization in certain scenarios, such as generating complex reports
-  or improving query speed.
-- Materialized views or caching mechanisms can be implemented for
-  specific use cases without compromising the overall normalized
-  structure.
-
-**Balancing Read and Write Operations:**
-
-- The design aims for a balance between read and write operations,
-  ensuring that common queries for product information, user details,
-  and order history are efficient, while still allowing for
-  straightforward updates and inserts.
-
 By following normalization principles, the database for the Hockey
 Shockey e-commerce website is designed to provide a solid foundation
 for data integrity, scalability, and efficient data retrieval. The
@@ -448,15 +388,16 @@ This simplified ERD focuses specifically on the Wishlist feature, allowing users
 Pavit Singh Makkar - Project Manager:
 
 Role: As the Project Manager, Pavit oversees the entire project lifecycle. His responsibilities include project planning, coordination, and ensuring that the team is aligned with the project goals. Pavit plays a crucial role in resource management, timelines, and communication within the team.
-Andres - Full Stack Developer:
+
+**Andres - Full Stack Developer:**
 
 Role: Andres is our Full Stack Developer responsible for both front-end and back-end development. He works on creating a seamless and interactive user experience, handling everything from user interfaces to server-side logic. Andres contributes to the technical architecture and ensures the website's functionality aligns with the project's objectives.
-Avneet - Database Administrator:
+**Avneet - Database Administrator:**
 
 Role: Avneet specializes in database management and optimization. As the Database Administrator, Avneet designs and maintains the database architecture, ensuring data integrity, scalability, and efficient retrieval. Avneet is crucial for the secure and organized storage of user and product-related information.
-Simron Shrestha - Design:
+**Simron Shrestha - Design:**
 
 Role: Simron is our talented designer, responsible for creating the visual identity of the Hockey Shockey e-commerce website. Simron's role involves crafting visually appealing user interfaces, ensuring a seamless and engaging user experience. Simron's designs align with the brand image and enhance the overall aesthetics of the platform.
-Dipesh Ram Shrestha - HTML, CSS, JavaScript:
+**Dipesh Ram Shrestha - HTML, CSS, JavaScript:**
 
 Role: Dipesh specializes in front-end development, working with HTML, CSS, and JavaScript. His role involves translating design concepts into functional and responsive web pages. Dipesh ensures that the website's front-end is not only visually appealing but also optimized for performance and usability.
