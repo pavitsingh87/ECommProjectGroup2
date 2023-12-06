@@ -10,13 +10,7 @@ Date: December 04, 2023
 
 ## 1. Description
 
-Hockey Shockey is excited to invite proposals for the development of a
-state-of-the-art e-commerce website dedicated to selling premium
-hockey clothings and accessories. The goal of this project is to
-create a user-friendly online platform that caters to the needs of
-hockey enthusiasts, providing them with a seamless shopping experience
-for a wide range of high-quality hockey clothings and accessories.
-The project is to develop HockeyShockey, your premier destination for all things hockey! Step into the thrilling world of the fastest sport on ice with our one-stop ecommerce platform. HockeyShockey is more than just a store; it's an immersive experience designed for passionate hockey enthusiasts. Whether you're a seasoned player or a die-hard fan, we bring you a curated collection of high-quality jerseys, and accessories that embody the spirit of the game.
+HockeyShockey, your ultimate destination for all things related to the exhilarating sport of hockey! This project aims to bring to life an ecommerce platform that goes beyond being just a store; it aspires to be an immersive experience tailored for passionate hockey enthusiasts. Whether you're a seasoned player or a devoted fan, HockeyShockey is committed to providing you with a thoughtfully curated collection featuring high-quality jerseys and accessories that truly capture the essence and spirit of the game. Join us as we embark on this exciting venture to create a digital space where the excitement of hockey comes to life!
 
 ## 2. Target audiences
 
