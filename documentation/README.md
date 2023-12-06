@@ -2,6 +2,8 @@
 
 # HOCKEY SHOCKEY:
 
+![Logo](logo.png)
+
 From: HS Pvt. Ltd.
 To: Steve George
 Date: December 04, 2023
@@ -21,64 +23,23 @@ The project is to develop HockeyShockey, your premier destination for all things
 The target audience for the Hockey Shockey e-commerce website project
 consists of:
 
-1. Primary Audience:
+1. Primary Audience: Hockey Players
 
-The primary audience encompasses hockey players at all proficiency
-levels, ranging from beginners sharpening their skills to seasoned
-professionals engaged in the sport. Additionally, the platform targets
-hockey enthusiasts—individuals with a fervent passion for the game,
-whether or not they actively participate. This inclusive category
-spans across dedicated fans, supportive parents, and ardent backers of
-various hockey teams.
+Description: Encompasses hockey players at all proficiency levels, from beginners to seasoned professionals. Additionally, it includes hockey enthusiasts who may not actively play but have a passionate interest in the sport.
 
-2. Secondary Audience:
+Significance: This group forms the core user base and will heavily influence the product offerings, user interface, and overall user experience.
 
-The website aims to attract parents and guardians who play a pivotal
-role in acquiring hockey gear and accessories for their children
-actively involved in the sport. Furthermore, coaches and instructors
-form an essential segment of the secondary audience, as they seek
-reliable sources for procuring equipment essential for training and
-nurturing their teams or individual athletes.
+2. Secondary Audience: Parents and Guardians
 
-3. Tertiary Audience:
+Description: Consists of parents and guardians actively involved in acquiring hockey gear for their children participating in the sport. Coaches and instructors looking for reliable sources of equipment for training and team development.
 
-Our tertiary audiences are the Gift Shoppers, who are looking for
-gifts for friends, family members, or colleagues who are hockey
-enthusiasts or players.
+Significance: Design decisions should address the needs of parents seeking youth gear and coaches seeking quality equipment for training purposes.
 
-**Influence on Design Choices:**
+3. Tertiary Audience: Gift shoppers
 
-1. User Interface (UI) Design:
+Description: Gift shoppers looking for hockey-related gifts for friends, family members, or colleagues who are hockey enthusiasts or players.
 
-The design should be visually appealing, capturing the excitement and
-energy associated with the sport of hockey. Easy navigation and a
-clean layout are crucial to cater to users with varying levels of
-technological proficiency, including both players and non-players.
-
-2. Product Catalog:
-
-The catalog should be well-organized with clear categories, making it
-easy for players and enthusiasts to find specific gear or browse for
-inspiration. High-quality images and detailed product descriptions are
-essential to help customers make informed purchase decisions.
-
-3. Responsive Design:
-
-Given the diverse target audience, a responsive design is imperative
-to ensure a seamless shopping experience across various devices,
-including mobile phones and tablets.
-
-4. Personalized User Accounts:
-
-The option for user accounts caters to players who may want to track
-their purchase history and preferences. It also facilitates a smoother
-shopping experience for returning customers.
-
-5. Social Media Integration:
-
-The integration of social media features aligns with the social nature
-of sports, allowing users to share their purchases, experiences, and
-recommendations with their networks.
+Significance: Design considerations should include features that make the shopping experience easy and appealing for gift buyers.
 
 ## 3. Project Details
 
@@ -130,8 +91,7 @@ preferences, order history, and wishlist features.
 7. Social Media Integration:
 
 Seamless integration with popular social media platforms for easy
-sharing of products and promotions. Social login options for user
-convenience.
+sharing of products and promotions.
 
 8. Shipping and Order Tracking:
 
@@ -149,14 +109,13 @@ Shockey website will not only showcase premium hockey accessories but
 also provide an immersive and enjoyable shopping experience for our
 diverse audience.
 
-![Logo](logo.png)
-
 ![Home page:](screenshots/homepage.png);
 
 ![Product Details](screenshots/product_details.png);
 
 ![Product List](screenshots/product_list.png);
-![Signup](screenshots/signup.png)
+
+![Signup](wireframes/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -180,7 +139,9 @@ diverse audience.
 - Age: 25
 - Occupation: Software Developer
 - Relationship to Hockey: Active competitive hockey player
-  **Use Case Statement:**
+
+**Use Case Statement:**
+
 - Objective: Alex is looking for specific advanced-level hockey gear
   for his competitive matches.
 - Interaction: Logs into his account, reviews past purchases, adds
@@ -194,7 +155,9 @@ diverse audience.
 - Age: 28
 - Occupation: Customer Service Representative
 - Relationship to Hockey: Limited knowledge about hockey equipment
+
   **Use Case Statement:**
+
 - Objective: Jordan assists customers with inquiries, order tracking,
   and product information.
 - Interaction: Accesses the CSR dashboard, responds to customer
@@ -227,12 +190,9 @@ requirements of each user type.
 
 **Front end**
 
-![Front-end Sitemap](sitemaps/frontend_sitemap.jpg)
 ![Front end](sitemaps/frontend-sitemap.png);
 
 **Back end**
-
-![Back-end Sitemap](sitemaps/backend_sitemap.jpg)
 
 ![Back end](sitemaps/backend-sitemap.png);
 
@@ -376,31 +336,6 @@ redundancy, and support scalability.
                     - modified_at TIMESTAMP
                     - deleted_at TIMESTAMP
 
-**Normalization/Denormalization Considerations:**
-
-- Normalization Choice:
-
-      - The database leans towards normalization to maintain data
-
-  integrity, reduce redundancy, and facilitate efficient updates. - Normalized structures support scalability and make it easier to
-  manage and update data without inconsistencies.
-
-**Denormalization for Performance:**
-
-- Some degree of denormalization may be considered for performance
-  optimization in certain scenarios, such as generating complex reports
-  or improving query speed.
-- Materialized views or caching mechanisms can be implemented for
-  specific use cases without compromising the overall normalized
-  structure.
-
-**Balancing Read and Write Operations:**
-
-- The design aims for a balance between read and write operations,
-  ensuring that common queries for product information, user details,
-  and order history are efficient, while still allowing for
-  straightforward updates and inserts.
-
 By following normalization principles, the database for the Hockey
 Shockey e-commerce website is designed to provide a solid foundation
 for data integrity, scalability, and efficient data retrieval. The
@@ -416,194 +351,53 @@ e-commerce and administrative capabilities. These enhancements are
 designed to provide a richer and more engaging experience for users,
 contributing to customer satisfaction and business success. Here are
 some value-added features that can be considered within the specified
-budget:
 
-1. Personalized Recommendations:
+Wishlist Entity:
 
-Implement an intelligent recommendation engine that analyzes user
-behavior and purchase history to provide personalized product
-suggestions. This enhances the shopping experience and encourages
-additional purchases.
+Each wishlist is represented as an entity with a unique identifier (wishlist_id).
+It is associated with a specific user through a foreign key (user_id).
+The wishlist contains references to the products added by the user (product_id).
+Timestamp (added_at) indicates when a product was added to the wishlist.
+User-Wishlist Relationship:
 
-2. Virtual Try-On for Gear:
+Each user can have multiple wishlists, allowing for organization based on preferences or categories.
+The relationship between users and wishlists is established through the user's unique identifier.
+Product-Wishlist Relationship:
 
-Integrate a virtual try-on feature that allows users to visualize how
-hockey gear (e.g., helmets, jerseys) looks on them using augmented
-reality (AR) technology. This helps customers make more informed
-purchase decisions.
-
-3. Interactive Product Demos:
-
-Include interactive 3D or video demonstrations for key products,
-providing customers with a closer look at the features and
-functionality of high-end hockey equipment.
-
-4. Gamified Loyalty Program:
-
-Develop a gamified loyalty program where customers earn points,
-badges, or rewards for making purchases, leaving reviews, and engaging
-with the site. This encourages repeat business and customer
-engagement.
-
-5. Live Chat Support:
-
-Integrate a live chat support system to enable real-time communication
-between customers and customer service representatives. This feature
-enhances customer support and provides quick assistance during the
-shopping process.
-
-6. In-Depth Product Guides:
-
-Create comprehensive product guides, including video tutorials and
-in-depth articles, to educate customers about choosing the right
-hockey gear based on their skill level, playing style, and
-preferences.
-
-7. Social Media Integration for User-Generated Content:
-
-Enhance social media integration by allowing users to share their
-purchases, reviews, and experiences directly from the website.
-User-generated content can be showcased to build a sense of community
-around the brand.
-
-8. Customization Options:
-
-Enable users to customize certain products, such as jerseys or
-equipment, with personalized colors, names, or logos. This feature
-adds a layer of personalization to the shopping experience.
-
-9. Augmented Reality (AR) Fitting Room:
-
-Integrate AR technology to create a virtual fitting room where users
-can virtually try on products like hockey jerseys or apparel before
-making a purchase, enhancing the online shopping experience.
-
-10. Dynamic Pricing and Discounts:
-
-Implement dynamic pricing strategies based on user behavior, seasonal
-trends, or inventory levels. Introduce smart discounts and promotions
-to incentivize purchases and optimize revenue.
-
-11. One-Click Reorder:
-
-Streamline the reordering process by incorporating a one-click reorder
-option for users who frequently purchase the same products. This
-reduces friction for repeat customers.
-
-12. Real-Time Inventory Alerts:
-
-Provide users with the option to receive real-time alerts or
-notifications when their favorite products are back in stock, helping
-them stay informed and enabling timely purchases.
-
-These value-added features not only enhance the functionality of the
-Hockey Shockey e-commerce website but also contribute to a more
-immersive and personalized user experience. The implementation of
-these features within the specified budget can elevate the website's
-competitiveness and appeal to a broader audience of hockey
-enthusiasts.
+Each product can be part of multiple wishlists across different users.
+The relationship between products and wishlists is established through the product's unique identifier.
 
 ## 10. Revised ERD for Value Adds
 
-Implementing the value-added features for the Hockey Shockey
-e-commerce website involves considering additional entities,
-relationships, and attributes in the Entity-Relationship Diagram
-(ERD). Here's a brief description of the changes that might be
-required:
+Wishlist Feature:
+Entity: Wishlist
 
-1. Personalized Recommendations:
+Attributes:
+wishlist_id (Primary Key)
+user_id (Foreign Key referencing Users)
+product_id (Foreign Key referencing Products)
+added_at (Timestamp)
+Relationships:
 
-- Change: Introduce a new entity for user preferences or recommendations.
-- Description: This entity would store data related to user
-  preferences, purchase history, and recommended products, establishing
-  relationships with the Users and Products entities.
-
-2. Virtual Try-On for Gear:
-
-- Change: Enhance the Products entity with attributes related to
-  virtual try-on options.
-- Description: Add attributes such as "AR_Model_Link" or
-  "Virtual_Try_On_Available" to the Products entity to indicate whether
-  a product supports virtual try-on.
-
-3. Interactive Product Demos:
-
-- Change: Introduce a new entity for interactive demonstrations.
-- Description: Create an entity that includes details about
-  interactive demos, linking to specific products and possibly including
-  multimedia resources like videos or 3D models.
-
-4. Gamified Loyalty Program:
-
-- Change: Introduce a Loyalty entity.
-- Description: This entity would store information about customer
-  loyalty points, badges, and rewards. It establishes relationships with
-  the Users entity to associate loyalty data with specific users.
-
-5. Live Chat Support:
-
-- Change: Introduce a new entity for chat interactions.
-- Description: Create an entity to log chat interactions, associating
-  them with specific users and potentially orders. This ensures a record
-  of customer support interactions.
-
-6. In-Depth Product Guides:
-
-- Change: Enhance the Products entity with attributes for guide resources.
-- Description: Add attributes like "Product_Guide_Link" to the
-  Products entity, allowing links to in-depth guides associated with
-  specific products.
-
-7. Social Media Integration for User-Generated Content:
-
-- Change: Consider adding a SocialMedia entity.
-- Description: If detailed tracking of user-generated content is
-  required, create an entity to store social media-related data,
-  connecting it to the Users and Products entities.
-
-8. Customization Options:
-
-- Change: Modify the Products entity to include customization attributes.
-- Description: Add attributes like "Customizable_Colors" or
-  "Personalization_Options" to denote which products are customizable.
-
-9. Augmented Reality (AR) Fitting Room:
-
-- Change: Enhance the Products entity with AR-related attributes.
-- Description: Include attributes such as "AR_Fitting_Room_Link" or
-  "AR_Supported" in the Products entity to enable virtual fitting room
-  capabilities.
-
-10. Dynamic Pricing and Discounts:
-
-- Change: Consider adding a Pricing entity.
-- Description: Create an entity to manage dynamic pricing strategies,
-  linking it to the Products entity and possibly introducing attributes
-  for discount rules.
-
-11. One-Click Reorder:
-
-- Change: Enhance the Orders entity with attributes for reorder history.
-- Description: Add attributes such as "Reorder_History" to the Orders
-  entity, facilitating the identification of frequently reordered
-  products.
-
-12. Real-Time Inventory Alerts:
-
-- Change: Modify the Products entity to include inventory alert attributes.
-- Description: Introduce attributes like "Inventory_Alert_Status" or
-  "Alert_Threshold" in the Products entity to enable real-time inventory
-  notifications.
-
-These changes will augment the existing ERD to accommodate the
-additional features, ensuring that the database structure remains
-flexible, scalable, and capable of supporting the enhanced
-functionality of the Hockey Shockey e-commerce website.
+Each user can have multiple items in their wishlist (User to Wishlist - One-to-Many).
+Each product can be added to multiple wishlists (Product to Wishlist - One-to-Many).
+This simplified ERD focuses specifically on the Wishlist feature, allowing users to save products they are interested in for future reference. The relationships ensure that each user has their own wishlist, and each product can be part of multiple wishlists across different users.
 
 ## 11. Our Team
 
-Pavit Project Management
-Andres
-Avneet Designing
-Simron Shrestha Server
-Dipesh Ram Shrestha Documentation
+Pavit Singh Makkar - Project Manager:
+
+Role: As the Project Manager, Pavit oversees the entire project lifecycle. His responsibilities include project planning, coordination, and ensuring that the team is aligned with the project goals. Pavit plays a crucial role in resource management, timelines, and communication within the team.
+
+**Andres - Full Stack Developer:**
+
+Role: Andres is our Full Stack Developer responsible for both front-end and back-end development. He works on creating a seamless and interactive user experience, handling everything from user interfaces to server-side logic. Andres contributes to the technical architecture and ensures the website's functionality aligns with the project's objectives.
+**Avneet - Database Administrator:**
+
+Role: Avneet specializes in database management and optimization. As the Database Administrator, Avneet designs and maintains the database architecture, ensuring data integrity, scalability, and efficient retrieval. Avneet is crucial for the secure and organized storage of user and product-related information.
+**Simron Shrestha - Design:**
+
+Role: Simron is our talented designer, responsible for creating the visual identity of the Hockey Shockey e-commerce website. Simron's role involves crafting visually appealing user interfaces, ensuring a seamless and engaging user experience. Simron's designs align with the brand image and enhance the overall aesthetics of the platform.
+**Dipesh Ram Shrestha - HTML, CSS, JavaScript:**
+
+Role: Dipesh specializes in front-end development, working with HTML, CSS, and JavaScript. His role involves translating design concepts into functional and responsive web pages. Dipesh ensures that the website's front-end is not only visually appealing but also optimized for performance and usability.
