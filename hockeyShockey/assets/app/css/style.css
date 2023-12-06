@@ -274,3 +274,49 @@ table {
   border-radius: 0;
   padding: 8px 50px;
 }
+.heading {
+  font-family: 'Nova Mono', monospace, Arial, Helvetica sans-serif;
+  margin-top: 0px;
+  color: #544087;
+}
+.rectangle-box {
+  background: #544087;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+}
+.rectangle-box h3 {
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -70px;
+}
+.card {
+  border: none;
+  text-align: center;
+  background: none;
+}
+.card-title {
+  font-size: 18px;
+}
+.card img {
+  width: 70%;
+  align-self: center;
+}
+.contact {
+  border: 1px solid black;
+  box-shadow: 2px 2px #544087;
+  padding: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+#message {
+  padding: 5px;
+  color: #666;
+}
