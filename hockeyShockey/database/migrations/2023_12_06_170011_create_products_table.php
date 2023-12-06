@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('product_size')->nullable();
             $table->string('price');
             $table->string('availability_status');
-            $table->string('pct_id');
-            $table->string('i_id');
+            $table->integer('pct_id');
+            $table->integer('i_id');
             $table->timestamps();
 
         });

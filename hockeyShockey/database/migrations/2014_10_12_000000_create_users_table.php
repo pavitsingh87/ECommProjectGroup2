@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('postal_code');
-            $table->string('role_id');
+            $table->integer('role_id');
             $table->timestamps();
         });
     }
