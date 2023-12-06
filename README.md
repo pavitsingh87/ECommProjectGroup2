@@ -2,7 +2,7 @@
 
 # HOCKEY SHOCKEY:
 
-![Logo](logo.png)
+![Logo](documentation/logo.png)
 
 From: HS Pvt. Ltd.
 To: Steve George
@@ -103,13 +103,13 @@ Shockey website will not only showcase premium hockey accessories but
 also provide an immersive and enjoyable shopping experience for our
 diverse audience.
 
-![Home page:](screenshots/homepage.png);
+![Home page:](documentation/screenshots/homepage.png);
 
-![Product Details](screenshots/product_details.png);
+![Product Details](documentation/screenshots/product_details.png);
 
-![Product List](screenshots/product_list.png);
+![Product List](documentation/screenshots/product_list.png);
 
-![Signup](wireframes/signup.png)
+![Signup](documentation/wireframes/signup.png)
 
 ## 5. User Personas/Use Case statements
 
@@ -184,11 +184,11 @@ requirements of each user type.
 
 **Front end**
 
-![Front end](sitemaps/frontend-sitemap.png);
+![Front end](documentation/sitemaps/frontend-sitemap.png);
 
 **Back end**
 
-![Back end](sitemaps/backend-sitemap.png);
+![Back end](documentation/sitemaps/backend-sitemap.png);
 
 ## 7. Server
 
