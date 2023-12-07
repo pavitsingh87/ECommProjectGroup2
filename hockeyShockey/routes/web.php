@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
 Auth::routes();
 
@@ -30,5 +29,3 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact'); 
 });
-=======
->>>>>>> 4e22781c92271458cc8ee464a5abfbc8e2e1b1ee
