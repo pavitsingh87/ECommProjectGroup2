@@ -103,13 +103,13 @@ Shockey website will not only showcase premium hockey accessories but
 also provide an immersive and enjoyable shopping experience for our
 diverse audience.
 
-![Home page:](documentation/screenshots/homepage.png);
+![Home page: https://team2.uwpace.ca/assets/app/](documentation/screenshots/homepage.png);
 
-![Product Details](documentation/screenshots/product_details.png);
+![Product Details: https://team2.uwpace.ca/assets/app/products.html](documentation/screenshots/product_details.png);
 
-![Product List](documentation/screenshots/product_list.png);
+![Product List: https://team2.uwpace.ca/assets/app/products-item.html](documentation/screenshots/product_list.png);
 
-![Signup](documentation/wireframes/signup.png)
+![Signup: https://team2.uwpace.ca/assets/app/signup.html](documentation/wireframes/signup.png)
 
 ## 5. User Personas/Use Case statements
 
