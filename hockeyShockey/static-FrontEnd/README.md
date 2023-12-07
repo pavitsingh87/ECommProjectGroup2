@@ -8,7 +8,7 @@ Clone the repository and install dependencies:
 
 ```bash
 
- - cd app
+ - cd static-FrontEnd
 
  - npm install
 
