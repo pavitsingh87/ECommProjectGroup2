@@ -7,8 +7,7 @@
             <img src="images/logo_white.png" alt="" width="150" height="53">
           </a>
           <p class="small text-white mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor
-            incididunt.</p>
+            tempor incididunt.</p>
         </div>
         <div class="col-lg-2 col-md-6">
           <h5 class="text-white mb-3">Quick links</h5>

@@ -5,8 +5,9 @@
                 <p>ShopNow</p>
             </div>
         </nav>
+
         <!-- Navbar -->
-<nav data-mdb-navbar-init class="navbar navbar-expand-lg navbar-fixed-top border-bottom border-2">
+        <nav data-mdb-navbar-init class="navbar navbar-expand-lg navbar-fixed-top border-bottom border-2">
             <div class="container">
                 <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarExample01"
                     aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
