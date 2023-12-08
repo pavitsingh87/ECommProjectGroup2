@@ -215,7 +215,7 @@ table {
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: 40px;
+    gap: 20px;
   }
 
   .navbar .nav-link {
@@ -360,3 +360,13 @@ table {
   padding: 5px;
   color: #666;
 }
+
+
+.navbar-toggler{
+  border:2px solid black;
+}
+.navbar-toggler-icon{
+  color:black;
+  background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
