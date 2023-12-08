@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('contact_no');
             $table->string('user_name');
-            $table->string('password');
             $table->string('address_line_1')->nullable();
             $table->string('address_line_2')->nullable();
             $table->string('city');
