@@ -367,5 +367,6 @@ table {
 }
 .navbar-toggler-icon{
   color:black;
+  background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
