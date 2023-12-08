@@ -16,6 +16,26 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         
+        // User with role_id = 1
+        User::create([
+            'name' => 'Sample User',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'gender' => 'Male',
+            'date_of_birth' => '1990-01-01',
+            'email' => 'sample@example.com',
+            'password' => Hash::make('password'),
+            'contact_no' => '1234567890',
+            'user_name' => 'sample_user',
+            'address_line_1' => '123 Main St',
+            'address_line_2' => 'Apt 45',
+            'city' => 'Sample City',
+            'country' => 'Sample Country',
+            'postal_code' => '12345',
+            'role_id' => 1, // Assuming 1 is the ID for the default role
+        ]);
+
+        // User with role_id = 0
         User::create([
             'name' => 'Sample User1',
             'first_name' => 'John1',
@@ -23,7 +43,7 @@ class AdminUserSeeder extends Seeder
             'gender' => 'Male',
             'date_of_birth' => '1990-01-01',
             'email' => 'sample1@example.com',
-            'password' => Hash::make('password1'), // Import Hash facade
+            'password' => Hash::make('password1'),
             'contact_no' => '1234567890',
             'user_name' => 'sample_user1',
             'address_line_1' => '123 Main St',
@@ -31,7 +51,7 @@ class AdminUserSeeder extends Seeder
             'city' => 'Sample City',
             'country' => 'Sample Country',
             'postal_code' => '12345',
-            'role_id' => 0, // Assuming 1 is the ID for the default role
+            'role_id' => 1, // Change to 1 if this user should have role_id = 1
         ]);
     }
 }
