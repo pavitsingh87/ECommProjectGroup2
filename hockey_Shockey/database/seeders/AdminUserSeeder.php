@@ -15,22 +15,23 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
+        
         User::create([
-            'name' => 'Sample User',
-            'first_name' => 'John',
-            'last_name' => 'Doe',
+            'name' => 'Sample User1',
+            'first_name' => 'John1',
+            'last_name' => 'Doe1',
             'gender' => 'Male',
             'date_of_birth' => '1990-01-01',
-            'email' => 'sample@example.com',
-            'password' => Hash::make('password'), // Import Hash facade
+            'email' => 'sample1@example.com',
+            'password' => Hash::make('password1'), // Import Hash facade
             'contact_no' => '1234567890',
-            'user_name' => 'sample_user',
+            'user_name' => 'sample_user1',
             'address_line_1' => '123 Main St',
             'address_line_2' => 'Apt 45',
             'city' => 'Sample City',
             'country' => 'Sample Country',
             'postal_code' => '12345',
-            'role_id' => 1, // Assuming 1 is the ID for the default role
+            'role_id' => 0, // Assuming 1 is the ID for the default role
         ]);
     }
 }

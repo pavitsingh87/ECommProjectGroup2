@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@gmail.com',
             'password' => password_hash('mypass', PASSWORD_DEFAULT),
-            'isAdmin' => 1,
+            'role_id' => 1,
         ]);
 
 

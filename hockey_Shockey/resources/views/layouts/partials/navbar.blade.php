@@ -1,4 +1,4 @@
-<header>
+    <header>
     <nav class="navbar navbar-light promotion-nav">
         <div class="container">
             <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
@@ -28,19 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
-                @auth
-                    @if (Auth::user()->isAdmin())
-                        <!-- Show Dashboard link for admin -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Dashboard</a>
-                        </li>
-                    @endif
-                @endauth
             </ul>
             <div class="navbar-nav navbar-info">
                 <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="#"><i class="bi-search"></i></a>
+                        <a href="#"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -58,9 +50,27 @@
                             </li>
                         @endif
                     @else
+                    @auth
+                    @if (Auth::user()->role_id == 0)
+                    <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
+                    </li>
+                </ul>
+                @endif
+                @endauth
+                    @auth
+                    @if (Auth::user()->role_id == 1)
+                        <!-- Show Dashboard link for admin -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                    @endif
+                @endauth
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Profile
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
