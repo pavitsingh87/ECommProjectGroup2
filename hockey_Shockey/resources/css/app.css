@@ -359,6 +359,9 @@ table {
 #message {
   padding: 5px;
   color: #666;
+
+}
+
 }
 
 
@@ -369,4 +372,5 @@ table {
   color:black;
   background-image: var(--bs-navbar-toggler-icon-bg);
 }
+
 
