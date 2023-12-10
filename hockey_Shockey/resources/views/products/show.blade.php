@@ -11,8 +11,13 @@
     </div>
 
     <div>
+        <strong>Product Category</strong>
+        <p>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</p>
+    </div>
+
+    <div>
         <strong>Image:</strong>
-        <img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="300">
+        <p>><img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="300"></p>
     </div>
 
     <div>
@@ -28,11 +33,6 @@
     <div>
         <strong>Status:</strong>
         <p>{{ $product->availability_status }}</p>
-    </div>
-
-    <div>
-        <strong>Pct ID:</strong>
-        <p>{{ $product->pct_id }}</p>
     </div>
 
     <div>
