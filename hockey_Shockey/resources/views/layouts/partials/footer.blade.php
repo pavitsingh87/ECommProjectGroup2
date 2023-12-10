@@ -12,10 +12,10 @@
         <div class="col-lg-2 col-md-6">
           <h5 class="text-white mb-3">Quick links</h5>
           <ul class="list-unstyled text-white">
-            <li><a class="text-white" href="#">Home</a></li>
-            <li><a class="text-white" href="#">About</a></li>
-            <li><a class="text-white" href="#">Contact Us</a></li>
-            <li><a class="text-white" href="#">Privacy Policy</a></li>
+            <li><a class="text-white" href="/">Home</a></li>
+            <li><a class="text-white" href="/about">About</a></li>
+            <li><a class="text-white" href="/contact">Contact Us</a></li>
+            <li><a class="text-white" href="/privacy">Privacy Policy</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-6">
