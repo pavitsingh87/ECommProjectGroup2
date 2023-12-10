@@ -38,4 +38,8 @@ Route::get('/contact', function () {
     return view('contact'); 
 });
 
+Route::get('/privacy', function () {
+    return view('privacy'); 
+});
+
 require __DIR__.'/auth.php';
