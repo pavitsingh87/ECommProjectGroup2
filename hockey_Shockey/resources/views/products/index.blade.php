@@ -12,6 +12,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Category</th>
                     <th>Image</th>
                     <th>Size</th>
                     <th>Price</th>
@@ -25,6 +26,7 @@
                         <td>{{ $product->product_id }}</td>
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->product_description }}</td>
+                        <td>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</td>
                         <td>
                             <img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="50">
                         </td>
