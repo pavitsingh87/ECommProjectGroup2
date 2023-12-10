@@ -21,7 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('product_size')->nullable();
             $table->string('price');
             $table->string('availability_status');
-            $table->integer('pct_id');
+            $table->unsignedBigInteger('pct_id');
+            $table->foreign('pct_id')->references('id')->on('product_category_type');
             $table->integer('i_id');
             $table->timestamps();
             $table->softDeletes();
