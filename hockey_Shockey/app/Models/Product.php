@@ -19,4 +19,9 @@ class Product extends Model
         'pct_id',
         'i_id',
     ];
+
+    public function productCategoryType()
+    {
+        return $this->belongsTo(ProductCategoryType::class, 'pct_id', 'id');
+    }
 }
