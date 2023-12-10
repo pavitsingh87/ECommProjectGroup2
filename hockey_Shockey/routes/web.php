@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,7 @@ Route::get('/contact', function () {
 Route::get('/privacy', function () {
     return view('privacy'); 
 });
+
+Route::get('/products', [ProductController::class, 'index'])->name('index');
 
 require __DIR__.'/auth.php';
