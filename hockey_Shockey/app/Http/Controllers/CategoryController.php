@@ -24,10 +24,17 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        // Validate and store the new category
-        // ...
+        $request->validate([
+            'name' => 'required|string|max:255',
+            // Add other validation rules as needed
+        ]);
 
-        return redirect()->route('admin.category.index');
+        Category::create([
+            'name' => $request->input('name'),
+            // Add other fields as needed
+        ]);
+
+        return redirect()->route('admin.category.index')->with('success', 'Category created successfully.');
     }
 
     public function edit($id)
@@ -40,10 +47,19 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate and update the category
-        // ...
-
-        return redirect()->route('admin.category.index');
+        $request->validate([
+            'name' => 'required|string|max:255',
+            // Add other validation rules as needed
+        ]);
+    
+        $category = Category::findOrFail($id);
+        $category->update([
+            'name' => $request->input('name'),
+            // Add other fields as needed
+        ]);
+    
+        return redirect()->route('admin.category.index')->with('success', 'Category updated successfully.');
+    
     }
 
     public function show($id)
@@ -56,9 +72,10 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        // Delete the category
-        // ...
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', 'Category deleted successfully.');
+
     }
 }
