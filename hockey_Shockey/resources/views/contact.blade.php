@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section class="py-5">
+    <section>
         <div class="container px-4 px-lg-5 my-5">
             <h1 class="heading">Contact Us</h1>
             <div class="row gx-4 gx-lg-5 align-items-center contact justify-content-between">

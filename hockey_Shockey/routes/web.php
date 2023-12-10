@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 // routes for about page and contact page
 Route::get('/about', function () {
     return view('about'); 
@@ -35,6 +36,10 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('contact'); 
+});
+
+Route::get('/privacy', function () {
+    return view('privacy'); 
 });
 
 require __DIR__.'/auth.php';

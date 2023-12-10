@@ -216,6 +216,7 @@ table {
     justify-content: center;
     width: 100%;
     gap: 20px;
+    align-items:center;
   }
 
   .navbar .nav-link {
@@ -362,7 +363,7 @@ table {
 
 }
 
-}
+
 
 
 .navbar-toggler{
@@ -373,4 +374,9 @@ table {
   background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
-
+.navbar-nav .nav-item .nav-link {
+  text-align: center;
+}
+.navbar-nav .nav-item .nav-link i {
+  vertical-align: middle;
+}
