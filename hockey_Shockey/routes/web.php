@@ -18,7 +18,12 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    
+    $productsController = new ProductController();
+    $products = $productsController->showProducts();
+    //print_r($products);
+    // Pass the products to the home view
+    return view('home', compact('products'));
 });
 
 Route::get('/dashboard', function () {
@@ -60,5 +65,7 @@ Route::get('/contact', function () {
 Route::get('/privacy', function () {
     return view('privacy'); 
 });
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 
 require __DIR__.'/auth.php';

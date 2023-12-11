@@ -411,3 +411,14 @@ table {
     margin: 20px;
     border: 1px solid #ccc;
 }
+
+ul#searchResults{
+    list-style: none;
+}
+ul#searchResults li {
+    padding:5px;
+}
+ul#searchResults li span {
+    vertical-align:top;
+    padding:10px;
+}

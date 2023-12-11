@@ -31,7 +31,7 @@
       <div class="navbar-nav navbar-info">
         <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="#"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
+            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -86,5 +86,23 @@
         </ul>
       </div>
     </div>
+    
   </nav>
 </header>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Search Products</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <form id="searchForm"  method="GET">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search for products" name="query">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+        <ul id="searchResults"></ul>
+
+        
+  </div>
+</div>
