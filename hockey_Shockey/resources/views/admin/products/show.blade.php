@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adminpanel')
 
 @section('content')
 
@@ -50,6 +50,6 @@
         <p>{{ $product->updated_at }}</p>
     </div>
 
-    <a href="{{ route('products.index') }}" class="btn btn-primary">Back to Product List</a>
+    <a href="{{ route('admin.products.index') }}" class="btn btn-primary">Back to Product List</a>
 </div>
 @endsection()
