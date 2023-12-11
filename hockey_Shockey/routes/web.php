@@ -42,15 +42,28 @@ Route::middleware('auth')->group(function () {
 
 // routes for about page and contact page
 Route::get('/about', function () {
-    return view('about'); 
+    return view('about');
 });
 
 Route::get('/contact', function () {
     return view('contact'); 
 });
 
+Route::get('/productsTest', function () {
+    return view('products');
+});
+
+
+// Rutas para el área de administración
+Route::prefix('admin')->group(function () {
+    Route::get('/products', 'Admin\ProductController@index')->name('admin.products.index');
+});
+
+// Rutas para el frontend
+Route::get('/products', 'Front\ProductController@index')->name('front.products.index');
+
 Route::get('/privacy', function () {
-    return view('privacy'); 
+    return view('privacy');
 });
 
 Route::middleware('auth')->group(function () {
