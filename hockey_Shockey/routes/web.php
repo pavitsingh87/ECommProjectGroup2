@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// routes for about page and contact page
+// routes for about page, contact page and privacy page
 Route::get('/about', function () {
     return view('about'); 
 });
@@ -52,6 +52,9 @@ Route::get('/contact', function () {
 Route::get('/privacy', function () {
     return view('privacy'); 
 });
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');

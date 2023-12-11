@@ -8,7 +8,8 @@
         <div class="row gx-4 gx-lg-5 align-items-center contact justify-content-between">
 
             <div class="col-md-6">
-                <form>
+            <form method="POST" action="{{ route('contact.store') }}">
+            @csrf  
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
                         <input type="text" class="form-control" id="fullname" aria-describedby="nameHelp"
