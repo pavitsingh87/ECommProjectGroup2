@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
     Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 });
 
