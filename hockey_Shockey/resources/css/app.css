@@ -438,3 +438,7 @@ table {
     text-align: left;
     padding-left: 15px; /* Adjust as needed */
 }
+
+iframe{
+    width:100%;
+}
