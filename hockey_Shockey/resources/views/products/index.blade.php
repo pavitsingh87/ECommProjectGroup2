@@ -14,7 +14,6 @@
                     <th>Description</th>
                     <th>Category</th>
                     <th>Image</th>
-                    <th>Size</th>
                     <th>Price</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -25,12 +24,11 @@
                     <tr>
                         <td>{{ $product->product_id }}</td>
                         <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->product_description }}</td>
+                        <td>{{ $product->short_description }}</td>
                         <td>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</td>
                         <td>
                             <img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="50">
                         </td>
-                        <td>{{ $product->product_size ?? 'N/A' }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->availability_status }}</td>
                         <td>

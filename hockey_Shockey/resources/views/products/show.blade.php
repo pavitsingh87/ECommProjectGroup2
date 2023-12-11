@@ -6,7 +6,12 @@
     <h1>{{ $product->product_name }}</h1>
 
     <div>
-        <strong>Description:</strong>
+        <strong>Short Description:</strong>
+        <p>{{ $product->short_description }}</p>
+    </div>
+
+    <div>
+        <strong>Long Description:</strong>
         <p>{{ $product->product_description }}</p>
     </div>
 

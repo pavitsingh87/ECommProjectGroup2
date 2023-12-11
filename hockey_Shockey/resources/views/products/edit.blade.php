@@ -15,8 +15,13 @@
     </div>
 
     <div class="form-group">
-        <label for="product_description">Product Description</label>
+        <label for="product_description">Product Long Description</label>
         <textarea name="product_description" id="product_description" class="form-control" required>{{ old('product_description', $product->product_description) }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="short_description">Product Short Description</label>
+        <textarea name="short_description" id="short_description" class="form-control" required>{{ old('short_description', $product->short_description) }}</textarea>
     </div>
 
     <div class="form-group">
