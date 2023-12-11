@@ -6,11 +6,11 @@
     <div class="container px-4 px-lg-5 my-5">
         <h1 class="heading">Contact Us</h1>
 
-        @if(session()->has('success'))
-    <div class="alert alert-success" role="alert">
-        {{ session('success') }}
-    </div>
-@endif
+        @if(session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <div class="row gx-4 gx-lg-5 align-items-center contact justify-content-between">
 
@@ -19,16 +19,16 @@
                     @csrf  
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
-                        <input type="text" class="form-control" id="fullname" aria-describedby="nameHelp"
+                        <input type="text" class="form-control" id="fullname" name="full_name" aria-describedby="nameHelp"
                             placeholder="Full Name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label><br />
