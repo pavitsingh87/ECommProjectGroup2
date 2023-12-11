@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="address_line_2" class="col-form-label text-md-end left-align-label">{{ __('Address Line 2') }}</label>
+                                <label for="address_line_2" class="col-form-label text-md-end left-align-label">{{ __('Address Line 2(optional)') }}</label>
                                 <input id="address_line_2" type="text" class="form-control @error('address_line_2') is-invalid @enderror" name="address_line_2" value="{{ old('address_line_2') }}">
                             </div>
                         </div>
