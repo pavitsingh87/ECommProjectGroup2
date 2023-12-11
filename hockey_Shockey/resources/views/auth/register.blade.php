@@ -1,34 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .form-group {
-        display: inline-block;
-        width: 48%;
-        margin-right: 2%;
-        text-align: left;
-    }
-
-    .form-group:last-child {
-        margin-right: 0;
-    }
-
-    .full-width {
-        width: 100%;
-        text-align: left;
-    }
-
-    .left-align-label {
-        text-align: left;
-    }
-
-    .left-align-button {
-        text-align: left;
-        padding-left: 15px; /* Adjust as needed */
-    }
-
    
-</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,7 +15,7 @@
 
                         <!-- First Name and Last Name (Grouped in a Row) -->
                         <div class="mb-3 row">
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="first_name" class="col-form-label text-md-end left-align-label">{{ __('First Name') }}</label>
                                 <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required>
                                 @error('first_name')
@@ -51,7 +25,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="last_name" class="col-form-label text-md-end left-align-label">{{ __('Last Name') }}</label>
                                 <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required>
                                 @error('last_name')
@@ -64,7 +38,7 @@
 
                         <!-- Gender and Date of Birth (Grouped in a Row) -->
                         <div class="mb-3 row">
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="gender" class="col-form-label text-md-end left-align-label">{{ __('Gender') }}</label>
                                 <select id="gender" class="form-select @error('gender') is-invalid @enderror" name="gender" required>
                                     <option value="male">Male</option>
@@ -78,7 +52,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="date_of_birth" class="col-form-label text-md-end left-align-label">{{ __('Date of Birth') }}</label>
                                 <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" required>
                                 @error('date_of_birth')
@@ -104,7 +78,7 @@
 
                         <!-- Password and Confirm Password (Grouped in a Row) -->
                         <div class="mb-3 row">
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="password" class="col-form-label text-md-end left-align-label">{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
@@ -114,7 +88,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="password-confirm" class="col-form-label text-md-end left-align-label">{{ __('Confirm Password') }}</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
@@ -148,7 +122,7 @@
 
                         <!-- Address Line 1 and Address Line 2 (Grouped in a Row) -->
                         <div class="mb-3 row">
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="address_line_1" class="col-form-label text-md-end left-align-label">{{ __('Address Line 1') }}</label>
                                 <input id="address_line_1" type="text" class="form-control @error('address_line_1') is-invalid @enderror" name="address_line_1" value="{{ old('address_line_1') }}" required>
                                 @error('address_line_1')
@@ -158,7 +132,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="address_line_2" class="col-form-label text-md-end left-align-label">{{ __('Address Line 2(optional)') }}</label>
                                 <input id="address_line_2" type="text" class="form-control @error('address_line_2') is-invalid @enderror" name="address_line_2" value="{{ old('address_line_2') }}">
                             </div>
@@ -166,7 +140,7 @@
 
                         <!-- City, Country, and Postal Code (Grouped in a Row) -->
                         <div class="mb-3 row">
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="city" class="col-form-label text-md-end left-align-label">{{ __('City') }}</label>
                                 <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required>
                                 @error('city')
@@ -176,7 +150,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="country" class="col-form-label text-md-end left-align-label">{{ __('Country') }}</label>
                                 <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required>
                                 @error('country')
@@ -186,7 +160,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group form-group-register">
                                 <label for="postal_code" class="col-form-label text-md-end left-align-label">{{ __('Postal Code') }}</label>
                                 <input id="postal_code" type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" required>
                                 @error('postal_code')
