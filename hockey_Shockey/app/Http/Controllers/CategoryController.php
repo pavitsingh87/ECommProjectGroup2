@@ -11,9 +11,11 @@ class CategoryController extends Controller
     //
     public function index()
     {
-        // Fetch all categories from the database
+        // Fetch all categories from the database by Dipesh
         $categories = Category::all();
 
+
+        
         return view('admin.category.index', compact('categories'));
     }
 
