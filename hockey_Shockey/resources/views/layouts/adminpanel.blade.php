@@ -28,7 +28,14 @@
                         </a>
                         
                     </li>
-                    
+                    <li class="sidebar-item">
+                        <!--<a class='sidebar-link' data-bs-toggle="collapse" href="{{ route('admin.category.index') }}">-->
+                        <a class='sidebar-link' href="{{ route('admin.products.index') }}">    
+                            <i class="align-middle" data-feather="sliders"></i>
+                            <span class="align-middle">Products</span>
+                        </a>
+                        
+                    </li>
                 </ul>
             </div>
         </nav>

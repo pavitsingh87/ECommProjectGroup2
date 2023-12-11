@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adminpanel')
 
 @section('content')
 
@@ -32,9 +32,9 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->availability_status }}</td>
                         <td>
-                            <a href="{{ route('products.show', $product->product_id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('products.edit', $product->product_id) }}" class="btn btn-primary">Edit</a>
-                            <form action="{{ route('products.destroy', $product->product_id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('admin.products.show', $product->product_id) }}" class="btn btn-info">View</a>
+                            <a href="{{ route('admin.products.edit', $product->product_id) }}" class="btn btn-primary">Edit</a>
+                            <form action="{{ route('admin.products.destroy', $product->product_id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
@@ -48,7 +48,7 @@
         <p>No products available.</p>
     @endif
 
-    <a href="{{ route('products.create') }}" class="btn btn-success">Add Product</a>
+    <a href="{{ route('admin.products.create') }}" class="btn btn-success">Add Product</a>
 </div>
 
 @endsection()
