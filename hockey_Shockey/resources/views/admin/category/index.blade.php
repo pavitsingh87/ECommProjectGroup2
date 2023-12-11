@@ -24,7 +24,7 @@
                     @forelse($categories as $category)
                         <tr>
                             <td>{{ $category->id }}</td>
-                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->pct_name }}</td>
                             <td>
                             <a href="{{ route('admin.category.show', $category->id) }}" class="btn btn-sm btn-info">View</a>
                             <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit</a>
