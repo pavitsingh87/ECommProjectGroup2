@@ -4,5 +4,5 @@
 
 @section('content')
     <!-- Your existing content here -->
-    <h1>Welcome to the Index Page!</h1>
+    <h1>Welcome to the Dashboard</h1>
 @endsection
