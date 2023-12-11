@@ -51,7 +51,7 @@ class AdminUserSeeder extends Seeder
             'city' => 'Sample City',
             'country' => 'Sample Country',
             'postal_code' => '12345',
-            'role_id' => 1, // Change to 1 if this user should have role_id = 1
+            'role_id' => 0, 
         ]);
     }
 }
