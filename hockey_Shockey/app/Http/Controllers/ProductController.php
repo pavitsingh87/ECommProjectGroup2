@@ -11,13 +11,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('admin/products.index', compact('products'));
     }
 
     public function create()
     {
         $productCategories = ProductCategoryType::all(); 
-        return view('products.create', compact('productCategories'));
+        return view('admin/products.create', compact('productCategories'));
     }
 
     public function store(Request $request)
@@ -38,14 +38,14 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('admin/products.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
         $productCategories = ProductCategoryType::all();
     
-        return view('products.edit', compact('product', 'productCategories'));
+        return view('admin/products.edit', compact('product', 'productCategories'));
     }
 
     public function update(Request $request, Product $product)
