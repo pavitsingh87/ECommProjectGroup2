@@ -14,7 +14,7 @@ class ProductsTableSeeder extends Seeder
         // Create 15 products for each category
         for ($categoryId = 1; $categoryId <= 4; $categoryId++) {
             Product::factory()->count(15)->create([
-                'pct_id' => $categoryId,
+                'product_category_type_id' => $categoryId,
             ]);
         }
     }

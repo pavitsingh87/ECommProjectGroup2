@@ -28,8 +28,7 @@ class ProductController extends Controller
             'product_image' => 'required',
             'price' => 'required|numeric',
             'availability_status' => 'required',
-            'pct_id' => 'required|numeric',
-            'i_id' => 'required|numeric',
+            'product_category_type_id' => 'required|numeric'
         ]);
 
         Product::create($request->all());
@@ -57,8 +56,7 @@ class ProductController extends Controller
             'product_image' => 'required',
             'price' => 'required|numeric',
             'availability_status' => 'required',
-            'pct_id' => 'required|numeric',
-            'i_id' => 'required|numeric',
+            'product_category_type_id' => 'required|numeric',
         ]);
 
         $product->update($request->all());

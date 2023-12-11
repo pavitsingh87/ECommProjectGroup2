@@ -31,8 +31,7 @@ class ProductFactory extends Factory
             'product_size' => $this->faker->randomElement(['Small', 'Medium', 'Large']),
             'price' => $this->faker->randomFloat(2, 10, 100),
             'availability_status' => $this->faker->randomElement(['available', 'out_of_stock']),
-            'pct_id' => $productCategoryTypeId,
-            'i_id' => $this->faker->numberBetween(1, 100),
+            'product_category_type_id' => $productCategoryTypeId
         ];
     }
 }

@@ -18,6 +18,6 @@ class ProductCategoryType extends Model
 
     public function productCategoryType()
     {
-        return $this->belongsTo(ProductCategoryType::class, 'pct_id', 'id');
+        return $this->belongsTo(ProductCategoryType::class, 'product_category_type_id', 'id');
     }
 }

@@ -41,11 +41,6 @@
     </div>
 
     <div>
-        <strong>I ID:</strong>
-        <p>{{ $product->i_id }}</p>
-    </div>
-
-    <div>
         <strong>Created At:</strong>
         <p>{{ $product->created_at }}</p>
     </div>

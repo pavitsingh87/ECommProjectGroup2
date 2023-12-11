@@ -25,10 +25,10 @@
     </div>
 
     <div class="form-group">
-        <label for="pct_id">Product Category</label>
-        <select name="pct_id" id="pct_id" class="form-control" required>
+        <label for="product_category_type_id">Product Category</label>
+        <select name="product_category_type_id" id="product_category_type_id" class="form-control" required>
             @foreach($productCategories as $category)
-                <option value="{{ $category->id }}" @if($category->id == $product->pct_id) selected @endif>{{ $category->pct_name }}</option>
+                <option value="{{ $category->id }}" @if($category->id == $product->product_category_type_id) selected @endif>{{ $category->pct_name }}</option>
             @endforeach
         </select>
     </div>
@@ -49,11 +49,6 @@
             <option value="available" {{ old('availability_status', $product->availability_status) === 'available' ? 'selected' : '' }}>Available</option>
             <option value="out_of_stock" {{ old('availability_status', $product->availability_status) === 'out_of_stock' ? 'selected' : '' }}>Out of Stock</option>
         </select>
-    </div>
-
-    <div class="form-group">
-        <label for="i_id">I ID</label>
-        <input type="number" name="i_id" id="i_id" class="form-control" value="{{ old('i_id', $product->i_id) }}" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Update Product</button>
