@@ -42,11 +42,11 @@ Route::middleware('auth')->group(function () {
 
 // routes for about page, contact page and privacy page
 Route::get('/about', function () {
-    return view('about'); 
+    return view('about');
 });
 
 Route::get('/privacy', function () {
-    return view('privacy'); 
+    return view('privacy');
 });
 
 Route::middleware(['web'])->group(function () {
@@ -66,4 +66,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

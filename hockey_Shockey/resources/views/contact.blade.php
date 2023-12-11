@@ -7,20 +7,20 @@
         <h1 class="heading">Contact Us</h1>
 
         @if(session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
         @endif
 
         <div class="row gx-4 gx-lg-5 align-items-center contact justify-content-between">
 
             <div class="col-md-6">
                 <form method="POST" action="{{ route('contact.store') }}">
-                    @csrf  
+                    @csrf
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
-                        <input type="text" class="form-control" id="fullname" name="full_name" aria-describedby="nameHelp"
-                            placeholder="Full Name">
+                        <input type="text" class="form-control" id="fullname" name="full_name"
+                            aria-describedby="nameHelp" placeholder="Full Name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -39,9 +39,12 @@
                     <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </form>
             </div>
-            
+
             <div class="col-md-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43622.67943531407!2d-97.15203590054699!3d49.87705190653698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73fbf91a2b11%3A0x2b2a1afac6b9ca64!2sWinnipeg%2C%20MB!5e0!3m2!1sen!2sca!4v1702313036257!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43622.67943531407!2d-97.15203590054699!3d49.87705190653698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73fbf91a2b11%3A0x2b2a1afac6b9ca64!2sWinnipeg%2C%20MB!5e0!3m2!1sen!2sca!4v1702313036257!5m2!1sen!2sca"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
         </div>
