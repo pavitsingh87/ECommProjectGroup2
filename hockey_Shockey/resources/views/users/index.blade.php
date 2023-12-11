@@ -7,7 +7,7 @@
 
     <ul>
         @foreach ($users as $user)
-            <li><a href="{{ route('users.show', $user) }}">{{ $user->name }}</a></li>
+            <li><a href="{{ route('users.index', $user) }}">{{ $user->name }}</a></li>
         @endforeach
     </ul>
 @endsection
