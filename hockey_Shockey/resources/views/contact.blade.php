@@ -5,11 +5,18 @@
 <section>
     <div class="container px-4 px-lg-5 my-5">
         <h1 class="heading">Contact Us</h1>
+
+        @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
         <div class="row gx-4 gx-lg-5 align-items-center contact justify-content-between">
 
             <div class="col-md-6">
-            <form method="POST" action="{{ route('contact.store') }}">
-            @csrf  
+                <form method="POST" action="{{ route('contact.store') }}">
+                    @csrf  
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
                         <input type="text" class="form-control" id="fullname" aria-describedby="nameHelp"

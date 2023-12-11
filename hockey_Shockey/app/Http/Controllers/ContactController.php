@@ -17,6 +17,6 @@ class ContactController extends Controller
 
         Contact::create($data);
 
-        return redirect()->back()->with('success', 'Contact information saved successfully!');
+        return redirect()->route('contact.form')->with('success', 'Your contact information is saved!');
     }
 }
