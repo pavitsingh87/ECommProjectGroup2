@@ -49,11 +49,11 @@ Route::get('/privacy', function () {
     return view('privacy');
 });
 
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact.form');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact.form');
 
-    Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
 
 Route::middleware('auth')->group(function () {
