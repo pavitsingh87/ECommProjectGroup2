@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\ProductCategoryType as Category;
 
 
 class CategoryController extends Controller
@@ -27,12 +27,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'pct_name' => 'required|string|max:255',
             // Add other validation rules as needed
         ]);
 
         Category::create([
-            'name' => $request->input('name'),
+            'pct_name' => $request->input('pct_name'),
             // Add other fields as needed
         ]);
 
@@ -50,13 +50,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'pct_name' => 'required|string|max:255',
             // Add other validation rules as needed
         ]);
     
         $category = Category::findOrFail($id);
         $category->update([
-            'name' => $request->input('name'),
+            'pct_name' => $request->input('pct_name'),
             // Add other fields as needed
         ]);
     

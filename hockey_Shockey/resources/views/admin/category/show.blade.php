@@ -8,7 +8,7 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Category: {{ $category->name }}</h5>
+                <h5 class="card-title">Category: {{ $category->pct_name }}</h5>
 
                 <!-- Display other category details here -->
 
