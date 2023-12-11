@@ -49,13 +49,13 @@ Route::get('/privacy', function () {
     return view('privacy');
 });
 
-Route::middleware(['web'])->group(function () {
     Route::get('/contact', function () {
         return view('contact');
     })->name('contact.form');
 
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
-});
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
