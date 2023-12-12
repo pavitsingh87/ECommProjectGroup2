@@ -72,15 +72,21 @@
           @forelse($products as $product)
           <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
             <div class="card w-100 my-2 border-top-0 shadow:hover">
-            <a href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">
+              <a
+                href="{{ route('products.show', ['category' => $product->product_category_type_id, 'name' => $product->product_name]) }}">
+                click
+              </a>
+
+              <a
+                href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">
                 <img src="{{ url($product->product_image) }}" alt="{{ $product->product_name }}" class="card-img-top" />
                 <div class="card-body d-flex flex-column">
-                    <div class="d-flex flex-row">
-                        <h5 class="mb-1 me-1">{{ $product->price }}</h5>
-                    </div>
-                    <p class="card-text">{{ $product->product_name }}</p>
+                  <div class="d-flex flex-row">
+                    <h5 class="mb-1 me-1">{{ $product->price }}</h5>
+                  </div>
+                  <p class="card-text">{{ $product->product_name }}</p>
                 </div>
-            </a>
+              </a>
               <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                 <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                 <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i

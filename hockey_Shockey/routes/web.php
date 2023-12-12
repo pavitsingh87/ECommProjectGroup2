@@ -55,9 +55,8 @@ Route::get('/contact', function () {
     return view('contact'); 
 });
 
-Route::get('/prod/{category}/{name}', [ProductController::class, 'show'])
+Route::get('/products/{category}/{name}', [ProductController::class, 'show'])
     ->name('products.show');
-
 
 Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->name('products.index');
 

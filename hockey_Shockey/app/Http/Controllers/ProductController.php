@@ -71,7 +71,9 @@ class ProductController extends Controller
     public function show($category, $name)
     {
         // Logic to retrieve the product by category and name
-        $product = Product::where('product_category_type_id', $category)->where('product_name', $name)->first();
+        $product = Product::whereHas('productCategoryType', function ($query) use ($category) {
+            $query->where('pct_name', $category);
+        })->where('product_name', $name)->first();
 
         // Check if the product is found
         if (!$product) {
@@ -84,7 +86,6 @@ class ProductController extends Controller
         // Pass the product to the view
         return view($viewPath, compact('product'));
     }
-
 
     public function edit(Product $product)
     {
