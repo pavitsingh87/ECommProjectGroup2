@@ -21,12 +21,17 @@ class TaxController extends Controller
         public function store(Request $request)
         {
     
+            $orderTotal = $request->input('order_total');
+            $provinceId = $request->input('province_id');
+
+            $calculatedTaxAmount = $this->calculateTaxAmount($orderTotal, $provinceId);
+
             Tax::create([
                 'amount' => $calculatedTaxAmount,
                 'order_id' => $request->input('order_id'),
-                'province_id' => $request->input('province_id'),
+                'province_id' => $provinceId,
             ]);
-    
+
             return redirect()->route('admin.taxes.index')->with('success', 'Tax created successfully.');
         }
     
