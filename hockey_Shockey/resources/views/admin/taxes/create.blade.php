@@ -16,11 +16,6 @@
         </div>
 
         <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" name="city" id="city" class="form-control" value="{{ old('city') }}" required>
-        </div>
-
-        <div class="form-group">
             <label for="gst">GST</label>
             <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst') }}" required>
         </div>
