@@ -13,12 +13,12 @@
 
         <div class="form-group">
             <label for="province">Province</label>
-            <input type="text" name="province" id="province" class="form-control" value="{{ old('province', $tax->province) }}" required>
+            <input type="text" name="province" id="province" class="form-control" value="{{ $tax->province }}" disabled>
         </div>
 
         <div class="form-group">
             <label for="city">City</label>
-            <input type="text" name="city" id="city" class="form-control" value="{{ old('city', $tax->city) }}" required>
+            <input type="text" name="city" id="city" class="form-control" value="{{ $tax->city }}" disabled>
         </div>
 
         <div class="form-group">
