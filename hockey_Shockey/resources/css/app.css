@@ -412,6 +412,7 @@ table {
     border: 1px solid #ccc;
 }
 
+
 ul#searchResults{
     list-style: none;
 }
@@ -422,3 +423,35 @@ ul#searchResults li span {
     vertical-align:top;
     padding:10px;
 }
+
+
+/* register page css */
+.form-group-register {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2%;
+    text-align: left;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.full-width {
+    width: 100%;
+    text-align: left;
+}
+
+.left-align-label {
+    text-align: left;
+}
+
+.left-align-button {
+    text-align: left;
+    padding-left: 15px; /* Adjust as needed */
+}
+
+iframe{
+    width:100%;
+}
+
