@@ -5,26 +5,21 @@
 @section('content')
 
 <div class="container">
-    <h1>{{ $tax->province }} - {{ $tax->city }}</h1>
+    <h1>{{ $tax->province->name }}</h1>
 
     <div>
         <strong>Province:</strong>
-        <p>{{ $tax->province }}</p>
-    </div>
-
-    <div>
-        <strong>City:</strong>
-        <p>{{ $tax->city }}</p>
+        <p>{{ $tax->province->name }}</p>
     </div>
 
     <div>
         <strong>GST:</strong>
-        <p>{{ $tax->gst }}</p>
+        <p>{{ $tax->province->gst_rate }}</p>
     </div>
 
     <div>
         <strong>PST:</strong>
-        <p>{{ $tax->pst }}</p>
+        <p>{{ $tax->province->pst_rate }}</p>
     </div>
 
     <div>

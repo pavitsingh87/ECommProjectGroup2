@@ -13,22 +13,17 @@
 
         <div class="form-group">
             <label for="province">Province</label>
-            <input type="text" name="province" id="province" class="form-control" value="{{ $tax->province }}" disabled>
-        </div>
-
-        <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" name="city" id="city" class="form-control" value="{{ $tax->city }}" disabled>
+            <input type="text" name="province" id="province" class="form-control" value="{{ $tax->province->name }}" disabled>
         </div>
 
         <div class="form-group">
             <label for="gst">GST</label>
-            <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst', $tax->gst) }}" required>
+            <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst', $tax->province->gst_rate) }}" required>
         </div>
 
         <div class="form-group">
             <label for="pst">PST</label>
-            <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst', $tax->pst) }}" required>
+            <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst', $tax->province->pst_rate) }}" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Update Tax</button>

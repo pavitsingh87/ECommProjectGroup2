@@ -14,7 +14,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Province</th>
-                    <th>City</th>
                     <th>GST</th>
                     <th>PST</th>
                     <th>Actions</th>
@@ -24,10 +23,9 @@
                 @foreach ($taxes as $tax)
                     <tr>
                         <td>{{ $tax->id }}</td>
-                        <td>{{ $tax->province }}</td>
-                        <td>{{ $tax->city }}</td>
-                        <td>{{ $tax->gst }}</td>
-                        <td>{{ $tax->pst }}</td>
+                        <td>{{ $tax->province->name }}</td>
+                        <td>{{ $tax->province->gst_rate }}</td>
+                        <td>{{ $tax->province->pst_rate }}</td>
                         <td>
                             <a href="{{ route('admin.taxes.show', $tax->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('admin.taxes.edit', $tax->id) }}" class="btn btn-primary">Edit</a>
