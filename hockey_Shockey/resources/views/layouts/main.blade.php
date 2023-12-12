@@ -109,7 +109,7 @@
                 var quantity = ele.val();
                 var product_subtotal = parent_row.find("span.product-subtotal");
                 var cart_total = $(".cart-total");
-                var message = $(".message");
+                
 
                 $.ajax({
                     url: '{{ url('update-cart') }}',
@@ -120,7 +120,7 @@
                         console.log(ele.val())
                         product_subtotal.text(response.subTotal);
                         cart_total.text(response.total);
-                        message.text(response.message);
+                       
                         ele.val(response.quantity);
                     }
             });

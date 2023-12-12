@@ -34,7 +34,7 @@
 
             <div class="col-sm-3 hidden-xs">
               {{-- Display the product image --}}
-              <img src="/storage/images/{{ $details['product_image'] }}" alt="{{ $details['product_image'] }}" width="100"
+              <img src="{{ asset('storage/' . $details['product_image']) }}" alt="{{ $details['product_image'] }}" width="100"
                 height="100" class="img-responsive" />
             </div>
 

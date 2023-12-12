@@ -19,7 +19,6 @@ class CartController extends Controller
     public function addToCart($id)
     {
         $product = Product::find($id);
-
         // Retrieve the cart from the session
         $cart = session()->get('cart');
 
@@ -36,7 +35,7 @@ class CartController extends Controller
             ];
 
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('success', 'Product added successfully!');
         }
 
         // Increment the quantity if the product already exists in the cart
@@ -45,7 +44,7 @@ class CartController extends Controller
             $cart[$id]['quantity']++;
 
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('success', 'Product added successfully!');
         }
 
         // Add the product to the cart with quantity = 1 if it doesn't exist
@@ -57,7 +56,7 @@ class CartController extends Controller
         ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'Product added successfully!');
     }
 
     // Get the total value of the items in the cart
@@ -110,11 +109,11 @@ class CartController extends Controller
             $product = Product::where('product_name', '=', $product_name)->first();
 
             if ($product->quantity < 2) {
-                $message = "Sorry, no more items left in stock";
+                $message = "No more items left in stock";
                 return response()->json(['message' => $message]);
             } elseif ((($product->quantity) - ($request->quantity)) >= 0) {
 
-                $message = "Quantity updated";
+                $message = "Done Update";
                 $cart[$request->id]["quantity"] = $request->quantity;
                 session()->put('cart', $cart);
                 $subTotal = round($cart[$request->id]['quantity'] * $cart[$request->id]['price'], 2);
@@ -122,9 +121,9 @@ class CartController extends Controller
 
                 return response()->json(['total' => $total, 'subTotal' => $subTotal, 'message' => $message, 'quantity' => $request->quantity]);
 
-                session()->flash('success', 'Cart updated successfully');
+                session()->flash('success', 'Updated successfully');
             } else {
-                $message = "Sorry, there are only " . $product->quantity . " products left in stock";
+                $message = "There are only " . $product->quantity . " products out of in stock";
                 return response()->json(['message' => $message, 'quantity' => $product->quantity]);
             }
         }
