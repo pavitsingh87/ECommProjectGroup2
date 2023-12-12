@@ -8,16 +8,39 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::all();
-        return view('admin.products.index', compact('products'));
+        if (request()->is('admin/products')) {
+            return view('admin.products.index', compact('products'));
+        } else {
+            $categories = ProductCategoryType::all();
+
+            $selectedCategoryId = $request->input('category');
+            $orderBy = $request->input('orderBy', 'default');
+            $productsQuery = Product::query();
+
+            if ($selectedCategoryId) {
+                $productsQuery->where('product_category_type_id', $selectedCategoryId);
+            }
+
+            if ($orderBy == 'priceHighToLow') {
+                $productsQuery->orderBy('price', 'desc');
+            } elseif ($orderBy == 'priceLowToHigh') {
+                $productsQuery->orderBy('price', 'asc');
+            }
+
+
+            $products = $productsQuery->paginate(21);
+
+            return view('products.index', compact('products', 'categories','orderBy'));
+        }
     }
-    
+
 
     public function create()
     {
-        $productCategories = ProductCategoryType::all(); 
+        $productCategories = ProductCategoryType::all();
         return view('admin.products.create', compact('productCategories'));
     }
 
@@ -45,7 +68,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $productCategories = ProductCategoryType::all();
-    
+
         return view('admin.products.edit', compact('product', 'productCategories'));
     }
 

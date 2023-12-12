@@ -36,8 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
     Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
-
-
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
@@ -57,18 +55,7 @@ Route::get('/contact', function () {
     return view('contact'); 
 });
 
-Route::get('/productsTest', function () {
-    return view('products');
-});
-
-
-// Rutas para el área de administración
-Route::prefix('admin')->group(function () {
-    Route::get('/products', 'Admin\ProductController@index')->name('admin.products.index');
-});
-
-// Rutas para el frontend
-Route::get('/products', 'Front\ProductController@index')->name('front.products.index');
+Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/privacy', function () {
     return view('privacy');
