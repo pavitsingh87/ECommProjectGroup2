@@ -36,7 +36,7 @@
             <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
           </li>
             <li class="nav-item">
-              <a href="#"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
+              <a href="/cart"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
