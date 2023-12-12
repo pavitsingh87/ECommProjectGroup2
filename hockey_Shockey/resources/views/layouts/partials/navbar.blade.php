@@ -4,8 +4,9 @@
       <p style="margin:5px auto;">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
     </div>
   </nav>
-
-  <nav class="navbar navbar-expand-lg navbar-fixed-top border-bottom border-2">
+  <div class=border-bottom border-2>
+  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-fixed-top">
     <a class="navbar-brand" href="#">
       <img src="/images/logo.png" alt="" width="150" height="53">
     </a>
@@ -84,6 +85,8 @@
     </div>
     
   </nav>
+  </div>
+  </div>
 </header>
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">

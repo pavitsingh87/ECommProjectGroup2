@@ -461,3 +461,18 @@ ul#searchResults li span {
 iframe {
     width:100%;
 }
+
+
+
+/* for responsiveness */
+@media screen and (max-width: 968px) {
+    .navbar .navbar-nav {
+      gap:0px;
+    }
+    
+.navbar .navbar-info {
+   
+       margin:auto;
+       width:0%;
+    }
+  }
