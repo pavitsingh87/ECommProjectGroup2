@@ -17,7 +17,6 @@ return new class extends Migration
             $table->decimal('total', 10, 2);
             $table->unsignedBigInteger('province_id');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
         });
