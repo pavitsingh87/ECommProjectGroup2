@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
-});
+    
 
+    Route::get('/admin/taxes', [TaxController::class, 'index'])->name('admin.taxes.index');
+    Route::get('/admin/taxes/create', [TaxController::class, 'create'])->name('admin.taxes.create');
+    Route::post('/admin/taxes', [TaxController::class, 'store'])->name('admin.taxes.store');
+    Route::get('/admin/taxes/{tax}', [TaxController::class, 'show'])->name('admin.taxes.show');
+    Route::get('/admin/taxes/{tax}/edit', [TaxController::class, 'edit'])->name('admin.taxes.edit');
+    Route::put('/admin/taxes/{tax}', [TaxController::class, 'update'])->name('admin.taxes.update');
+    Route::delete('/admin/taxes/{tax}', [TaxController::class, 'destroy'])->name('admin.taxes.destroy');
+
+});
 
 // routes for about page, contact page and privacy page
 Route::get('/about', function () {
@@ -67,13 +77,10 @@ Route::get('/privacy', function () {
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.form');
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
-
 require __DIR__ . '/auth.php';
-
