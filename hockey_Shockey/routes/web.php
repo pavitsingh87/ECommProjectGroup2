@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +18,17 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    
+    $productsController = new ProductController();
+    $products = $productsController->showProducts();
+    //print_r($products);
+    // Pass the products to the home view
+    return view('home', compact('products'));
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,13 +51,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// routes for about page and contact page
+// routes for about page, contact page and privacy page
 Route::get('/about', function () {
     return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact'); 
 });
 
 Route::get('/products/{category}/{name}', [ProductController::class, 'show'])
@@ -64,4 +65,15 @@ Route::get('/privacy', function () {
     return view('privacy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact.form');
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+
+require __DIR__ . '/auth.php';
+

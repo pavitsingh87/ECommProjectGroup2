@@ -22,7 +22,8 @@
 
     <div>
         <strong>Image:</strong>
-        <p>><img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="300"></p>
+        <p>                           <img class="card-img-top" src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image">
+</p>
     </div>
 
     <div>

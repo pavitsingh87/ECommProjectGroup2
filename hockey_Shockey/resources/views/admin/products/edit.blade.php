@@ -5,7 +5,7 @@
 <div class="container">
 <h1>Edit Product</h1>
 
-<form action="{{ route('admin.products.update', $product->product_id) }}" method="POST">
+<form action="{{ route('admin.products.update', $product->product_id) }}" method="POST"  enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -35,7 +35,8 @@
 
     <div class="form-group">
         <label for="product_image">Product Image</label>
-        <input type="text" name="product_image" id="product_image" class="form-control" value="{{ old('product_image', $product->product_image) }}" required>
+        <input type="file" name="product_image" id="product_image" class="form-control">
+        <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" class="mt-2" style="max-width: 200px;">
     </div>
 
     <div class="form-group">
