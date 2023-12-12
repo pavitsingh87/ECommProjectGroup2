@@ -41,8 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
     Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
-
-
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
@@ -58,9 +56,15 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/products/{category}/{name}', [ProductController::class, 'show'])
+    ->name('products.show');
+
+Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->name('products.index');
+
 Route::get('/privacy', function () {
     return view('privacy');
 });
+
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
 
@@ -70,16 +74,6 @@ Route::get('/contact', function () {
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
-
-Route::middleware('auth')->group(function () {
-    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
-    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-});
 
 require __DIR__ . '/auth.php';
 

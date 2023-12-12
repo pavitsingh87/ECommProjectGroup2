@@ -11,71 +11,69 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-     
-   
-    
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-   
+
     @yield('style')
 
 </head>
 
 <body>
     @include('layouts.partials.navbar')
-   
+
     @yield('content')
     @include('layouts.partials.footer')
 
-    <!-- Add the Bootstrap JS and Popper.js scripts before the closing </body> tag -->
-    
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script>
-    $(document).ready(function () {
-        $('#searchForm').submit(function (e) {
-            e.preventDefault();
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchForm').submit(function (e) {
+                e.preventDefault();
 
-            // Get the search query
-            var query = $('#searchInput').val();
-            console.log(query);
-            // Make an AJAX call to the search route
-            fetch("{{ route('products.search') }}?query=" + encodeURIComponent(query))
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the search results
-                    displayResults(data);
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
-        function displayResults(results) {
-            
-            var productList = $('#searchResults');
-            productList.empty();
-
-            // Render new product list
-            results.forEach(function (product) {
-                var listItem = $('<li style="display: flex; align-items: center; margin-bottom: 10px;"><a href="">');
-                
-                // Column 1: Image
-                var imageColumn = $('<div style="flex: 0 0 100px; margin-right: 10px;">');
-                imageColumn.append('<img src="' + product.product_image + '" alt="Product Image" width="100">');
-                listItem.append(imageColumn);
-
-                // Column 2: Title and Price
-                var infoColumn = $('<div>');
-                infoColumn.append('<h3>' + product.product_name + '</h3>');
-                infoColumn.append('<p>$' + product.price + '</p></a>');
-                listItem.append(infoColumn);
-
-                productList.append(listItem);
+                // Get the search query
+                var query = $('#searchInput').val();
+                console.log(query);
+                // Make an AJAX call to the search route
+                fetch("{{ route('products.search') }}?query=" + encodeURIComponent(query))
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the search results
+                        displayResults(data);
+                    })
+                    .catch(error => console.error('Error:', error));
             });
-        }
-    });
-</script>
+
+            function displayResults(results) {
+
+                var productList = $('#searchResults');
+                productList.empty();
+
+                // Render new product list
+                results.forEach(function (product) {
+                    var listItem = $('<li style="display: flex; align-items: center; margin-bottom: 10px;"><a href="">');
+
+                    // Column 1: Image
+                    var imageColumn = $('<div style="flex: 0 0 100px; margin-right: 10px;">');
+                    imageColumn.append('<img src="' + product.product_image + '" alt="Product Image" width="100">');
+                    listItem.append(imageColumn);
+
+                    // Column 2: Title and Price
+                    var infoColumn = $('<div>');
+                    infoColumn.append('<h3>' + product.product_name + '</h3>');
+                    infoColumn.append('<p>$' + product.price + '</p></a>');
+                    listItem.append(infoColumn);
+
+                    productList.append(listItem);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
