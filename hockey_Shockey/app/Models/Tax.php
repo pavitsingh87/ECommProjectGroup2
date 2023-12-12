@@ -14,4 +14,9 @@ class Tax extends Model
         return $this->belongsTo(Province::class);
     }
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
 }
