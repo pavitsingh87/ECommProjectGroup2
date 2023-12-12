@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,9 @@ Route::get('/contact', function () {
 })->name('contact.form');
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
+
+Route::get('/checkout', [CartController::class, 'checkout']);
 
 
 require __DIR__ . '/auth.php';
