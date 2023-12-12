@@ -81,7 +81,7 @@
                 var parent_row = ele.parents("tr");
                 var cart_total = $(".cart-total");
 
-                if (confirm("Are you sure?")) {
+                if (confirm("Do you want remove item?")) {
                     fetch('{{ url('remove-from-cart') }}', {
                         method: 'DELETE',
                         headers: {
