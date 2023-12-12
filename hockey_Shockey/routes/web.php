@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart');
+
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('cart');
+
+Route::patch('update-cart', [CartController::class, 'update'])->name('cart');
+
+
 // routes for about page, contact page and privacy page
 Route::get('/about', function () {
     return view('about');
@@ -67,13 +77,10 @@ Route::get('/privacy', function () {
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.form');
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
-
 require __DIR__ . '/auth.php';
-
