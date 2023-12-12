@@ -1,6 +1,6 @@
 <!-- resources/views/users/index.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <h1>Users</h1>

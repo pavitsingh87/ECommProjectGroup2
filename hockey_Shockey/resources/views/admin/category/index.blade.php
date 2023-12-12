@@ -1,4 +1,4 @@
-    @extends('layouts.adminpanel') <!-- Assuming you have a layout, adjust this based on your project structure -->
+    @extends('layouts.main') <!-- Assuming you have a layout, adjust this based on your project structure -->
 
     @section('content')
         <div class="container">
