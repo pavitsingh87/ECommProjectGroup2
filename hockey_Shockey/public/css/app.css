@@ -216,60 +216,56 @@ table {
 .navbar {
   background-color: #fff;
 }
-  .navbar .navbar-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 40px;
-  }
 
-  .navbar .nav-link {
-    color: #544087;
-    --bs-nav-link-font-size: 20px;
-    font-size: var(--bs-nav-link-font-size);
-  }
+.navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 40px;
+}
 
-  .navbar .navbar-info {
-    width: 20%;
-  }
+.navbar .nav-link {
+  color: #544087;
+  --bs-nav-link-font-size: 20px;
+  font-size: var(--bs-nav-link-font-size);
+}
 
+.navbar .navbar-info {
+  width: 20%;
+}
 
 .promotion-nav {
   color: #f1f1f1;
   background-color: #544087;
 }
 
-.nav-item {
-  i {
-    color: #544087;
-  }
+.nav-item i {
+  color: #544087;
 }
-
-.products, .products-page {
-  h2 {
-    color: #544087;
-
-    span {
-      height: 4px;
-      width: 30%;
-      background: #544087;
-      margin: 14px;
-    }
-  }
-
-  .card {
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    }
-
-    &-img-top {
-      object-fit: scale-down;
-    }
-  }
+.products h2,
+.products-page h2 {
+  color: #544087;
 }
-<<<<<<<< HEAD:hockeyShockey/public/css/app.css
+.products h2 span,
+.products-page h2 span {
+  height: 4px;
+  width: 30%;
+  background: #544087;
+  margin: 14px;
+}
+.products .card,
+.products-page .card {
+  transition: all 0.3s ease-in-out;
+}
+.products .card:hover,
+.products-page .card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  /* Add shadow on hover */
+}
+.products .card-img-top,
+.products-page .card-img-top {
+  object-fit: scale-down;
+}
 
 .sidebar-img {
   width: -webkit-fill-available;
@@ -331,26 +327,6 @@ table {
   padding-top: 40px;
 }
 
-.cards {
-  display: flex;
-  justify-content: space-between;
-  margin-top: -70px;
-}
-
-.card {
-  border: none;
-  text-align: center;
-  background: none;
-}
-
-.card-title {
-  font-size: 18px;
-}
-
-.card img {
-  width: 70%;
-  align-self: center;
-}
 
 .contact {
   border: 1px solid black;
@@ -366,5 +342,3 @@ table {
   padding: 5px;
   color: #666;
 }
-========
->>>>>>>> 4e22781c92271458cc8ee464a5abfbc8e2e1b1ee:hockeyShockey/static-FrontEnd/app/css/style.css

@@ -10,34 +10,42 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Product::all();
+        // Load products with the related productCategoryType
+        $products = Product::with('productCategoryType')->get();
+
+        // Check if the request is for the admin/products route
         if (request()->is('admin/products')) {
             return view('admin.products.index', compact('products'));
         } else {
+            // Load product categories
             $categories = ProductCategoryType::all();
 
+            // Get selected category and order by values from the request
             $selectedCategoryId = $request->input('category');
             $orderBy = $request->input('orderBy', 'default');
+
+            // Start building the products query
             $productsQuery = Product::query();
 
+            // Filter products by selected category
             if ($selectedCategoryId) {
                 $productsQuery->where('product_category_type_id', $selectedCategoryId);
             }
 
+            // Order products based on the selected order by value
             if ($orderBy == 'priceHighToLow') {
                 $productsQuery->orderBy('price', 'desc');
             } elseif ($orderBy == 'priceLowToHigh') {
                 $productsQuery->orderBy('price', 'asc');
             }
 
-
+            // Paginate the results
             $products = $productsQuery->paginate(21);
 
-            return view('products.index', compact('products', 'categories','orderBy'));
+            // Return the view with products, categories, and orderBy values
+            return view('products.index', compact('products', 'categories', 'orderBy'));
         }
     }
-
-
     public function create()
     {
         $productCategories = ProductCategoryType::all();
@@ -60,10 +68,23 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
     }
 
-    public function show(Product $product)
+    public function show($category, $name)
     {
-        return view('admin.products.show', compact('product'));
+        // Logic to retrieve the product by category and name
+        $product = Product::where('product_category_type_id', $category)->where('product_name', $name)->first();
+
+        // Check if the product is found
+        if (!$product) {
+            abort(404); // Or redirect to a 404 error page
+        }
+
+        // Determine the view path based on the request
+        $viewPath = request()->is('admin/*') ? 'admin.products.show' : 'products.show';
+
+        // Pass the product to the view
+        return view($viewPath, compact('product'));
     }
+
 
     public function edit(Product $product)
     {

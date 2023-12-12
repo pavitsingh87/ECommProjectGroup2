@@ -105,7 +105,7 @@ pre {
 }
 
 q {
-    quotes: "\201C""\201D""\2018""\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 small {
@@ -241,6 +241,7 @@ table {
 .navbar {
     background-color: #fff;
 }
+
 .navbar .navbar-nav {
     display: flex;
     justify-content: center;
@@ -264,36 +265,38 @@ table {
     background-color: #544087;
 }
 
-.nav-item {
-    i {
-        color: #544087;
-    }
+
+.nav-item i {
+    color: #544087;
 }
 
-.products,
-.products-page {
-    h2 {
-        color: #544087;
+.products h2,
+.products-page h2 {
+    color: #544087;
+}
 
-        span {
-            height: 4px;
-            width: 30%;
-            background: #544087;
-            margin: 14px;
-        }
-    }
+.products h2 span,
+.products-page h2 span {
+    height: 4px;
+    width: 30%;
+    background: #544087;
+    margin: 14px;
+}
 
-    .card {
-        transition: all 0.3s ease-in-out;
+.products .card,
+.products-page .card {
+    transition: all 0.3s ease-in-out;
+}
 
-        &:hover {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        }
+.products .card:hover,
+.products-page .card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    /* Add shadow on hover */
+}
 
-        &-img-top {
-            object-fit: scale-down;
-        }
-    }
+.products .card-img-top,
+.products-page .card-img-top {
+    object-fit: scale-down;
 }
 
 .sidebar-img {
@@ -356,7 +359,7 @@ table {
     padding-top: 40px;
 }
 
-.cards {
+/* .cards {
     display: flex;
     justify-content: space-between;
     margin-top: -70px;
@@ -375,7 +378,7 @@ table {
 .card img {
     width: 70%;
     align-self: center;
-}
+} */
 
 .contact {
     border: 1px solid black;
@@ -395,6 +398,7 @@ table {
 .navbar-toggler {
     border: 2px solid black;
 }
+
 .navbar-toggler-icon {
     color: black;
     background-image: var(--bs-navbar-toggler-icon-bg);
@@ -403,6 +407,7 @@ table {
 .navbar-nav .nav-item .nav-link {
     text-align: center;
 }
+
 .navbar-nav .nav-item .nav-link i {
     vertical-align: middle;
 }
@@ -436,5 +441,6 @@ table {
 
 .left-align-button {
     text-align: left;
-    padding-left: 15px; /* Adjust as needed */
+    padding-left: 15px;
+    /* Adjust as needed */
 }
