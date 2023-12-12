@@ -5,7 +5,7 @@
 <div class="container">
 <h1>Create Product</h1>
 
-<form action="{{ route('admin.products.store') }}" method="POST">
+<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -28,11 +28,14 @@
     </div>
 
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label for="product_image">Product Image</label>
         <input type="text" name="product_image" id="product_image" class="form-control" value="{{ old('product_image') }}" required>
+    </div>-->
+    <div class="form-group">
+        <label for="product_image">Product Image</label>
+        <input type="file" name="product_image" id="product_image" class="form-control" accept="image/*" required>
     </div>
-
     <div class="form-group">
         <label for="price">Price</label>
         <input type="number" name="price" id="price" class="form-control" value="{{ old('price') }}" required>
