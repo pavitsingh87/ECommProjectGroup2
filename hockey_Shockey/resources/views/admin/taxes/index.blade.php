@@ -14,7 +14,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Province</th>
-                    <th>City</th>
                     <th>GST</th>
                     <th>PST</th>
                     <th>Actions</th>
@@ -25,7 +24,6 @@
                     <tr>
                         <td>{{ $tax->id }}</td>
                         <td>{{ $tax->province }}</td>
-                        <td>{{ $tax->city }}</td>
                         <td>{{ $tax->gst }}</td>
                         <td>{{ $tax->pst }}</td>
                         <td>

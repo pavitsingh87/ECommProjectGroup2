@@ -5,16 +5,11 @@
 @section('content')
 
 <div class="container">
-    <h1>{{ $tax->province }} - {{ $tax->city }}</h1>
+    <h1>{{ $tax->province }}</h1>
 
     <div>
         <strong>Province:</strong>
         <p>{{ $tax->province }}</p>
-    </div>
-
-    <div>
-        <strong>City:</strong>
-        <p>{{ $tax->city }}</p>
     </div>
 
     <div>
