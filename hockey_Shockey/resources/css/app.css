@@ -359,26 +359,26 @@ table {
     padding-top: 40px;
 }
 
-/* .cards {
+.about-cards {
     display: flex;
     justify-content: space-between;
     margin-top: -70px;
 }
 
-.card {
+.about-card {
     border: none;
     text-align: center;
     background: none;
 }
 
-.card-title {
+.about-card-title {
     font-size: 18px;
 }
 
-.card img {
+.about-card img {
     width: 70%;
     align-self: center;
-} */
+}
 
 .contact {
     border: 1px solid black;
