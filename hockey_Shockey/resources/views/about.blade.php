@@ -24,39 +24,39 @@
                     <div class="rectangle-box">
                         <h3>Meet the Team</h3>
                     </div>
-                    <div class="cards">
-                    <div class="card" style="width: 12rem;">
+                    <div class="about-cards cards">
+                    <div class="about-card card" style="width: 12rem;">
                         <img class="card-img-top rounded-circle" src="images/girl 1.png" alt="Profile">
                         <div class="card-body">
-                          <h5 class="card-title">Andres Marquez</h5>
+                          <h5 class="about-card-title card-title">Andres Marquez</h5>
                           <p class="card-text">Full Stack Developer</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 12rem;">
+                    <div class="about-card card" style="width: 12rem;">
                         <img class="card-img-top rounded-circle" src="images/girl 1.png" alt="Profile">
                         <div class="card-body">
-                          <h5 class="card-title">Avneet Hayer</h5>
+                          <h5 class="about-card-title card-title">Avneet Hayer</h5>
                           <p class="card-text">DB Administrator</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 12rem;">
+                    <div class="about-card card" style="width: 12rem;">
                         <img class="card-img-top rounded-circle" src="images/girl 1.png" alt="Profile">
                         <div class="card-body">
-                          <h5 class="card-title">Dipesh Shrestha</h5>
+                          <h5 class="about-card-title card-title">Dipesh Shrestha</h5>
                           <p class="card-text">HTML/CSS/JS</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 12rem;">
+                    <div class="about-card card" style="width: 12rem;">
                         <img class="card-img-top rounded-circle" src="images/girl 1.png" alt="Profile">
                         <div class="card-body">
-                          <h5 class="card-title">Pavit Makkar</h5>
+                          <h5 class="about-card-title card-title">Pavit Makkar</h5>
                           <p class="card-text">Project Manager</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 12rem;">
+                    <div class="about-card card" style="width: 12rem;">
                         <img class="card-img-top rounded-circle" src="images/girl 1.png" alt="Profile">
                         <div class="card-body">
-                          <h5 class="card-title">Simron Shrestha</h5>
+                          <h5 class="about-card-title card-title">Simron Shrestha</h5>
                           <p class="card-text">UI/UX Designer</p>
                         </div>
                     </div>
