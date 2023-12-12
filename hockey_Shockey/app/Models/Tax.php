@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tax extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['amount', 'order_id', 'province_id'];
     public function province()
     {
         return $this->belongsTo(Province::class);
