@@ -7,7 +7,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-fixed-top border-bottom border-2">
     <a class="navbar-brand" href="#">
-      <img src="images/logo.png" alt="" width="150" height="53">
+      <img src="/images/logo.png" alt="" width="150" height="53">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
           <a class="nav-link" href="/about">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/products">Products</a>
+          <a class="nav-link" href="/product">Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact Us</a>
