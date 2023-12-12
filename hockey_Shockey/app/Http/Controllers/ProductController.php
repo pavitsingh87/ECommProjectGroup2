@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCategoryType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -22,16 +25,36 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the request
         $request->validate([
             'product_name' => 'required',
             'product_description' => 'required',
-            'product_image' => 'required',
+            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file types and size
             'price' => 'required|numeric',
             'availability_status' => 'required',
             'product_category_type_id' => 'required|numeric'
         ]);
 
-        Product::create($request->all());
+        $directory = 'images/product_images';
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 0755, true, true);
+        }
+
+        // Handle file upload
+        $imagePath = $request->file('product_image')->store($directory, 'public');
+
+        // Create a new product instance
+        $product = new Product([
+            'product_name' => $request->input('product_name'),
+            'product_description' => $request->input('product_description'),
+            'product_image' => $imagePath, // Save the file path in the database
+            'price' => $request->input('price'),
+            'availability_status' => $request->input('availability_status'),
+            'product_category_type_id' => $request->input('product_category_type_id'),
+        ]);
+
+        // Save the product to the database
+        $product->save();
 
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
     }
@@ -53,15 +76,37 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required',
             'product_description' => 'required',
-            'product_image' => 'required',
             'price' => 'required|numeric',
             'availability_status' => 'required',
             'product_category_type_id' => 'required|numeric',
         ]);
-
-        $product->update($request->all());
-
+    
+        // Handle image upload
+        if ($request->hasFile('product_image')) {
+            $request->validate([
+                'product_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate image file
+            ]);
+    
+            // Delete the old image if it exists
+            Storage::disk('public')->delete($product->product_image);
+    
+            // Store the new image and update the product_image field
+            $product->update([
+                'product_image' => $request->file('product_image')->store('product_images', 'public'),
+            ]);
+        }
+    
+        // Update other product data
+        $product->update([
+            'product_name' => $request->input('product_name'),
+            'product_description' => $request->input('product_description'),
+            'price' => $request->input('price'),
+            'availability_status' => $request->input('availability_status'),
+            'product_category_type_id' => $request->input('product_category_type_id'),
+        ]);
+    
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
+    
     }
 
     public function destroy(Product $product)

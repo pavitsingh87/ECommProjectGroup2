@@ -27,7 +27,7 @@
                         <td>{{ $product->short_description }}</td>
                         <td>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</td>
                         <td>
-                            <img src="{{ $product->product_image }}" alt="{{ $product->product_name }}" width="50">
+                            <img class="card-img-top" src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" style="width:150px;">
                         </td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->availability_status }}</td>
