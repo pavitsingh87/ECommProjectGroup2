@@ -14,10 +14,10 @@
       @if ($products !== null)
       @foreach ($products as $product)
           <div class="col mb-5">
-              <div class="card border-top-0 shadow:hover h-100">
+              <div class="card text-center  border-top-0 shadow:hover h-100">
                   <!-- Product image -->
                   <!-- <img class="card-img-top" src="{{ $product->product_image }}" alt="{{ $product->product_name }}" /> -->
-                  <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" class="mt-2" style="max-width: 200px;">
+                  <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" class="mt-2 text-center " style="max-width: 200px;margin: 0px auto;">
                   
                   <!-- Product details -->
                   <div class="card-body p-4">
