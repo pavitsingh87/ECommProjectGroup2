@@ -105,7 +105,7 @@ pre {
 }
 
 q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
+    quotes: "\201C""\201D""\2018""\2019";
 }
 
 small {
@@ -265,7 +265,6 @@ table {
     background-color: #544087;
 }
 
-
 .nav-item i {
     color: #544087;
 }
@@ -417,18 +416,17 @@ table {
     border: 1px solid #ccc;
 }
 
-
-ul#searchResults{
+ul#searchResults {
     list-style: none;
 }
 
 ul#searchResults li {
-    padding:5px;
+    padding: 5px;
 }
 
 ul#searchResults li span {
-    vertical-align:top;
-    padding:10px;
+    vertical-align: top;
+    padding: 10px;
 }
 
 /* register page css */
@@ -459,20 +457,17 @@ ul#searchResults li span {
 }
 
 iframe {
-    width:100%;
+    width: 100%;
 }
-
-
 
 /* for responsiveness */
 @media screen and (max-width: 968px) {
     .navbar .navbar-nav {
-      gap:0px;
+        gap: 0px;
     }
-    
-.navbar .navbar-info {
-   
-       margin:auto;
-       width:0%;
+
+    .navbar .navbar-info {
+        margin: auto;
+        width: 0%;
     }
-  }
+}
