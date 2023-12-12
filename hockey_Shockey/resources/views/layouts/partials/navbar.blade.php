@@ -13,6 +13,7 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="bi bi-list"></i>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
@@ -33,6 +34,9 @@
           <li class="nav-item">
             <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
           </li>
+            <li class="nav-item">
+              <a href="#"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
+            </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <!-- Authentication Links -->
@@ -49,15 +53,7 @@
           </li>
           @endif
           @else
-          @auth
-          @if (Auth::user()->role_id == 0)
-          <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a href="#"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
-            </li>
-          </ul>
-          @endif
-          @endauth
+         
           @auth
           @if (Auth::user()->role_id == 1)
           <!-- Show Dashboard link for admin -->
@@ -103,6 +99,5 @@
         </form>
         <ul id="searchResults"></ul>
 
-        
   </div>
 </div>
