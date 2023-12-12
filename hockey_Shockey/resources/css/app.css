@@ -413,6 +413,18 @@ table {
 }
 
 
+ul#searchResults{
+    list-style: none;
+}
+ul#searchResults li {
+    padding:5px;
+}
+ul#searchResults li span {
+    vertical-align:top;
+    padding:10px;
+}
+
+
 /* register page css */
 .form-group-register {
     display: inline-block;
@@ -442,3 +454,4 @@ table {
 iframe{
     width:100%;
 }
+

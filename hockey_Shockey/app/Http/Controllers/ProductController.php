@@ -115,4 +115,21 @@ class ProductController extends Controller
 
         return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
+
+    public function search(Request $request)
+    {
+        // Perform the search based on the user input
+        $query = $request->input('query');
+        $results = Product::where('product_name', 'like', "%$query%")->get();
+
+        return response()->json($results);
+    }
+    public function showProducts()
+    {
+        // Fetch the products from the database
+        $products = Product::take(6)->get();
+        return $products;
+        // Pass the products to the view
+        //return view('home', compact('products'));
+    }
 }

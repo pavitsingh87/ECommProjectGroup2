@@ -18,7 +18,12 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    
+    $productsController = new ProductController();
+    $products = $productsController->showProducts();
+    //print_r($products);
+    // Pass the products to the home view
+    return view('home', compact('products'));
 });
 
 Route::get('/dashboard', function () {
@@ -56,6 +61,8 @@ Route::get('/about', function () {
 Route::get('/privacy', function () {
     return view('privacy');
 });
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 
 Route::get('/contact', function () {
     return view('contact');
