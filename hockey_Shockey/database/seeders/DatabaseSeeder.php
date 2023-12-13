@@ -21,5 +21,11 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
         ]);
 
+        // $this->call(AdminUserSeeder::class);
+        $this->call(categoriesTableSeeder::class);
+        $this->call(ProductCategoryTypeSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(ProvincesTableSeeder::class);
+        $this->call(TaxesTableSeeder::class);
     }
 }
