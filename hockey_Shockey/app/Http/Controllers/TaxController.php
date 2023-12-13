@@ -50,37 +50,17 @@ class TaxController extends Controller
 
         public function update(Request $request, Tax $tax)
         {
-            // Load the related Order and Province
-            $tax->load('order', 'province');
-        
-            // Check if the 'order' relationship is loaded and not null
-            if ($tax->order) {
-                // Retrieve the updated values from the request
                 $updatedGST = $request->input('gst');
                 $updatedPST = $request->input('pst');
-        
-                // Calculate the updated tax amount using your logic
-                $updatedTaxAmount = $this->calculateTaxAmount(
-                    $tax->order->total,  // Assuming 'total' is a property of the Order model
-                    $tax->province->id,
-                    $updatedGST,
-                    $updatedPST
-                );
-        
-                // Update the tax record
+            
                 $tax->update([
-                    'amount' => $updatedTaxAmount,
-                    'gst_rate' => $updatedGST, // Update GST rate in the taxes table
-                    'pst_rate' => $updatedPST, // Update PST rate in the taxes table
-       
+                    'gst_rate' => $updatedGST,
+                    'pst_rate' => $updatedPST,
                 ]);
+            
+                return redirect()->route('admin.taxes.index')->with('success', 'Tax updated successfully.');  
+            } 
         
-                return redirect()->route('admin.taxes.index')->with('success', 'Tax updated successfully.');
-            } else {
-                // Handle the case where the 'order' relationship is null
-                return redirect()->route('admin.taxes.index')->with('error', 'Tax update failed. Order not found.');
-            }
-        }
         public function destroy(Tax $tax)
         {
             $tax->delete();
