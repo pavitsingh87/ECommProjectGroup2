@@ -2,7 +2,7 @@
 
 
 @section('content')
-<!-- resources/views/checkout.blade.php -->
+<!-- resources/views/checkout.blade.php pavit -->
 <div class="container">
     <div class="row">
         <!-- Left column for checkout form -->

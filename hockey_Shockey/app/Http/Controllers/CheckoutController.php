@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
-    //
+    //checkout controller
     public function checkout()
     {
         $cartItems = Session::get('cart', []);
