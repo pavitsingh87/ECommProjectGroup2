@@ -25,6 +25,7 @@ class TaxController extends Controller
             $request->validate([
                 'gst' => 'required|numeric|min:0',
                 'pst' => 'required|numeric|min:0',
+                'hst' => 'required|numeric|min:0',
                 'province' => 'required|string'
             ]);
 
@@ -36,6 +37,7 @@ class TaxController extends Controller
             $tax = Tax::create([
                 'gst_rate' => $request->input('gst'),
                 'pst_rate' => $request->input('pst'),
+                'hst_rate' => $request->input('hst'),
                 'province_id' => $province->id
             ]);
 
@@ -58,10 +60,12 @@ class TaxController extends Controller
         {
                 $updatedGST = $request->input('gst');
                 $updatedPST = $request->input('pst');
+                $updatedHST = $request->input('hst');
             
                 $tax->update([
                     'gst_rate' => $updatedGST,
                     'pst_rate' => $updatedPST,
+                    'hst_rate' => $updatedHST,
                 ]);
             
                 return redirect()->route('admin.taxes.index')->with('success', 'Tax updated successfully.');  
