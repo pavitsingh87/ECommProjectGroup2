@@ -81,7 +81,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
+
+
+Route::get('/cart/total', [CartController::class, 'getTotal'])->name('cart.total');
 
 Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart');
 
