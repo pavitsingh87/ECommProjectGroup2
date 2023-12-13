@@ -32,7 +32,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function () {
+        jQuery(document).ready(function () {
             $('#searchForm').submit(function (e) {
                 e.preventDefault();
 
@@ -72,6 +72,59 @@
                     productList.append(listItem);
                 });
             }
+
+            // sending ajax request for removing an item from the cart
+
+            $(".remove-from-cart").click(function (e) {
+                e.preventDefault();
+                var ele = $(this);
+                var parent_row = ele.parents("tr");
+                var cart_total = $(".cart-total");
+
+                if (confirm("Do you want remove item?")) {
+                    fetch('{{ url('remove-from-cart') }}', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({ id: ele.attr("data-id") })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            parent_row.remove();
+                            cart_total.text(data.total);
+                        })
+                        .catch(error => console.error('Error:', error));
+
+                }
+            });
+
+            //sending ajax request to calculate the new subtotal and total
+            $(".quantity").change(function (e) {
+                e.preventDefault();
+
+                var ele = $(this);
+                var parent_row = ele.parents("tr");
+                var quantity = ele.val();
+                var product_subtotal = parent_row.find("span.product-subtotal");
+                var cart_total = $(".cart-total");
+                
+
+                $.ajax({
+                    url: '{{ url('update-cart') }}',
+                    method: "patch",
+                    data: { _token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: quantity },
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(ele.val())
+                        product_subtotal.text(response.subTotal);
+                        cart_total.text(response.total);
+                       
+                        ele.val(response.quantity);
+                    }
+            });
+        });
         });
     </script>
 </body>
