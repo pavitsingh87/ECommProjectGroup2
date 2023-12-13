@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('gst_rate', 5, 2)->default(0);
-            $table->decimal('pst_rate', 5, 2)->default(0);
             $table->timestamps();
         });
     }
