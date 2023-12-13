@@ -4,11 +4,17 @@
 
 @section('content')
 <div class="container">
+@if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    
     <div class="row p-4">
         <!-- Sidebar -->
         <div class="col-md-3 mt-5 ">
             <div class="list-group d-flex flex-column">
-                
+            <a href="/edituserprofile" class="list-group-item list-group-item-action">Edit Profile</a>
                 <a href="#" class="list-group-item list-group-item-action">My Orders</a>
                 <a href="#" class="list-group-item list-group-item-action">Wishlist</a>
                 <a href="#" class="list-group-item list-group-item-action">Change Password</a>
@@ -27,6 +33,9 @@
 
                     <div class="mb-3">
                         <strong>Email:</strong> {{ auth()->user()->email }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>Contact:</strong> {{ auth()->user()->contact_no }}
                     </div>
 
                     <div class="mb-3">

@@ -11,6 +11,7 @@ use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('index');
 
 Route::middleware('auth')->group(function () {
+    Route::patch('/edituserprofile', [UserProfileController::class, 'update'])->name('userprofile.update');
+    Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('userprofile');
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -106,6 +111,9 @@ Route::get('/privacy', function () {
 });
 Route::get('/userprofile', function () {
     return view('userprofile');
+});
+Route::get('/edituserprofile', function () {
+    return view('edituserprofile');
 });
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
