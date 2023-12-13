@@ -11,7 +11,7 @@
             <a href="/edituserprofile" class="list-group-item list-group-item-action">Edit Profile</a>
                 <a href="#" class="list-group-item list-group-item-action">My Orders</a>
                 <a href="#" class="list-group-item list-group-item-action">Wishlist</a>
-                <a href="#" class="list-group-item list-group-item-action">Change Password</a>
+                <a href="{{ route('change-password') }}" class="list-group-item list-group-item-action">Change Password</a>
             </div>
         </div>
 
@@ -27,12 +27,12 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label"><strong>Name:</strong></label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" readonly>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label"><strong>Email:</strong></label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}">
                         </div>
 
                         <div class="mb-3">
