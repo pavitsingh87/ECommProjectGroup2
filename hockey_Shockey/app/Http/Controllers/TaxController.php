@@ -70,6 +70,9 @@ class TaxController extends Controller
                 // Update the tax record
                 $tax->update([
                     'amount' => $updatedTaxAmount,
+                    'gst_rate' => $updatedGST, // Update GST rate in the taxes table
+                    'pst_rate' => $updatedPST, // Update PST rate in the taxes table
+       
                 ]);
         
                 return redirect()->route('admin.taxes.index')->with('success', 'Tax updated successfully.');
