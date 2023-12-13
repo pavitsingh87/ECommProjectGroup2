@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Tax;
+use App\Models\Province;
 
 use Illuminate\Http\Request;
 
@@ -20,28 +21,33 @@ class TaxController extends Controller
     
         public function store(Request $request)
         {
-    
-            $orderTotal = $request->input('order_total');
-            $provinceId = $request->input('province_id');
 
-            $calculatedTaxAmount = $this->calculateTaxAmount($orderTotal, $provinceId);
-
-            Tax::create([
-                'amount' => $calculatedTaxAmount,
-                'order_id' => $request->input('order_id'),
-                'province_id' => $provinceId,
+            $request->validate([
+                'gst' => 'required|numeric|min:0',
+                'pst' => 'required|numeric|min:0',
+                'province' => 'required|string'
             ]);
 
-            return redirect()->route('admin.taxes.index')->with('success', 'Tax created successfully.');
+            $province = Province::create([
+                'name' => $request->input('province'),
+            ]);
+
+            // dd($province->name);
+            $tax = Tax::create([
+                'gst_rate' => $request->input('gst'),
+                'pst_rate' => $request->input('pst'),
+                'province_id' => $province->id
+            ]);
+
+            return redirect()->route('admin.taxes.index')->with('success', 'Tax updated successfully.');  
         }
     
         public function show(Tax $tax)
-{
-    // Load the related Order and Province
-    $tax->load('order', 'province');
+            {
+                $tax->load('province');
 
-    return view('admin.taxes.show', compact('tax'));
-}
+                return view('admin.taxes.show', compact('tax'));
+            }
     
         public function edit(Tax $tax)
         {
