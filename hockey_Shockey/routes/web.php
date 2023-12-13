@@ -117,7 +117,7 @@ Route::get('/contact', function () {
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
-
-Route::get('/checkout', [CartController::class, 'checkout']);
+// checkout 
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
 
 require __DIR__ . '/auth.php';
