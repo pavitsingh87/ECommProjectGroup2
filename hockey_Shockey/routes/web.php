@@ -10,10 +10,7 @@ use App\Http\Controllers\TaxController;
 
 use App\Http\Controllers\CartController;
 
-
 use App\Http\Controllers\UserController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +103,9 @@ Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->
 
 Route::get('/privacy', function () {
     return view('privacy');
+});
+Route::get('/userprofile', function () {
+    return view('userprofile');
 });
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
