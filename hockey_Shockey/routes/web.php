@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('admin.products.show');
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
+  
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     Route::get('/admin/taxes', [TaxController::class, 'index'])->name('admin.taxes.index');
     Route::get('/admin/taxes/create', [TaxController::class, 'create'])->name('admin.taxes.create');

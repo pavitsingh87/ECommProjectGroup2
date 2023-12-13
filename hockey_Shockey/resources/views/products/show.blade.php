@@ -19,10 +19,9 @@
         <div class="d-flex">
           <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1"
             style="max-width: 3rem" />
-          <button class="btn btn-outline-dark flex-shrink-0" type="button">
-            <i class="bi-cart-fill me-1"></i>
-            Add to cart
-          </button>
+          <div class="product_add_to_cart text-center">
+            <a href="add-to-cart/{{ $product->product_id }}" data-id="{{ $product->product_id }}"> Add to Cart</a>
+          </div>
         </div>
       </div>
     </div>

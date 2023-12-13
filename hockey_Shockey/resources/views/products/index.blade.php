@@ -79,7 +79,8 @@
 
               <a
                 href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">
-                <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}" class="card-img-top" />
+                <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
+                  class="card-img-top" />
                 <div class="card-body d-flex flex-column">
                   <div class="d-flex flex-row justify-content-center ">
                     <h5 class="mb-1 me-1">{{ $product->price }}</h5>
@@ -88,9 +89,18 @@
                 </div>
               </a>
               <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
-                <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i
-                    class="fas fa-heart fa-lg text-secondary px-1"></i></a>
+                <!-- <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a> -->
+                <div class="add_quick_wrapper d-flex">
+                  <!-- Add to cart -->
+                  <div class="product_add_to_cart text-center">
+                    <a href="add-to-cart/{{ $product->product_id }}" data-id="{{ $product->product_id }}"> Add to Cart</a>
+                  </div>
+                  <!-- Quick View -->
+                  <div class="product_quick_view text-center">
+                    <a href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}"> Quick View</a>
+                  </div>
+                </div>
+               
               </div>
             </div>
           </div>
