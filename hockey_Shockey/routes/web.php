@@ -10,7 +10,6 @@ use App\Http\Controllers\TaxController;
 
 use App\Http\Controllers\CartController;
 
-use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\UserController;
 
