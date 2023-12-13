@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('province_id');
+            $table->decimal('gst_rate', 5, 2)->default(0);
+            $table->decimal('pst_rate', 5, 2)->default(0);
             $table->timestamps();
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
         });
