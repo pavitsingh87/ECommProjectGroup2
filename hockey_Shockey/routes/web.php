@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+
 use App\Http\Controllers\TaxController;
 
 use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\UserController;
+
 
 
 /*
@@ -53,8 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('admin.products.show');
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
-  
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+
     Route::get('/admin/taxes', [TaxController::class, 'index'])->name('admin.taxes.index');
     Route::get('/admin/taxes/create', [TaxController::class, 'create'])->name('admin.taxes.create');
     Route::post('/admin/taxes', [TaxController::class, 'store'])->name('admin.taxes.store');
@@ -62,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/taxes/{tax}/edit', [TaxController::class, 'edit'])->name('admin.taxes.edit');
     Route::put('/admin/taxes/{tax}', [TaxController::class, 'update'])->name('admin.taxes.update');
     Route::delete('/admin/taxes/{tax}', [TaxController::class, 'destroy'])->name('admin.taxes.destroy');
+
 
     // Route for listing users
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
@@ -81,6 +84,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart');
+
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('cart');
+
+Route::patch('update-cart', [CartController::class, 'update'])->name('cart');
+
+
 // routes for about page, contact page and privacy page
 Route::get('/about', function () {
     return view('about');
@@ -97,7 +109,6 @@ Route::get('/privacy', function () {
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.form');
@@ -107,6 +118,4 @@ Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart'
 
 Route::get('/checkout', [CartController::class, 'checkout']);
 
-
 require __DIR__ . '/auth.php';
-
