@@ -7,7 +7,7 @@
         </a>
         <ul class="sidebar-nav">
         <li class="sidebar-item">
-                <a class='sidebar-link' href="#">
+                <a class='sidebar-link' href="{{ route('admin.users.index') }}">
                     <i class="align-middle" data-feather="sliders"></i>
                     <span class="align-middle">Users</span>
                 </a>
