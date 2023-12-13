@@ -14,20 +14,22 @@ class ProvincesTableSeeder extends Seeder
     public function run(): void
     {
         $provinces = [
-            ['name' => 'Alberta', 'gst_rate' => 5.0, 'pst_rate' => 0.0],
-            ['name' => 'British Columbia', 'gst_rate' => 5.0, 'pst_rate' => 7.0],
-            ['name' => 'Manitoba', 'gst_rate' => 5.0, 'pst_rate' => 8.0],
-            ['name' => 'New Brunswick', 'gst_rate' => 15.0, 'pst_rate' => 10.0],
-            ['name' => 'Newfoundland and Labrador', 'gst_rate' => 15.0, 'pst_rate' => 10.0],
-            ['name' => 'Nova Scotia', 'gst_rate' => 15.0, 'pst_rate' => 10.0],
-            ['name' => 'Ontario', 'gst_rate' => 5.0, 'pst_rate' => 8.0],
-            ['name' => 'Prince Edward Island', 'gst_rate' => 15.0, 'pst_rate' => 10.0],
-            ['name' => 'Quebec', 'gst_rate' => 5.0, 'pst_rate' => 9.975],
-            ['name' => 'Saskatchewan', 'gst_rate' => 5.0, 'pst_rate' => 6.0]
+            'Alberta',
+            'British Columbia',
+            'Manitoba',
+            'New Brunswick',
+            'Newfoundland and Labrador',
+            'Nova Scotia',
+            'Ontario',
+            'Prince Edward Island',
+            'Quebec',
+            'Saskatchewan',
         ];
 
-        foreach ($provinces as $provinceData) {
-            Province::create($provinceData);
+        foreach ($provinces as $provinceName) {
+            Province::create([
+                'name' => $provinceName,
+            ]);
         }
     }
 }
