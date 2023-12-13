@@ -7,14 +7,6 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-
-    // Display the shopping cart
-    public function cart()
-    {
-        $title = 'Shopping Cart';
-        return view('cart', compact('title'));
-    }
-
     // Add a product to the shopping cart
     public function addToCart($id)
     {
@@ -128,4 +120,30 @@ class CartController extends Controller
             }
         }
     }
+
+    public static function getCartItemsTotal()
+    {
+        if (session()->has('cart')) {
+            $totalItems = 0;
+
+            $cart = session()->get('cart');
+
+            foreach ($cart as $id => $details) {
+                $totalItems += $details['quantity'];
+            }
+
+            return $totalItems;
+        }
+    }
+
+    public function getTotal()
+    {
+        try {
+            $total = $this->getCartItemsTotal();
+            return response()->json(['total' => $total]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
 }

@@ -36,8 +36,10 @@
             <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-search" style="font-size: 1.2rem;"></i></a>
           </li>
             <li class="nav-item">
-              <a href="/cart"><i class="bi bi-cart" style="font-size: 1.2rem;"></i></a>
-              <span id="cartItemCount" class="badge badge-pill badge-danger"></span>
+              <a href="/cart" class="position-relative">
+                <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCounter"></span>
+              </a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
