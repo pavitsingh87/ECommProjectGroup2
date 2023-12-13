@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@gmail.com',
-            'password' => password_hash('mypass', PASSWORD_DEFAULT),
-            'role_id' => 1,
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Admin User',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => password_hash('mypass', PASSWORD_DEFAULT),
+        //     'role_id' => 1,
+        // ]);
 
         // $this->call(AdminUserSeeder::class);
         $this->call(categoriesTableSeeder::class);
