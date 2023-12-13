@@ -5,6 +5,9 @@
 @include('layouts.partials.admin.header') <!-- Include header template -->
 
 <body>
+
+
+
     <div class="wrapper">
         @include('layouts.partials.admin.sidebar') <!-- Include sidebar template -->
 
