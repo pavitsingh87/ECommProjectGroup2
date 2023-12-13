@@ -14,12 +14,12 @@
 
     <div>
         <strong>GST:</strong>
-        <p>{{ $tax->province->gst_rate }}</p>
+        <p>{{ $tax->gst_rate }}</p>
     </div>
 
     <div>
         <strong>PST:</strong>
-        <p>{{ $tax->province->pst_rate }}</p>
+        <p>{{ $tax->pst_rate }}</p>
     </div>
 
     <div>

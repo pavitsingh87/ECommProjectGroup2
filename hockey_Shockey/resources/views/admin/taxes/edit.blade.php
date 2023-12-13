@@ -18,12 +18,12 @@
 
         <div class="form-group">
             <label for="gst">GST</label>
-            <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst', $tax->province->gst_rate) }}" required>
+            <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst', $tax->gst_rate) }}" required>
         </div>
 
         <div class="form-group">
             <label for="pst">PST</label>
-            <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst', $tax->province->pst_rate) }}" required>
+            <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst', $tax->pst_rate) }}" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Update Tax</button>
