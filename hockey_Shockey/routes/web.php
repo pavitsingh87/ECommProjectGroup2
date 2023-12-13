@@ -8,7 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\CheckoutController;
 
 
 /*

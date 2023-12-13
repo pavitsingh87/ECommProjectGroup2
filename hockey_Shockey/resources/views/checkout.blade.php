@@ -6,8 +6,8 @@
 <div class="container">
     <div class="row">
         <!-- Left column for checkout form -->
-        <div class="col-md-6">
-            <div class="col-md-12   ">
+        <div class="col-md-6"  style="background:#f2f2f2">
+            <div class="col-md-12">
                 <br><br>
                 <form  method="post">
                     @csrf
@@ -96,7 +96,7 @@
         </div>
         <!-- Right column for list of checkout products -->
         <!-- Right column for list of checkout products -->
-        <div class="col-md-6" style="background:#f2f2f2">
+        <div class="col-md-6">
             <div class="col-md-8">
                 <br><br>
                 <!-- Product List -->
@@ -114,7 +114,7 @@
                             <img src="http://localhost:8000/storage/product_images/wc1FztG2oiyxe6LjxnwhnlBb0YbSJuqr3ckXEawE.jpg" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
                             <div>
                                 <h5>{{ $product['product_name'] }}</h5>
-                                <p>${{ $product['price'] }} X {{ $product['quantity'] }} = {{$product['price'] * $product['quantity']}}</p>
+                                <p>$ {{ $product['price'] }} X {{ $product['quantity'] }} = $ {{$product['price'] * $product['quantity']}}</p>
                             </div>
                         </div>
                         
