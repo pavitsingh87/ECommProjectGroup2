@@ -103,19 +103,27 @@
                 <h2>Your Cart</h2>
 
                 @if(session('cart'))
+                    @php
+                        $total = 0;
+                    @endphp
                     @foreach(session('cart') as $product)
+                        @php
+                            $total += $product['price'] * $product['quantity'];
+                        @endphp
                         <div class="d-flex mb-3">
-                            <img src="http://localhost:8000/storage/product_images/wc1FztG2oiyxe6LjxnwhnlBb0YbSJuqr3ckXEawE.jpg" alt="{{ $product['name'] }}" class="mr-3" style="width: 80px;">
+                            <img src="http://localhost:8000/storage/product_images/wc1FztG2oiyxe6LjxnwhnlBb0YbSJuqr3ckXEawE.jpg" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
                             <div>
-                                <h5>{{ $product['name'] }}</h5>
-                                <p>${{ $product['price'] }}</p>
+                                <h5>{{ $product['product_name'] }}</h5>
+                                <p>${{ $product['price'] }} X {{ $product['quantity'] }} = {{$product['price'] * $product['quantity']}}</p>
                             </div>
                         </div>
+                        
                     @endforeach
 
                     <!-- Total -->
                     <div class="mt-4">
-                        
+                    <h3>Total: ${{ $total }}</h3>
+
                     </div>
                 @else
                     <p>Your cart is empty.</p>
