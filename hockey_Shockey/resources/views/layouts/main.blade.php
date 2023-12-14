@@ -37,6 +37,7 @@
     @include('layouts.partials.footer')
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -44,6 +45,9 @@
         crossorigin="anonymous"></script>
     <script>
         jQuery(document).ready(function () {
+
+            updateCartCounter();
+
             $('#searchForm').submit(function (e) {
                 e.preventDefault();
 
@@ -89,11 +93,15 @@
             $(".remove-from-cart").click(function (e) {
                 e.preventDefault();
                 var ele = $(this);
-                var parent_row = ele.parents("tr");
-                var cart_total = $(".cart-total");
+                console.log(ele.parents());
+                var parent_row = ele.parents(".item-sale");
 
-                if (confirm("Do you want remove item?")) {
-                    fetch('{{ url('remove-from-cart') }}', {
+                // Show the Bootstrap modal
+                $('#itemsModal').modal('show');
+
+                // Add an event listener for the confirmation button
+                $("#itemsModal").on('click', '.btn-primary', function () {
+                    fetch('{{ url("remove-from-cart") }}', {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -101,29 +109,33 @@
                         },
                         body: JSON.stringify({ id: ele.attr("data-id") })
                     })
-                        .then(response => response.json())
-                        .then(data => {
-                            parent_row.remove();
-                            cart_total.text(data.total);
-                        })
-                        .catch(error => console.error('Error:', error));
-
-                }
+                    .then(response => response.json())
+                    .then(data => {
+                        parent_row.remove();
+                        $(".cart-total").text(data.total);
+                    })
+                    .catch(error => console.error('Error:', error));
+                
+                    // Hide the Bootstrap modal after confirmation
+                    $('#itemsModal').modal('hide');
+                });
             });
+
+
 
             //sending ajax request to calculate the new subtotal and total
             $(".quantity").change(function (e) {
                 e.preventDefault();
 
                 var ele = $(this);
-                var parent_row = ele.parents("tr");
+                var parent_row = ele.parents("div");
                 var quantity = ele.val();
                 var product_subtotal = parent_row.find("span.product-subtotal");
                 var cart_total = $(".cart-total");
                 
 
                 $.ajax({
-                    url: '{{ url('update-cart') }}',
+                    url: '{{ url("update-cart") }}',
                     method: "patch",
                     data: { _token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: quantity },
                     dataType: "json",
@@ -134,9 +146,20 @@
                        
                         ele.val(response.quantity);
                     }
+                });
             });
+
+            function updateCartCounter() {
+                $.ajax({
+                    url: '{{ route("cart.total") }}',
+                    method: 'GET',
+                    success: function (response) {
+                        $('#cartCounter').text(response.total);
+                    }
+                });
+            }
         });
-        });
+        
     </script>
 </body>
 

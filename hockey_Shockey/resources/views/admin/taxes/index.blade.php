@@ -16,6 +16,7 @@
                     <th>Province</th>
                     <th>GST</th>
                     <th>PST</th>
+                    <th>HST</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                         <td>{{ $tax->province->name }}</td>
                         <td>{{ $tax->gst_rate }}</td>
                         <td>{{ $tax->pst_rate }}</td>
+                        <td>{{ $tax->hst_rate }}</td>
                         <td>
                             <a href="{{ route('admin.taxes.show', $tax->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('admin.taxes.edit', $tax->id) }}" class="btn btn-primary">Edit</a>

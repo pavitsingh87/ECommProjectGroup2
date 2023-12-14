@@ -2,11 +2,11 @@
 
 @section('content')
 
-<section class="products-page py-5 ">
+<section class="section products-page py-5 ">
   <div class="container">
     <div class="row">
       <!-- sidebar -->
-      <div class="col-lg-3">
+      <div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
         <!-- Toggle button -->
         <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-mdb-toggle="collapse"
           data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -93,14 +93,24 @@
                 <div class="add_quick_wrapper d-flex">
                   <!-- Add to cart -->
                   <div class="product_add_to_cart text-center">
-                    <a href="add-to-cart/{{ $product->product_id }}" data-id="{{ $product->product_id }}"> Add to Cart</a>
+                    <a href="add-to-cart/{{ $product->product_id }}" data-id="{{ $product->product_id }}"> Add to
+                      Cart</a>
                   </div>
                   <!-- Quick View -->
                   <div class="product_quick_view text-center">
-                    <a href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}"> Quick View</a>
+                    <a
+                      href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">
+                      Quick View</a>
                   </div>
+                  <!-- WishList View -->
+                  <form method="post" action="{{ route('wishlist.store', ['productId' => $product->product_id]) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-link text-danger heart-icon">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                  </form>
                 </div>
-               
+
               </div>
             </div>
           </div>
@@ -112,11 +122,10 @@
 
         </div>
 
-        <hr />
-
-        <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+        <div class="pagination justify-content-center mt-3">
           {{ $products->links() }}
-        </nav>
+        </div>
+
       </div>
     </div>
   </div>
