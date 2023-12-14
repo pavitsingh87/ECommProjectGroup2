@@ -102,7 +102,9 @@
                   <!-- WishList View -->
                   <form method="post" action="{{ route('wishlist.store', ['productId' => $product->product_id]) }}">
                     @csrf
-                    <button type="submit">Add to Wishlist</button>
+                    <button type="submit" class="btn btn-link text-danger heart-icon">
+                        <i class="bi bi-heart"></i>
+                    </button>
                   </form>
                 </div>
                
