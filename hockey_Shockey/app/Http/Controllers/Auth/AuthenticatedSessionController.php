@@ -28,14 +28,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        
+        // Get the authenticated user
+        $user = Auth::user();
+
         $redirectUrl = $this->getRedirectUrl($user);
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
             : redirect()->intended($redirectUrl);
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        //return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
