@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
+
 
 
 
@@ -77,6 +79,10 @@ Route::middleware('auth')->group(function () {
 
     // Route for deleting a user
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+
+    //Routes for wishlist
+    Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
+    Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
 
 });
 
