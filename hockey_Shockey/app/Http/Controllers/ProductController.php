@@ -42,7 +42,7 @@ class ProductController extends Controller
             } elseif ($orderBy == 'priceLowToHigh') {
                 $productsQuery->orderBy('price', 'asc');
             }
-
+ 
             // Paginate the results
             $products = $productsQuery->paginate(21);
 
