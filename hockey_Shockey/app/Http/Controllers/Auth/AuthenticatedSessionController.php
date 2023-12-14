@@ -59,6 +59,8 @@ class AuthenticatedSessionController extends Controller
         switch ($user->role_id) {
             case 1:
                 return '/dashboard';
+            case 2:
+                return '/userprofile';
             case 0:
                 return '/userprofile';
             // Add more cases for different role_ids as needed
