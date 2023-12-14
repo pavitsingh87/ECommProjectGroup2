@@ -34,8 +34,19 @@
 
         <div class="mb-3">
             <label for="gender" class="form-label">Gender</label>
-            <input type="text" class="form-control" id="gender" name="gender" value="{{ old('gender') }}">
-        </div>
+            <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}>
+        <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>
+        <label class="form-check-label" for="female">Female</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="other" value="Other" {{ old('gender') == 'Other' ? 'checked' : '' }}>
+        <label class="form-check-label" for="other">Other</label>
+    </div>
+   </div>
 
         <div class="mb-3">
             <label for="date_of_birth" class="form-label">Date of Birth</label>
