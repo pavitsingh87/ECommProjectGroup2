@@ -15,4 +15,23 @@ class CheckoutController extends Controller
         return view('checkout');
 
     }
+    public function processCheckout(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'delivery_method' => 'required',
+            'country' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip_code' => 'required',
+        ]);
+
+        // Your logic to handle the checkout process goes here
+
+        // For example, you can redirect the user to a success page
+        return redirect()->route('checkout.success');
+    }
 }
