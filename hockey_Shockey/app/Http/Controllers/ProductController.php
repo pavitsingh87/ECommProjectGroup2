@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
 
         // Load products with the related productCategoryType
-        $products = Product::with('productCategoryType')->get();
+        $products = Product::with('productCategoryType')->paginate(21);
 
         // Check if the request is for the admin/products route
         if (request()->is('admin/products')) {
@@ -42,7 +42,7 @@ class ProductController extends Controller
             } elseif ($orderBy == 'priceLowToHigh') {
                 $productsQuery->orderBy('price', 'asc');
             }
-
+ 
             // Paginate the results
             $products = $productsQuery->paginate(21);
 

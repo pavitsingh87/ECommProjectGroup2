@@ -90,7 +90,7 @@
 
                 // Add an event listener for the confirmation button
                 $("#itemsModal").on('click', '.btn-primary', function () {
-                    fetch('{{ url('remove-from-cart') }}', {
+                    fetch('{{ url("remove-from-cart") }}', {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@
                 
 
                 $.ajax({
-                    url: '{{ url('update-cart') }}',
+                    url: '{{ url("update-cart") }}',
                     method: "patch",
                     data: { _token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: quantity },
                     dataType: "json",
@@ -140,7 +140,7 @@
 
             function updateCartCounter() {
                 $.ajax({
-                    url: '{{ route('cart.total') }}',
+                    url: '{{ route("cart.total") }}',
                     method: 'GET',
                     success: function (response) {
                         $('#cartCounter').text(response.total);
