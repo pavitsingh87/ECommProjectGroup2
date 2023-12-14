@@ -28,8 +28,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        // Get the authenticated user
+        $user = Auth::user();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $redirectUrl = $this->getRedirectUrl($user);
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect()->intended($redirectUrl);
+
+        //return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
@@ -44,5 +52,20 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    // Custom method to determine the redirect URL based on the user's role_id
+    protected function getRedirectUrl($user)
+    {
+        switch ($user->role_id) {
+            case 1:
+                return '/dashboard';
+            case 2:
+                return '/userprofile';
+            case 0:
+                return '/userprofile';
+            // Add more cases for different role_ids as needed
+            default:
+                return '/';
+        }
     }
 }

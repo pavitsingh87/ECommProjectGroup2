@@ -4,6 +4,8 @@
 
 <div class="container">
     <h1>Product List</h1>
+    
+    <a href="{{ route('admin.products.create') }}" class="btn btn-success">Add Product</a>
 
     @if (count($products) > 0)
         <table class="table">
@@ -48,7 +50,7 @@
         <p>No products available.</p>
     @endif
 
-    <a href="{{ route('admin.products.create') }}" class="btn btn-success">Add Product</a>
+    
 </div>
 
 @endsection()

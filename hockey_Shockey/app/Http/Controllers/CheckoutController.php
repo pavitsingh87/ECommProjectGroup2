@@ -31,7 +31,6 @@ class CheckoutController extends Controller
 
         // Your logic to handle the checkout process goes here
 
-        // For example, you can redirect the user to a success page
-        return redirect()->route('checkout.success');
+         return redirect()->route('checkout.success');
     }
 }

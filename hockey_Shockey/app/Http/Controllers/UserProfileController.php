@@ -19,7 +19,8 @@ class UserProfileController extends Controller
 
         // Validate the form data
         $request->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required',
             'contact_no' => 'required',
             'address_line_1' => 'required',
@@ -30,7 +31,8 @@ class UserProfileController extends Controller
 
         // Update user profile
         $user->update([
-            'name' => $request->input('name'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
             'contact_no' => $request->input('contact_no'),
             'address_line_1' => $request->input('address_line_1'),

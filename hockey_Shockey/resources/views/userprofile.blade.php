@@ -29,7 +29,10 @@
 
                 <div class="card-body">
                     <div class="mb-3">
-                        <strong>Name:</strong> {{ auth()->user()->name }}
+                        <strong>First name:</strong> {{ auth()->user()->first_name }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>Last name:</strong> {{ auth()->user()->last_name }}
                     </div>
 
                     <div class="mb-3">
