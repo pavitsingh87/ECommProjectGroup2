@@ -115,9 +115,9 @@
 
         </div>
 
-        <div class="pagination justify-content-center">
-    {{ $products->links() }}
-</div>
+        <div class="pagination justify-content-center mt-3">
+          {{ $products->links() }}
+        </div>
 
       </div>
     </div>

@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
 
         // Load products with the related productCategoryType
-        $products = Product::with('productCategoryType')->paginate(21);
+        $products = Product::with('productCategoryType')->get();
 
         // Check if the request is for the admin/products route
         if (request()->is('admin/products')) {
