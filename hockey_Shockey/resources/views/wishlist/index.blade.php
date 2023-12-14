@@ -16,23 +16,30 @@
             </div>
 
             <div class="col-md-9">
-                <h2 class="heading">My Profile</h2>
+                <h2 class="heading">My Wishlist</h2>
                     <div class="row">
                         @forelse($wishlistItems as $item)
                             <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+
                                 <div class="card h-100">
-                                    <img src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}"
-                                        class="card-img-top" />
+                                    <img src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}" class="card-img-top" />
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $item->product->product_name }}</h5>
                                         <p class="card-text">{{ $item->product->description }}</p>
                                         <p class="card-text">${{ $item->product->price }}</p>
                                     </div>
-                                    <div class="card-footer">
+
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <!-- Add to cart -->
+                                        <div class="product_add_to_cart text-center">
+                                            <a href="add-to-cart/{{ $item->product->product_id }}" data-id="{{ $item->product->product_id }}">Add to Cart</a>
+                                        </div>
+
+                                        <!-- Remove from Wishlist -->
                                         <form method="post" action="{{ route('wishlist.destroy', $item->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
+                                            <button type="submit" class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
                                         </form>
                                     </div>
                                 </div>
