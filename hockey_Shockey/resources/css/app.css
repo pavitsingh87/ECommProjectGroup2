@@ -460,6 +460,12 @@ iframe {
     width: 100%;
 }
 
+/* styles on wishlist card */
+.no_link_style {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* for responsiveness */
 @media screen and (max-width: 968px) {
     .navbar .navbar-nav {
