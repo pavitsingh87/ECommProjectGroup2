@@ -3,11 +3,7 @@
 @section('content')
     <h1>Users</h1>
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+    <a href="{{ route('admin.users.create') }}" class="btn btn-success">Add User</a>
 
     <table class="table">
         <thead>
@@ -44,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ route('admin.users.create') }}" class="btn btn-success">Add User</a>
+    
 @endsection

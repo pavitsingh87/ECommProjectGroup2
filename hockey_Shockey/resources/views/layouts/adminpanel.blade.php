@@ -37,6 +37,22 @@
             </nav>
             <main class="content">
                 <div class="container-fluid p-0">
+                @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Display Error Flash Message -->
+    @if ($errors->any())
+        <div class="alert alert-danger text-center">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
                     @yield('content') <!-- Dynamic content section -->
                 </div>
             </main>

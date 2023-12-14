@@ -5,11 +5,6 @@
 @section('content')
     <h1>Edit User</h1>
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Back to Users</a>
     <form method="post" action="{{ route('admin.users.update', $user->id) }}">
         @csrf

@@ -3,21 +3,6 @@
 @section('content')
     <h1>Create User</h1>
 
-    @if(session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if ($errors->any())
-        <div class="alert alert-danger text-center">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary ">Back to Users</a>
     <form method="post" action="{{ route('admin.users.store') }}">
         @csrf
