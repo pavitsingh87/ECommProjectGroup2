@@ -73,8 +73,21 @@
                     <h5><strong>$<span class="cart-total">{{ $total }}</span></strong></h5>
                   </div>
 
-                  <button type="button" class="btn btn-primary">Checkout</button>
+                  <button type="button" class="btn btn-primary" onclick="redirectToCheckout()">Checkout</button>
+                  <script>
+                    function redirectToCheckout() {
+                        // Assuming you have a global variable in your Blade view indicating the authentication status
+                        var isAuthenticated = @json(auth()->check());
 
+                        if (isAuthenticated) {
+                            // User is logged in, redirect to the checkout page
+                            window.location.href = "{{ route('checkout.page') }}"; // Replace 'checkout.page' with your actual route name
+                        } else {
+                            // User is not logged in, redirect to the signup page
+                            window.location.href = "{{ route('login') }}"; // Replace 'signup.page' with your actual signup route name
+                        }
+                    }
+                </script>
                 </div>
               </div>
             </div>

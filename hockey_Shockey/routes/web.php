@@ -8,6 +8,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 
+use App\Http\Controllers\CheckoutController;
+
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 
@@ -85,6 +88,11 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     // Route for deleting a user
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
+
+    // checkout // checkout 
+    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
+    Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
+
 });
 
 
@@ -130,7 +138,6 @@ Route::get('/contact', function () {
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
-// checkout 
-Route::get('/checkout', [CheckoutController::class, 'checkout']);
+
 
 require __DIR__ . '/auth.php';
