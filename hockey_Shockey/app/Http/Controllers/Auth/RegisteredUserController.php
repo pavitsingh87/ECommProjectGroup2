@@ -47,6 +47,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
+            'name'=>'',
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'gender' => $request->gender,
@@ -60,6 +61,7 @@ class RegisteredUserController extends Controller
             'city' => $request->city,
             'country' => $request->country,
             'postal_code' => $request->postal_code,
+            'role_id'=>0
         ]);
 
         event(new Registered($user));
