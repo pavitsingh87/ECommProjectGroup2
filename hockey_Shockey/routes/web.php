@@ -90,15 +90,17 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     // Route for deleting a user
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
+<<<<<<<<< Temporary merge branch 1
+    //Routes for wishlist
+    Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
+    Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+
 
     // checkout // checkout 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
     Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
 
-    //Routes for wishlist
-    Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
-    Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
-    Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 
 });
 
