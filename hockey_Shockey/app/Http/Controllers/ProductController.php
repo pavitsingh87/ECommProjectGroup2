@@ -16,13 +16,16 @@ class ProductController extends Controller
 
         // Load products with the related productCategoryType
         $products = Product::with('productCategoryType')->get();
+        $categories = ProductCategoryType::withCount('products')->get();
+        
 
         // Check if the request is for the admin/products route
         if (request()->is('admin/products')) {
             return view('admin.products.index', compact('products'));
         } else {
             // Load product categories
-            $categories = ProductCategoryType::all();
+            // $categories = ProductCategoryType::all();
+            $categories = ProductCategoryType::withCount('products')->get();
 
             // Get selected category and order by values from the request
             $selectedCategoryId = $request->input('category');
