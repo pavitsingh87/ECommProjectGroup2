@@ -23,4 +23,9 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategoryType::class, 'product_category_type_id', 'id');
     }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }

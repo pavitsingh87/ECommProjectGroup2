@@ -12,6 +12,8 @@ use App\Http\Controllers\CheckoutController;
 
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
+
 use App\Http\Controllers\UserProfileController;
 
 /*
@@ -89,9 +91,16 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
 
+    //Routes for wishlist
+    Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
+    Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+
+
     // checkout // checkout 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
     Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
+
 
 });
 
