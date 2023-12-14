@@ -27,5 +27,13 @@ class WishlistController extends Controller
         return view('wishlist.index', compact('wishlistItems'));
     }
 
+    public function destroy(Wishlist $wishlistItem)
+    {
+
+        $wishlistItem->delete();
+
+        return redirect()->back()->with('success', 'Product removed from wishlist.');
+    }
+
 }
 
