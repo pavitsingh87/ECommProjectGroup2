@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ $user->name }}</h5>
+            <h3><strong>{{ $user->first_name }} {{ $user->last_name }}</strong></h3>
 
             <p class="card-text"><strong>Email:</strong> {{ $user->email }}</p>
             <p class="card-text"><strong>Username:</strong> {{ $user->user_name }}</p>
