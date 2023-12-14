@@ -8,7 +8,7 @@
   <p class="alert alert-danger">{{ Session::get('error') }}</p>
   @endif
   <div class="container py-5 h-100">
-  <?php $total = 0 ?>
+    <?php $total = 0 ?>
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
         <div class="card card-registration card-registration-2" style="border-radius: 15px;">
@@ -20,7 +20,7 @@
                     <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
                   </div>
                   <hr class="my-4">
-                  
+
                   {{-- Iterate through the items in the cart --}}
                   @foreach((array) session('cart') as $id => $details)
                   <?php $total += $details['price'] * $details['quantity'] ?>
@@ -43,7 +43,8 @@
                       </div>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2">
-                      <h6 class="mb-0">{{$details['price']}}</h6>
+                      <h6 data-th="Subtotal" class="product-subtotal text-center" class="mb-0">{{ $details['price'] *
+                        $details['quantity'] }}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}" data-bs-toggle="modal"
@@ -55,7 +56,8 @@
                   <hr class="my-4">
 
                   <div class="pt-5">
-                    <h6 class="mb-0"><a href="{{ url('/product') }}" class="btn btn-primary"><i class="bi bi-arrow-left me-2"></i>Back
+                    <h6 class="mb-0"><a href="{{ url('/product') }}" class="btn btn-primary"><i
+                          class="bi bi-arrow-left me-2"></i>Back
                         to shop</a></h6>
                   </div>
                 </div>

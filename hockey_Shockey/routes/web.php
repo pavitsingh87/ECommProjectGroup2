@@ -7,9 +7,14 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\CheckoutController;
 
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
+
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +41,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('index');
 
 Route::middleware('auth')->group(function () {
+    Route::patch('/edituserprofile', [UserProfileController::class, 'update'])->name('userprofile.update');
+    Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('userprofile');
+
+    Route::get('/change-password', [UserProfileController::class, 'showChangePasswordForm'])->name('change-password');
+Route::post('/update-password', [UserProfileController::class, 'updatePassword'])->name('update-password');
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -79,9 +91,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
 
+    //Routes for wishlist
+    Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
+    Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+
+
     // checkout // checkout 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
     Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
+
 
 });
 
@@ -112,6 +131,12 @@ Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->
 
 Route::get('/privacy', function () {
     return view('privacy');
+});
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});
+Route::get('/edituserprofile', function () {
+    return view('edituserprofile');
 });
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
