@@ -18,7 +18,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                 data-bs-toggle="dropdown">
-                                <span class="text-dark">Admin</span>
+                                <span class="text-dark">{{$user->first_name}} {{$user->last_name}}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class='dropdown-item' href='/userprofile'>
