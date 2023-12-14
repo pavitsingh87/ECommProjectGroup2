@@ -1,7 +1,7 @@
 @extends('layouts.adminpanel')
 
 @section('content')
-    <h1>Users</h1>
+    <h1>Users List</h1>
 
     <a href="{{ route('admin.users.create') }}" class="btn btn-success">Add User</a>
 

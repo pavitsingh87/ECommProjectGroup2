@@ -16,7 +16,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+                                data-bs-toggle="dropdown">
                                 <span class="text-dark">Admin</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -24,7 +25,8 @@
                                     <i class="align-middle me-1" data-feather="user"></i> Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Log out
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -37,22 +39,18 @@
             </nav>
             <main class="content">
                 <div class="container-fluid p-0">
-                @if(session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
-    @endif
+                    @if(session('success'))
+                    <div style="text-align:center; background-color:#1CBB8C; color:white;padding:10px;margin-bottom:10px;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
 
-    <!-- Display Error Flash Message -->
-    @if ($errors->any())
-        <div class="alert alert-danger text-center">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+                    <!-- Display Error Flash Message -->
+                    @if(session('error'))
+                    <div style="text-align:center; background-color:#DC3545; color:white;padding:10px;margin-bottom:10px;">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                     @yield('content') <!-- Dynamic content section -->
                 </div>
             </main>
