@@ -99,6 +99,11 @@
                   <div class="product_quick_view text-center">
                     <a href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}"> Quick View</a>
                   </div>
+                  <!-- WishList View -->
+                  <form method="post" action="{{ route('wishlist.store', ['productId' => $product->product_id]) }}">
+                    @csrf
+                    <button type="submit">Add to Wishlist</button>
+                  </form>
                 </div>
                
               </div>
