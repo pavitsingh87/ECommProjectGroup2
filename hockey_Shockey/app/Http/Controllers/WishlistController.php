@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Wishlist;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class WishlistController extends Controller
 {
-
     public function store($productId)
     {
         $user = auth()->user();
@@ -33,6 +32,17 @@ class WishlistController extends Controller
         $wishlistItem->delete();
 
         return redirect()->back()->with('success', 'Product removed from wishlist.');
+    }
+
+    public function getWishlistCount()
+    {
+        if (Auth::check()) {
+            $wishlistCount = Auth::user()->wishlist->count();
+        } else {
+            $wishlistCount = 0;
+        }
+
+        return response()->json(['count' => $wishlistCount]);
     }
 
 }

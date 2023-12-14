@@ -34,8 +34,9 @@
         crossorigin="anonymous"></script>
     <script>
         jQuery(document).ready(function () {
-
+            
             updateCartCounter();
+            updateWishlistCounter(); 
 
             $('#searchForm').submit(function (e) {
                 e.preventDefault();
@@ -147,7 +148,14 @@
                     }
                 });
             }
-        });
+
+            // Function to update the wishlist counter
+            function updateWishlistCounter() {
+                $.get('/wishlist/count', function(data) {
+                    $('#wishlistCounter').text(data.count);
+                });
+            }
+            });
         
     </script>
 </body>
