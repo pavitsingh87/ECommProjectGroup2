@@ -23,6 +23,11 @@
     </div>
 
     <div>
+        <strong>HST:</strong>
+        <p>{{ $tax->hst_rate }}</p>
+    </div>
+
+    <div>
         <strong>Created At:</strong>
         <p>{{ $tax->created_at }}</p>
     </div>

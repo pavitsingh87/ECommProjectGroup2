@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
-
 use App\Http\Controllers\TaxController;
-
 use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\UserController;
@@ -90,7 +88,12 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
 });
 
 
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
+
+
+Route::get('/cart/total', [CartController::class, 'getTotal'])->name('cart.total');
 
 Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart');
 
@@ -127,7 +130,7 @@ Route::get('/contact', function () {
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
-
-Route::get('/checkout', [CartController::class, 'checkout']);
+// checkout 
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
 
 require __DIR__ . '/auth.php';

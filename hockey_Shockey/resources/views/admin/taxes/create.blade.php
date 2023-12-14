@@ -25,6 +25,11 @@
             <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst') }}" required>
         </div>
 
+        <div class="form-group">
+            <label for="hst">HST</label>
+            <input type="text" name="hst" id="hst" class="form-control" value="{{ old('hst') }}" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Add Tax</button>
     </form>
 </div>
