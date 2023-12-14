@@ -4,13 +4,13 @@
     <h1>Create User</h1>
 
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             {{ session('success') }}
         </div>
     @endif
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger text-center">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -21,11 +21,6 @@
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary ">Back to Users</a>
     <form method="post" action="{{ route('admin.users.store') }}">
         @csrf
-
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
-        </div>
 
         <div class="mb-3">
             <label for="first_name" class="form-label">First Name</label>
@@ -48,6 +43,11 @@
         </div>
 
         <div class="mb-3">
+            <label for="user_name" class="form-label">Username</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" value="{{ old('user_name') }}">
+        </div>
+
+        <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
         </div>
@@ -63,17 +63,12 @@
         </div>
 
         <div class="mb-3">
-            <label for="user_name" class="form-label">Username</label>
-            <input type="text" class="form-control" id="user_name" name="user_name" value="{{ old('user_name') }}">
-        </div>
-
-        <div class="mb-3">
             <label for="address_line_1" class="form-label">Address Line 1</label>
             <input type="text" class="form-control" id="address_line_1" name="address_line_1" value="{{ old('address_line_1') }}">
         </div>
 
         <div class="mb-3">
-            <label for="address_line_2" class="form-label">Address Line 2</label>
+            <label for="address_line_2" class="form-label">Address Line 2 (optional)</label>
             <input type="text" class="form-control" id="address_line_2" name="address_line_2" value="{{ old('address_line_2') }}">
         </div>
 
