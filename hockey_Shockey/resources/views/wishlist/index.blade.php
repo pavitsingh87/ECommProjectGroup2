@@ -24,9 +24,11 @@
                                 <div class="card h-100">
                                     <img src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}" class="card-img-top" />
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $item->product->product_name }}</h5>
-                                        <p class="card-text">{{ $item->product->description }}</p>
-                                        <p class="card-text">${{ $item->product->price }}</p>
+                                        <p class="card-text">{{ $item->product->product_description }}</p>
+                                        <div class=" d-flex justify-content-between align-items-center">
+                                            <h5 class="card-title">{{ $item->product->product_name }}</h5>
+                                            <p class="card-text">${{ $item->product->price }}</p>
+                                        </div>   
                                     </div>
 
                                     <div class="card-footer d-flex justify-content-between align-items-center">
