@@ -19,10 +19,13 @@
                 <h2 class="heading">My Wishlist</h2>
                     <div class="row">
                         @forelse($wishlistItems as $item)
-                            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="col-lg-4 col-md-6 col-sm-6 mb-4 d-flex">
 
-                                <div class="card h-100">
+                                <div class="card h-100 w-100 my-2 border-top-0  text-center shadow:hover">
+                            
+                                <a href="{{ route('products.show', ['category' => $item->product->productCategoryType->pct_name, 'name' => $item->product->product_name]) }}">
                                     <img src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}" class="card-img-top" />
+                                
                                     <div class="card-body">
                                         <p class="card-text">{{ $item->product->product_description }}</p>
                                         <div class=" d-flex justify-content-between align-items-center">
@@ -30,11 +33,14 @@
                                             <p class="card-text">${{ $item->product->price }}</p>
                                         </div>   
                                     </div>
-
+                                </a>
+                                
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <!-- Add to cart -->
                                         <div class="product_add_to_cart text-center">
-                                            <a href="add-to-cart/{{ $item->product->product_id }}" data-id="{{ $item->product->product_id }}">Add to Cart</a>
+                                            <a href="add-to-cart/{{ $item->product->product_id }}" data-id="{{ $item->product->product_id }}"  class="btn btn-success" >
+                                                <i class="bi bi-cart"></i>
+                                            </a>
                                         </div>
 
                                         <!-- Remove from Wishlist -->
