@@ -7,7 +7,7 @@
   <div class=border-bottom border-2>
   <div class="container">
   <nav class="navbar navbar-expand-lg navbar-fixed-top">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="/images/logo.png" alt="" width="150" height="53">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
