@@ -59,7 +59,7 @@ class UserController extends Controller
     private function validateUser(Request $request)
     {
         return $request->validate([
-            'name' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
             'first_name' => 'nullable|string|max:255',
             'last_name' => 'nullable|string|max:255',
             'gender' => 'nullable|string|max:255',
