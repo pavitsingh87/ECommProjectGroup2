@@ -13,7 +13,8 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
                 <th>Actions</th>
             </tr>
@@ -22,7 +23,8 @@
             @forelse ($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->first_name }}</td>
+                    <td>{{ $user->last_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
                         <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info">View</a>
