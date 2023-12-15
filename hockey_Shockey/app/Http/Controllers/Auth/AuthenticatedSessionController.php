@@ -9,6 +9,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\URL;
+
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,6 +21,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+       
+        $lastPageUrl = URL::previous();
+
+        // Check if the last visited URL contains "cart"
+        if (Str::contains($lastPageUrl, 'cart')) {
+            // Do something specific if the last visited URL contains "cart"
+            Session::put('checkout', 1);
+        } else {
+            
+        }
         return view('auth.login');
     }
 
@@ -25,6 +39,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+       
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -56,6 +71,11 @@ class AuthenticatedSessionController extends Controller
     // Custom method to determine the redirect URL based on the user's role_id
     protected function getRedirectUrl($user)
     {
+        
+        if (Session::get('checkout') == 1) {
+            return '/checkout';
+        }
+
         switch ($user->role_id) {
             case 1:
                 return '/dashboard';
