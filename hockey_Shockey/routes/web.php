@@ -15,7 +15,6 @@ use App\Http\Controllers\PaymentController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Tax;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,10 +39,9 @@ Route::get('/dashboard', function () {
     $total_users = User::count();
     $total_products = Product::count();
     $total_categories = Category::count();
-    $total_taxes = Tax::count();
 
-    return view('admin.index', compact('total_users', 'total_products', 'total_categories', 'total_taxes'));
-})->middleware(['auth', 'verified'])->name('index');
+    return view('admin.index', compact('total_users', 'total_products', 'total_categories'));
+})->middleware(['auth', 'verified'])->name('dashboard.index');
 
 
 Route::middleware('auth')->group(function () {
@@ -102,7 +100,6 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/wishlist/count', [WishlistController::class, 'getWishlistCount'])->name('wishlist.count');
     Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
-
 
     // checkout // checkout 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');

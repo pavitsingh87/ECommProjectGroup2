@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <h1>Welcome to the Dashboard</h1>
 
-        <div class="row mt-4">
+        <div class="row mt-4 justify-content-around text-center">
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -28,14 +28,6 @@
                     <div class="card-body">
                         <h5 class="card-title">Total Categories</h5>
                         <p class="card-text">{{$total_categories}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Taxes</h5>
-                        <p class="card-text">{{$total_taxes}}</p>
                     </div>
                 </div>
             </div>
