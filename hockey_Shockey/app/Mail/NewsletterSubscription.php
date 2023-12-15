@@ -12,7 +12,7 @@ class NewsletterSubscription extends Mailable
 
     public function build()
     {
-        return $this->view('emails.newsletter-subscription');
-        // You can customize the view and subject here
+        return $this->view('emails.newsletter-subscription')
+        ->subject('Newsletter Subscription Confirmation');
     }
 }
