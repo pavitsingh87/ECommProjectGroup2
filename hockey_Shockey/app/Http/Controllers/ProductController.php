@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 
+
 class ProductController extends Controller
 {
     public function index(Request $request)
@@ -17,7 +18,7 @@ class ProductController extends Controller
         // Load products with the related productCategoryType
         $products = Product::with('productCategoryType')->get();
         $categories = ProductCategoryType::withCount('products')->get();
-        
+
 
         // Check if the request is for the admin/products route
         if (request()->is('admin/products')) {
@@ -45,7 +46,9 @@ class ProductController extends Controller
             } elseif ($orderBy == 'priceLowToHigh') {
                 $productsQuery->orderBy('price', 'asc');
             }
- 
+
+
+
             // Paginate the results
             $products = $productsQuery->paginate(21);
 
