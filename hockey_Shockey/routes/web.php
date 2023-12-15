@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserProfileController;
@@ -156,5 +158,7 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 
 Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
 
+
+Route::post('/subscribe', [NewsletterController::class,'store'])->name('subscribe.store');
 
 require __DIR__ . '/auth.php';

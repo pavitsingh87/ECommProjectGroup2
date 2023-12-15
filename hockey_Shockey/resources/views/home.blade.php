@@ -85,8 +85,8 @@
     <div class="row g-0">
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-shipped"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-truck"></i>
           </div>
           <div class="icon_box_content">
             <h5>Free Delivery</h5>
@@ -96,8 +96,8 @@
       </div>
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-money-back"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-cash-coin"></i>
           </div>
           <div class="icon_box_content">
             <h5>30 Day Return</h5>
@@ -107,8 +107,8 @@
       </div>
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-support"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-clock"></i>
           </div>
           <div class="icon_box_content">
             <h5>27/4 Support</h5>
@@ -120,5 +120,27 @@
 
   </div>
 </section>
+
+<section class="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="content">
+                        <form method="post" action="{{ route('subscribe.store') }}" >
+                        @csrf
+                            <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-newsletter" type="submit">Subscribe Now</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 @endsection
