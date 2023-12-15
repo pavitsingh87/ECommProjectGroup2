@@ -606,6 +606,20 @@ iframe {
 	content: normal;
 }
 
+/* styles on wishlist card */
+.no_link_style {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* for box shadow on wishlist cards */
+.wishlist .card {
+    transition: all 0.3s ease-in-out;
+}
+.wishlist .card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
 /* for responsiveness */
 @media screen and (max-width: 768px) {
   .navbar .navbar-nav {

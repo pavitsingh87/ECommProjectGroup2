@@ -14,7 +14,7 @@ class ProductCategoryTypeSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['men', 'women', 'kids', 'accessories'];
+        $categories = ['Men', 'Women', 'Kids', 'Accessories'];
 
         foreach ($categories as $category) {
             DB::table('product_category_type')->insert([
