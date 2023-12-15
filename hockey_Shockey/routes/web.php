@@ -12,9 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\PaymentController;
-use App\Models\User;
-use App\Models\Product;
-use App\Models\Category;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,13 +33,9 @@ Route::get('/', function () {
     return view('home', compact('products'));
 });
 
-Route::get('/dashboard', function () {
-    $total_users = User::count();
-    $total_products = Product::count();
-    $total_categories = Category::count();
-
-    return view('admin.index', compact('total_users', 'total_products', 'total_categories'));
-})->middleware(['auth', 'verified'])->name('dashboard.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.index');
 
 
 Route::middleware('auth')->group(function () {
