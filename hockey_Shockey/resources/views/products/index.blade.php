@@ -85,7 +85,6 @@
                 </div>
               </a>
               <div class="card-footer w-100 d-flex align-items-end p-3 mt-auto">
-                <!-- <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a> -->
                 <div class="add_quick_wrapper w-100 d-flex justify-content-around">
                   <!-- Add to cart -->
                   <div class="product_add_to_cart text-center">
