@@ -7,15 +7,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
-
 use App\Http\Controllers\CheckoutController;
-
-
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
-
 use App\Http\Controllers\UserProfileController;
-
+use App\Http\Controllers\PaymentController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -104,6 +100,7 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     //Routes for wishlist
     Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::get('/wishlist/count', [WishlistController::class, 'getWishlistCount'])->name('wishlist.count');
     Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 
 
@@ -111,6 +108,9 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
     Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
 
+    // New route for payment form
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('process.payment');
 
 });
 
