@@ -17,6 +17,9 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserProfileController;
 
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Tax;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,8 +41,12 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $totalUsers = User::count();
-    return view('admin.index', compact('total_users'));
+    $total_users = User::count();
+    $total_products = Product::count();
+    $total_categories = Category::count();
+    $total_taxes = Tax::count();
+
+    return view('admin.index', compact('total_users', 'total_products', 'total_categories', 'total_taxes'));
 })->middleware(['auth', 'verified'])->name('index');
 
 

@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Products</h5>
-                        <p class="card-text">2</p>
+                        <p class="card-text">{{$total_products}}</p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Categories</h5>
-                        <p class="card-text">3</p>
+                        <p class="card-text">{{$total_categories}}</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Taxes</h5>
-                        <p class="card-text">4</p>
+                        <p class="card-text">{{$total_taxes}}</p>
                     </div>
                 </div>
             </div>
