@@ -12,7 +12,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @yield('style')
@@ -21,17 +20,17 @@
 
 <body>
     @include('layouts.partials.navbar')
-@if(session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
+    @if(session('success'))
+    <div class="alert alert-success text-center">
+        {{ session('success') }}
+    </div>
     @endif
 
     <!-- Display Error Flash Message -->
     @if(session('error'))
-        <div class="alert alert-danger text-center">
-            {{ session('error') }}
-        </div>
+    <div class="alert alert-danger text-center">
+        {{ session('error') }}
+    </div>
     @endif
     @yield('content')
     @include('layouts.partials.footer')
@@ -45,9 +44,9 @@
         crossorigin="anonymous"></script>
     <script>
         jQuery(document).ready(function () {
-            
+
             updateCartCounter();
-            updateWishlistCounter(); 
+            updateWishlistCounter();
 
             $('#searchForm').submit(function (e) {
                 e.preventDefault();
@@ -110,13 +109,13 @@
                         },
                         body: JSON.stringify({ id: ele.attr("data-id") })
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        parent_row.remove();
-                        $(".cart-total").text(data.total);
-                    })
-                    .catch(error => console.error('Error:', error));
-                
+                        .then(response => response.json())
+                        .then(data => {
+                            parent_row.remove();
+                            $(".cart-total").text(data.total);
+                        })
+                        .catch(error => console.error('Error:', error));
+
                     // Hide the Bootstrap modal after confirmation
                     $('#itemsModal').modal('hide');
                 });
@@ -133,7 +132,7 @@
                 var quantity = ele.val();
                 var product_subtotal = parent_row.find("span.product-subtotal");
                 var cart_total = $(".cart-total");
-                
+
 
                 $.ajax({
                     url: '{{ url("update-cart") }}',
@@ -144,7 +143,7 @@
                         console.log(ele.val())
                         product_subtotal.text(response.subTotal);
                         cart_total.text(response.total);
-                       
+
                         ele.val(response.quantity);
                     }
                 });
@@ -162,12 +161,58 @@
 
             // Function to update the wishlist counter
             function updateWishlistCounter() {
-                $.get('/wishlist/count', function(data) {
+                $.get('/wishlist/count', function (data) {
                     $('#wishlistCounter').text(data.count);
                 });
             }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation');
+            
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            
+                form.classList.add('was-validated');
+                }, false);
             });
         
+            // Validación de expresiones regulares para campos específicos
+            const emailInput = document.getElementById('email');
+            emailInput.addEventListener('input', function () {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(this.value)) {
+                this.setCustomValidity('Please provide a valid email address.');
+                } else {
+                this.setCustomValidity('');
+                }
+            });
+        
+            const contactNoInput = document.getElementById('contact_no');
+            contactNoInput.addEventListener('input', function () {
+                const contactNoRegex = /^\d{10}$/;
+                if (!contactNoRegex.test(this.value)) {
+                this.setCustomValidity('Please provide a valid 10-digit contact number.');
+                } else {
+                this.setCustomValidity('');
+                }
+            });
+        
+            const postalCodeInput = document.getElementById('postal_code');
+            postalCodeInput.addEventListener('input', function () {
+                const postalCodeRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
+                if (!postalCodeRegex.test(this.value)) {
+                this.setCustomValidity('Please provide a valid postal code.');
+                } else {
+                this.setCustomValidity('');
+                }
+            });
+        });
     </script>
 </body>
 
