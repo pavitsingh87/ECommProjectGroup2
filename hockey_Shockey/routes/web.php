@@ -155,6 +155,6 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart']);
 
 
-Route::post('/subscribe', [NewsletterController::class,'subscribe'])->name('subscribe');
+Route::post('/subscribe', [NewsletterController::class,'store'])->name('subscribe.store');
 
 require __DIR__ . '/auth.php';
