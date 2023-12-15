@@ -10,7 +10,7 @@
             <div class="list-group d-flex flex-column">
             <a href="/edituserprofile" class="list-group-item list-group-item-action">Edit Profile</a>
                 <a href="#" class="list-group-item list-group-item-action">My Orders</a>
-                <a href="#" class="list-group-item list-group-item-action">Wishlist</a>
+                <a href="/wishlist" class="list-group-item list-group-item-action">My Wishlist</a>
                 <a href="{{ route('change-password') }}" class="list-group-item list-group-item-action">Change Password</a>
             </div>
         </div>

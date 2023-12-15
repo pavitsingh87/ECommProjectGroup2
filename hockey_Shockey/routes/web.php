@@ -94,6 +94,7 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     //Routes for wishlist
     Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::get('/wishlist/count', [WishlistController::class, 'getWishlistCount'])->name('wishlist.count');
     Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 
 
