@@ -227,6 +227,9 @@ table {
   border-spacing: 0;
 }
 
+img {
+  max-width: 100%;
+}
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--bs-primary);
@@ -279,7 +282,8 @@ ul {
   background-color: #544087;
 }
 
-.nav-item i {
+.nav-item i,
+.products_view h3 {
   color: #544087;
 }
 
