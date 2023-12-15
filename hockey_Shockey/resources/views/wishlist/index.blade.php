@@ -38,7 +38,10 @@
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <!-- Add to cart -->
                                         <div class="product_add_to_cart text-center">
-                                            <a href="add-to-cart/{{ $item->product->product_id }}" data-id="{{ $item->product->product_id }}"  class="btn btn-success" >
+                                            <a href="add-to-cart/{{ $item->product->product_id }}" 
+                                                    data-id="{{ $item->product->product_id }}"  
+                                                    class="btn btn-success"  
+                                                    title="Add to cart">
                                                 <i class="bi bi-cart"></i>
                                             </a>
                                         </div>
@@ -47,7 +50,7 @@
                                         <form method="post" action="{{ route('wishlist.destroy', $item->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
+                                            <button type="submit" class="btn btn-danger" title="Remove from wishlist"><i class="bi bi-x-lg"></i></button>
                                         </form>
                                     </div>
                                 </div>
