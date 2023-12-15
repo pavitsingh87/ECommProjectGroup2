@@ -63,8 +63,8 @@
     <div class="row g-0">
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-shipped"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-truck"></i>
           </div>
           <div class="icon_box_content">
             <h5>Free Delivery</h5>
@@ -74,8 +74,8 @@
       </div>
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-money-back"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-cash-coin"></i>
           </div>
           <div class="icon_box_content">
             <h5>30 Day Return</h5>
@@ -85,8 +85,8 @@
       </div>
       <div class="col-lg-4">
         <div class="icon_box icon_box_style1">
-          <div class="icon">
-            <i class="flaticon-support"></i>
+          <div class="icon mb-4">
+            <i class="bi bi-clock"></i>
           </div>
           <div class="icon_box_content">
             <h5>27/4 Support</h5>
