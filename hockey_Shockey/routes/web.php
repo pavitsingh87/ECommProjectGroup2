@@ -7,17 +7,17 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
-
 use App\Http\Controllers\CheckoutController;
+<<<<<<< HEAD
 
 use App\Http\Controllers\NewsletterController;
+=======
+>>>>>>> 890da1519443bf4f3ce67c07eec91e82b5369440
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
-
 use App\Http\Controllers\UserProfileController;
-
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +38,10 @@ Route::get('/', function () {
     return view('home', compact('products'));
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('index');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.index');
+
 
 Route::middleware('auth')->group(function () {
     Route::patch('/edituserprofile', [UserProfileController::class, 'update'])->name('userprofile.update');
@@ -98,7 +99,6 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     Route::post('/wishlist/add/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/wishlist/count', [WishlistController::class, 'getWishlistCount'])->name('wishlist.count');
     Route::delete('/wishlist/{wishlistItem}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
-
 
     // checkout // checkout 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');

@@ -2,10 +2,32 @@
 
 
 @section('content')
-<!-- Header-->
-<div class="container-fluid mt-3" style="margin:0px;padding:0px">
-  <img class="container-fluid" style="margin:0px;padding:0px" src="images/bannerHome.png" alt="Banner Home">
+<!-- Header Slider-->
+<div id="autoPLay" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/bannerHome.png" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-2.png" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#autoPLay" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#autoPLay" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+
 <!-- Section-->
 <section class="products py-5">
   <div class="container px-4 px-lg-5">
