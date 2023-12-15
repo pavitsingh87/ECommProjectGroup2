@@ -2,18 +2,40 @@
 
 
 @section('content')
-<!-- Header-->
-<div class="container-fluid mt-3" style="margin:0px;padding:0px">
-  <img class="container-fluid" style="margin:0px;padding:0px" src="images/bannerHome.png" alt="Banner Home">
+<!-- Header Slider-->
+<div id="autoPLay" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/bannerHome.png" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-2.png" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slider-3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="bannerHome">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#autoPLay" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#autoPLay" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+
 <!-- Section-->
 <section class="products py-5">
   <div class="container px-4 px-lg-5">
     <h2 class="fs-1 align-items-center justify-content-center p-3 row"><span></span>Our Products<span></span></h2>
-    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center d-flex">
       @if ($products !== null)
       @foreach ($products as $product)
-      <div class="col mb-5">
+      <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
         <div class="card w-100 my-2 border-top-0  text-center shadow:hover">
           <a
             href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">

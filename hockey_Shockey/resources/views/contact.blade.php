@@ -31,9 +31,7 @@
                     <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </form>
             </div>
-            <div class="col-md-6">
-                <img src="images/map.png" alt="google map" style="width:70%;float:right;">
-            </div>
+            
 
             <div class="col-md-6">
                 <iframe
