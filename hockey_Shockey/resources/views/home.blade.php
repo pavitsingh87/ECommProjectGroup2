@@ -10,10 +10,10 @@
 <section class="products py-5">
   <div class="container px-4 px-lg-5">
     <h2 class="fs-1 align-items-center justify-content-center p-3 row"><span></span>Our Products<span></span></h2>
-    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center d-flex">
       @if ($products !== null)
       @foreach ($products as $product)
-      <div class="col mb-5">
+      <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
         <div class="card w-100 my-2 border-top-0  text-center shadow:hover">
           <a
             href="{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}">

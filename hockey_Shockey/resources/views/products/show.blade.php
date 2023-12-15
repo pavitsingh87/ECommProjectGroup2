@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <h1 class="display-5 fw-bolder">{{ $product->product_name }}</h1>
         <div class="fs-5 mb-5">
-          <span class="text-decoration-line-through">${{ $product->original_price }}</span>
+          <!-- <span class="text-decoration-line-through">${{ $product->original_price }}</span> -->
           <span>${{ $product->price }}</span>
         </div>
         <p class="lead">{{ $product->product_description }}</p>
