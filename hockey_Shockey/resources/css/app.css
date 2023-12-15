@@ -671,3 +671,11 @@ iframe {
   color: #fff;
   font-weight:600;
   }
+
+  .btn-newsletter{
+    background-color:#544087 !important;
+  }
+
+  .products-newsletter{
+    font-size:20px;
+  }
