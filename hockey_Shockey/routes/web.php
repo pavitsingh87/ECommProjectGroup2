@@ -16,6 +16,8 @@ use App\Http\Controllers\WishlistController;
 
 use App\Http\Controllers\UserProfileController;
 
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,6 +104,9 @@ Route::post('/update-password', [UserProfileController::class, 'updatePassword']
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.page');
     Route::post('/checkout/process', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
 
+    // New route for payment form
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('process.payment');
 
 });
 
