@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Users</h5>
-                        <p class="card-text">1</p>
+                        <p class="card-text">{{$total_users}}</p>
                     </div>
                 </div>
             </div>

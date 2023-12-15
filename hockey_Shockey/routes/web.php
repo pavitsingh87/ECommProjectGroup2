@@ -16,6 +16,7 @@ use App\Http\Controllers\WishlistController;
 
 use App\Http\Controllers\UserProfileController;
 
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,8 +38,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    $totalUsers = User::count();
+    return view('admin.index', compact('total_users'));
 })->middleware(['auth', 'verified'])->name('index');
+
 
 Route::middleware('auth')->group(function () {
     Route::patch('/edituserprofile', [UserProfileController::class, 'update'])->name('userprofile.update');
