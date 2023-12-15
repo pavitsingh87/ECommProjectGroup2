@@ -466,6 +466,14 @@ iframe {
     color: inherit;
 }
 
+/* for box shadow on wishlist cards */
+.wishlist .card {
+    transition: all 0.3s ease-in-out;
+}
+.wishlist .card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
 /* for responsiveness */
 @media screen and (max-width: 968px) {
     .navbar .navbar-nav {
@@ -477,4 +485,3 @@ iframe {
         width: 0%;
     }
 }
-
