@@ -8,11 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-<<<<<<< HEAD
 
 use App\Http\Controllers\NewsletterController;
-=======
->>>>>>> 890da1519443bf4f3ce67c07eec91e82b5369440
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserProfileController;
@@ -109,7 +106,6 @@ Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('pay
 Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('process.payment');
 
 });
-
 
 Route::get('/cart', function () {
     return view('cart');
