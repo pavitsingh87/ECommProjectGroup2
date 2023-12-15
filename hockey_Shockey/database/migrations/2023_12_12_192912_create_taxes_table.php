@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('taxes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('province_id');
-            $table->decimal('gst_rate', 5, 2)->default(0);
-            $table->decimal('pst_rate', 5, 2)->default(0);
-            $table->decimal('hst_rate', 5, 2)->default(0);
-            $table->timestamps();
-            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
-        });
+        if (!Schema::hasTable('taxes')) {
+            Schema::create('taxes', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('province_id');
+                $table->decimal('gst_rate', 5, 2)->default(0);
+                $table->decimal('pst_rate', 5, 2)->default(0);
+                $table->decimal('hst_rate', 5, 2)->default(0);
+                $table->timestamps();
+                $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
+            });
+        }
     }
 
     /**
