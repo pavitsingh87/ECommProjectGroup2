@@ -12,7 +12,7 @@ class NewsletterController extends Controller
     public function subscribe(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:newsletters',
+            'email' => 'required|email|unique:newsletters,email',
         ]);
 
         // Store the email in the newsletters table
@@ -20,9 +20,17 @@ class NewsletterController extends Controller
             'email' => $request->input('email'),
         ]);
 
-        // Send a confirmation email (you need to create this mail class)
-        Mail::to($request->input('email'))->send(new NewsletterSubscription());
+        $emailContent = 'Thank you for subscribing to our newsletter!';
+        $subject = 'Newsletter Subscription Confirmation';
 
-        return redirect()->back()->with('success', 'Subscription successful! Please check your email for confirmation.');
+        // Send confirmation email
+        Mail::raw($emailContent, function ($message) use ($request, $subject) {
+            $message->to($request->input('email'))
+                ->subject($subject);
+        });
+        // Send a confirmation email (you need to create this mail class)
+        // Mail::to($request->input('email'))->send(new NewsletterSubscription());
+
+        return redirect()->route('home')->with('success', 'Subscription successful! Please check your email for confirmation.');
     }
 }

@@ -104,7 +104,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content">
-                        <form action="{{ route('subscribe') }}" method="post">
+                        <form method="post" action="{{ route('subscribe') }}" >
                         @csrf
                             <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
                             <div class="input-group">
