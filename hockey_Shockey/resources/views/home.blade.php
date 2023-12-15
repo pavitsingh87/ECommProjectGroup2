@@ -104,7 +104,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content">
-                        <form>
+                        <form action="{{ route('subscribe') }}" method="post">
                             <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Enter your email">
