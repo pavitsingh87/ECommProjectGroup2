@@ -3,29 +3,9 @@
 @section('content')
     <h1>Create User</h1>
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary ">Back to Users</a>
     <form method="post" action="{{ route('admin.users.store') }}">
         @csrf
-
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
-        </div>
 
         <div class="mb-3">
             <label for="first_name" class="form-label">First Name</label>
@@ -39,12 +19,28 @@
 
         <div class="mb-3">
             <label for="gender" class="form-label">Gender</label>
-            <input type="text" class="form-control" id="gender" name="gender" value="{{ old('gender') }}">
-        </div>
+            <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}>
+        <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>
+        <label class="form-check-label" for="female">Female</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="other" value="Other" {{ old('gender') == 'Other' ? 'checked' : '' }}>
+        <label class="form-check-label" for="other">Other</label>
+    </div>
+   </div>
 
         <div class="mb-3">
             <label for="date_of_birth" class="form-label">Date of Birth</label>
             <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="{{ old('date_of_birth') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="user_name" class="form-label">Username</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" value="{{ old('user_name') }}">
         </div>
 
         <div class="mb-3">
@@ -63,17 +59,12 @@
         </div>
 
         <div class="mb-3">
-            <label for="user_name" class="form-label">Username</label>
-            <input type="text" class="form-control" id="user_name" name="user_name" value="{{ old('user_name') }}">
-        </div>
-
-        <div class="mb-3">
             <label for="address_line_1" class="form-label">Address Line 1</label>
             <input type="text" class="form-control" id="address_line_1" name="address_line_1" value="{{ old('address_line_1') }}">
         </div>
 
         <div class="mb-3">
-            <label for="address_line_2" class="form-label">Address Line 2</label>
+            <label for="address_line_2" class="form-label">Address Line 2 (optional)</label>
             <input type="text" class="form-control" id="address_line_2" name="address_line_2" value="{{ old('address_line_2') }}">
         </div>
 

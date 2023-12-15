@@ -20,7 +20,9 @@
           <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1"
             style="max-width: 3rem" />
           <div class="product_add_to_cart text-center">
-            <a href="add-to-cart/{{ $product->product_id }}" data-id="{{ $product->product_id }}"> Add to Cart</a>
+            <a class="btn btn-primary btn-outline-white mt-auto" href="/add-to-cart/{{ $product->product_id }}"
+              data-id="{{ $product->product_id }}"> Add to
+              Cart</a>
           </div>
         </div>
       </div>

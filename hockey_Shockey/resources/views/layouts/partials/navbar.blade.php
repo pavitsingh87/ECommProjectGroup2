@@ -41,6 +41,12 @@
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCounter"></span>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/wishlist" class="position-relative">
+                <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="wishlistCounter"></span>
+              </a>
+            </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <!-- Authentication Links -->
@@ -75,7 +81,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                <!-- Profile Link -->
                <a class="dropdown-item" href="/userprofile">
-                            {{ __('Profile') }}
+                            {{ __('Your Profile') }}
                         </a>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
