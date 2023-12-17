@@ -26,7 +26,9 @@
                   <h5 class="card-title">{{ $item->product->product_name }}</h5>
                   <p class="card-text">{{ $item->product->product_description }}</p>
                   <p class="card-text">${{ $item->product->price }}</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated {{ $item->product->updated_at->format('Y-m-d') }}</small>
+                  </p>
                 </div>
               </a>
               <div class="card-footer d-flex justify-content-start align-items-center gap-3">
