@@ -20,38 +20,46 @@
                     <div class="row">
                         @forelse($wishlistItems as $item)
                             <div class="col-lg-4 col-md-6 col-sm-6 mb-4 d-flex wishlist">
-
-                                <div class="card w-100 my-2 border-top-0  text-center">
-                            
+                                <div class="card w-100 my-2 border-top-0 text-center">
                                     <a href="{{ route('products.show', ['category' => $item->product->productCategoryType->pct_name, 'name' => $item->product->product_name]) }}" class="no_link_style">
-                                        <img  src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}" class="card-img-top" />
-                                    
-                                        <div class="card-body">
-                                            <p class="card-text">{{ $item->product->product_description }}</p>
-                                            <div class=" d-flex justify-content-between align-items-center">
-                                                <h5 class="card-title">{{ $item->product->product_name }}</h5>
-                                                <p class="card-text">${{ $item->product->price }}</p>
-                                            </div>   
+                                        <img src="{{ asset('storage/' . $item->product->product_image) }}" alt="{{ $item->product->product_name }}" class="card-img-top" />
+
+                                        <div class="card-body d-flex flex-wrap align-items-center">
+                                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                                <h5 class="m-0">${{ $item->product->price }}</h5>
+
+                                                <!-- WishList View -->
+                                                <form method="post" action="{{ route('wishlist.destroy', $item->id) }}" class="ms-2">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-link text-danger heart-icon">
+                                                        <i class="bi bi-heart"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+                                            <div class="w-100 card-text">{{ $item->product->product_name }}</div>
                                         </div>
                                     </a>
-                                
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
+
+                                    <div class="card-footer w-100 d-flex justify-content-around p-3 mt-auto">
                                         <!-- Add to cart -->
                                         <div class="product_add_to_cart text-center">
                                             <a href="add-to-cart/{{ $item->product->product_id }}" 
-                                                    data-id="{{ $item->product->product_id }}"  
-                                                    class="btn btn-success"  
-                                                    title="Add to cart">
-                                                <i class="bi bi-cart"></i>
+                                            data-id="{{ $item->product->product_id }}"  
+                                            class="btn btn-primary btn-outline-white mt-auto" 
+                                            title="Add to Cart">
+                                                Add to Cart
                                             </a>
                                         </div>
-
-                                        <!-- Remove from Wishlist -->
-                                        <form method="post" action="{{ route('wishlist.destroy', $item->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" title="Remove from wishlist"><i class="bi bi-x-lg"></i></button>
-                                        </form>
+                                        <!-- Quick View -->
+                                        <div class="product_quick_view text-center">
+                                            <a href="{{ route('products.show', ['category' => $item->product->productCategoryType->pct_name, 'name' => $item->product->product_name]) }}" 
+                                            class="btn btn-warning" 
+                                            title="Quick View">
+                                                Quick View
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
