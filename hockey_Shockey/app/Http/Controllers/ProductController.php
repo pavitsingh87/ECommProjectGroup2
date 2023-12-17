@@ -68,6 +68,7 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required',
             'product_description' => 'required',
+            'short_description' => 'required',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file types and size
             'price' => 'required|numeric',
             'availability_status' => 'required',
@@ -86,6 +87,7 @@ class ProductController extends Controller
         $product = new Product([
             'product_name' => $request->input('product_name'),
             'product_description' => $request->input('product_description'),
+            'short_description' => $request->input('short_description'),
             'product_image' => $imagePath, // Save the file path in the database
             'price' => $request->input('price'),
             'availability_status' => $request->input('availability_status'),
@@ -129,6 +131,7 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required',
             'product_description' => 'required',
+            'short_description' => 'required',
             'price' => 'required|numeric',
             'availability_status' => 'required',
             'product_category_type_id' => 'required|numeric',
@@ -153,6 +156,7 @@ class ProductController extends Controller
         $product->update([
             'product_name' => $request->input('product_name'),
             'product_description' => $request->input('product_description'),
+            'short_description' => $request->input('short_description'),
             'price' => $request->input('price'),
             'availability_status' => $request->input('availability_status'),
             'product_category_type_id' => $request->input('product_category_type_id'),
