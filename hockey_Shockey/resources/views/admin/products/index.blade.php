@@ -13,7 +13,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Category</th>
                     <th>Image</th>
                     <th>Price</th>
@@ -26,7 +25,6 @@
                     <tr>
                         <td>{{ $product->product_id }}</td>
                         <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->short_description }}</td>
                         <td>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</td>
                         <td>
                             <img class="card-img-top" src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" style="width:150px;">
