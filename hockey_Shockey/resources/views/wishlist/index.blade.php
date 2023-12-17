@@ -28,14 +28,20 @@
                                             <div class="d-flex flex-row justify-content-center align-items-center">
                                                 <h5 class="m-0">${{ $item->product->price }}</h5>
 
-                                                <!-- WishList View -->
-                                                <form method="post" action="{{ route('wishlist.destroy', $item->id) }}" class="ms-2">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-link text-danger heart-icon">
-                                                        <i class="bi bi-heart"></i>
-                                                    </button>
-                                                </form>
+                                                <!-- Wishlist View -->
+                                                @if(auth()->check() && auth()->user()->wishlist->contains('product_id', $item->product->product_id))
+
+                                                    <!-- If product is in wishlist, show filled heart -->
+                                                    <form method="post" action="{{ route('wishlist.destroy', $item->id) }}" class="ms-2" onsubmit="return confirm('Are you sure you want to remove this item from the wishlist?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-link text-danger heart-icon">
+                                                            <i class="bi bi-heart-fill" style="font-size: 1.5rem;"></i>
+                                                        </button>
+                                                    </form>
+                                                
+                                            
+                                                @endif
                                             </div>
 
                                             <div class="w-100 card-text">{{ $item->product->product_name }}</div>
