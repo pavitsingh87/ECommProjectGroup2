@@ -18,7 +18,6 @@ class CreateProductDetailsTable extends Migration
             $table->string('product_name');
             $table->string('product_description');
             $table->string('product_image');
-            $table->string('product_size')->nullable();
             $table->string('price');
             $table->string('availability_status');
             $table->integer('pct_id');
