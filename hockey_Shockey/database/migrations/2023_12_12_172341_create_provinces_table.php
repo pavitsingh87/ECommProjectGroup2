@@ -10,12 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        if(!Schema::hasTable('provinces')){
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->timestamps();
         });
     }
+}
 
     /**
      * Reverse the migrations.
