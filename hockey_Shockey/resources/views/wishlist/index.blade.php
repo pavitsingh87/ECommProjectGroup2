@@ -1,18 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
-    
-    <div class="container">
-        <div class="row p-4">
-            <!-- Sidebar -->
-            <div class="col-md-3 mt-5 ">
-                <div class="list-group d-flex flex-column">
-                    <a href="/edituserprofile" class="list-group-item list-group-item-action">Edit Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action">My Orders</a>
-                    <a href="/wishlist" class="list-group-item list-group-item-action">My Wishlist</a>
-                    <a href="{{ route('change-password') }}" class="list-group-item list-group-item-action">Change
-                        Password</a>
-                </div>
+
+<div class="container">
+  <div class="row p-4">
+    @include('layouts.partials.sidebarProfile')
+
+    <div class="col-md-9">
+      <h2 class="heading pb-4">My Wishlist</h2>
+      <div class="row wishlist">
+        @forelse($wishlistItems as $item)
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="{{ route('products.show', ['category' => $item->product->productCategoryType->pct_name, 'name' => $item->product->product_name]) }}"
+                class="no_link_style">
+                <img src="{{ asset('storage/' . $item->product->product_image) }}"
+                  alt="{{ $item->product->product_name }}" class="img-fluid rounded-start" />
+              </a>
             </div>
 
             <div class="col-md-9">
