@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasTable('categories')) {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             // Add more columns as needed
             $table->timestamps();
         });
+        }
     }
 
     /**
