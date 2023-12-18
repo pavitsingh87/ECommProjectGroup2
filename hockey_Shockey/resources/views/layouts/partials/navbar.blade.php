@@ -20,21 +20,17 @@
             <li class="nav-item">
               <a href="/cart" class="position-relative">
                 <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                  id="cartCounter"></span>
+                <span class="cartCounter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
               </a>
             </li>
             <li class="nav-item">
               <a href="/wishlist" class="position-relative">
                 <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                  id="wishlistCounter"></span>
+                <span class="wishlistCounter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
               </a>
             </li>
           </ul>
         </div>
-
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <i class="bi bi-list"></i>
@@ -64,15 +60,13 @@
               <li class="nav-item">
                 <a href="/cart" class="position-relative">
                   <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                    id="cartCounter"></span>
+                  <span class="cartCounter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/wishlist" class="position-relative">
                   <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                    id="wishlistCounter"></span>
+                  <span class="wishlistCounter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
                 </a>
               </li>
             </ul>
