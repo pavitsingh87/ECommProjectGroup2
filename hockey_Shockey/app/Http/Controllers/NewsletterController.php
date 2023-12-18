@@ -9,7 +9,7 @@ use App\Mail\NewsletterSubscription;
 
 class NewsletterController extends Controller
 {
-    public function store(Request $request)
+    public function subscribe(Request $request)
 {
     \Log::info('Request received', $request->all());
 
