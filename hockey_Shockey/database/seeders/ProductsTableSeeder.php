@@ -12,10 +12,10 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         // Create 15 products for each category
-        // for ($categoryId = 1; $categoryId <= 4; $categoryId++) {
-            // Product::factory()->count(15)->create([
-            //     'product_category_type_id' => $categoryId,
-            // ]);
+        for ($categoryId = 1; $categoryId <= 4; $categoryId++) {
+            Product::factory()->count(15)->create([
+                'product_category_type_id' => $categoryId,
+            ]);
              Product::create([
             'product_name' => 'John',
             'product_description' => 'Doe',
@@ -26,6 +26,6 @@ class ProductsTableSeeder extends Seeder
             'product_category_type_id' => '1',
             
         ]);
-        // }
+        }
     }
 }
