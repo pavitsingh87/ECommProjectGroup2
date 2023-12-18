@@ -165,7 +165,14 @@
             function updateWishlistCounter() {
                 $.get('/wishlist/count', function (data) {
                     $('.wishlistCounter').each(function () {
-                        $(this).text(data.count);
+                        var wishlistCount = data.count;
+                        if (wishlistCount > 0) {
+                        $(this).text(wishlistCount).show();
+                    } else {
+                        //dont show the counter if it is 0
+                        $(this).hide();
+                    }
+                        
                     });
                 });
             }
