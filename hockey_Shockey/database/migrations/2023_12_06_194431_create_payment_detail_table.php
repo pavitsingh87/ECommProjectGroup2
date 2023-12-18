@@ -8,14 +8,17 @@ class CreatePaymentDetailTable extends Migration
 {
     public function up()
     {
-        Schema::create('payment_detail', function (Blueprint $table) {
-            $table->id('payment_id');
-            $table->string('payment_type');
-            $table->string('provider');
-            $table->bigInteger('account_no');
-            $table->date('expiry');
-            $table->timestamps(); 
-        });
+        if (!Schema::hasTable('payment_detail')) {
+
+            Schema::create('payment_detail', function (Blueprint $table) {
+                $table->id('payment_id');
+                $table->string('payment_type');
+                $table->string('provider');
+                $table->bigInteger('account_no');
+                $table->date('expiry');
+                $table->timestamps(); 
+            });
+        }
     }
 
     public function down()

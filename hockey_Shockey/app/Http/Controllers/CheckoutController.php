@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth; // Make sure to import Auth
+use Illuminate\Support\Str;
+use App\Models\OrderItem;
+
 
 class CheckoutController extends Controller
 {
@@ -19,9 +22,9 @@ class CheckoutController extends Controller
     }
     public function processCheckout(Request $request)
     {
-        // Validate the request data
+            // Validate the request data
         $validatedData = $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'delivery_method' => 'required',
             'country' => 'required',
             'first_name' => 'required',
@@ -30,10 +33,20 @@ class CheckoutController extends Controller
             'city' => 'required',
             'state' => 'required',
             'zip_code' => 'required',
+            // Add any other fields you need to validate
         ]);
+
+        // Generate a random order_id and check its uniqueness
+        $order_id = $this->generateUniqueOrderId();
+
+        // Check if the generated order_id already exists
+        while (Order::where('order_id', $order_id)->exists()) {
+            $order_id = $this->generateUniqueOrderId();
+        }
 
         // Create a new Order instance and fill it with the validated data
         $order = new Order($validatedData);
+        $order->order_id = $order_id;
 
         // Associate the order with the currently authenticated user, if available
         if (Auth::check()) {
@@ -43,8 +56,31 @@ class CheckoutController extends Controller
         // Save the order to the database
         $order->save();
 
+        // Retrieve cart items from the session or wherever you store them
+        $cartItems = session('cart', []);
+        
+        // Save order items
+        foreach ($cartItems as $cartItem) {
+            $orderItem = new OrderItem([
+                'order_id' => $order->id,
+                'product_id' => $cartItem['product_id'],
+                'quantity' => $cartItem['quantity'],
+                'price' => $cartItem['price'],
+                // Add any other fields you need to save
+            ]);
+
+            $orderItem->save();
+        }
+        Session::put('order_id', $order->order_id);
         // Perform any additional actions as needed
-        // Redirect to the payment form
+
+        // Redirect to the payment form with the order_id
         return redirect()->route('payment.form');
     }
-}
+
+    // Helper function to generate a unique order_id
+    private function generateUniqueOrderId()
+    {
+        return Str::random(8); // Adjust the length as needed
+    }
+}   

@@ -19,6 +19,7 @@ class CartController extends Controller
 
             $cart = [
                 $id => [
+                    "product_id"=>$product->product_id,
                     "product_name" => $product->product_name,
                     "quantity" => 1,
                     "price" => $product->price,
@@ -41,6 +42,7 @@ class CartController extends Controller
 
         // Add the product to the cart with quantity = 1 if it doesn't exist
         $cart[$id] = [
+            "product_id"=>$product->product_id,
             "product_name" => $product->product_name,
             "quantity" => 1,
             "price" => $product->price,

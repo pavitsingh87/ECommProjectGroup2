@@ -105,6 +105,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
     Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('process.payment');
 
+
+    // pavit add routes
+    Route::view('/payment/thankyou', 'payment.thankyou')->name('thankyou');
+    Route::view('/payment/error', 'payment.payment_error')->name('payment.error');
+    Route::view('/payment/general', 'payment.payment_general')->name('payment.general');
 });
 
 // Route Page Cart
@@ -160,5 +165,7 @@ Route::get('/add-dummy-tshirts', [CartController::class, 'addDummyTShirtsToCart'
 
 
 Route::post('/subscribe', [NewsletterController::class,'subscribe'])->name('subscribe');
+
+
 
 require __DIR__ . '/auth.php';

@@ -9,13 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        if (!Schema::hasTable('cart_item')) {
-
-            Schema::create('cart_item', function (Blueprint $table) {
+        // Check if the table already exists before creating it
+        if (!Schema::hasTable('order_items')) {
+            Schema::create('order_items', function (Blueprint $table) {
                 $table->id();
+                $table->foreignId('order_id')->constrained();
+                $table->integer('product_id');
                 $table->integer('quantity');
+                $table->decimal('price', 8, 2);
+                // Add any other fields you need
                 $table->timestamps();
             });
         }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cart_item');
+        Schema::dropIfExists('order_items');
     }
 };
