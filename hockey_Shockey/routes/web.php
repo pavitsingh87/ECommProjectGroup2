@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderItemController;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
@@ -81,6 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('userprofile');
     Route::get('/change-password', [UserProfileController::class, 'showChangePasswordForm'])->name('change-password');
     Route::post('/update-password', [UserProfileController::class, 'updatePassword'])->name('update-password');
+    Route::get('/orders', [OrderItemController::class, 'userOrders'])->name('userOrders');
 
     // Routes for creating a new user viewing, editing, and updating and deleting
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');

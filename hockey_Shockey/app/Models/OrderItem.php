@@ -15,4 +15,9 @@ class OrderItem extends Model
         'price',
         // Add any other fields you need
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id');
+    }
 }
