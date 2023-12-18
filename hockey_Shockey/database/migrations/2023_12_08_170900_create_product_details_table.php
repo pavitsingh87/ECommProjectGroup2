@@ -28,6 +28,17 @@ class CreateProductDetailsTable extends Migration
                 $table->softDeletes();
             });
         }
+        Schema::create('product_details', function (Blueprint $table) {
+            $table->id('product_id');
+            $table->string('product_name');
+            $table->string('product_description');
+            $table->string('product_image');
+            $table->string('price');
+            $table->string('availability_status');
+            $table->integer('pct_id');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**

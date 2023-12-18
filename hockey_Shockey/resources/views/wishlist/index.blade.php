@@ -27,24 +27,36 @@
                   <p class="card-text">{{ $item->product->product_description }}</p>
                   <p class="card-text">${{ $item->product->price }}</p>
                   <p class="card-text">
-                    <small class="text-muted">Last updated {{ $item->product->updated_at->format('Y-m-d') }}</small>
+                  <small class="text-muted">
+                        Last updated {{ optional($item->product->updated_at)->format('Y-m-d') }}
+                  </small>
                   </p>
                 </div>
               </a>
               <div class="card-footer d-flex justify-content-start align-items-center gap-3">
-                <!-- Add to cart -->
-                <div class="product_add_to_cart text-center">
-                  <a href="add-to-cart/{{ $item->product->product_id }}" data-id="{{ $item->product->product_id }}"
-                    class="btn btn-success" title="Add to cart">
-                    <i class="bi bi-cart"></i>
-                  </a>
-                </div>
+                                        <!-- Add to cart -->
+                                        <div class="product_add_to_cart text-center">
+                                            <a href="add-to-cart/{{ $item->product->product_id }}" 
+                                            data-id="{{ $item->product->product_id }}"  
+                                            class="btn btn-primary btn-outline-white mt-auto" 
+                                            title="Add to Cart">
+                                                Add to Cart
+                                            </a>
+                                        </div>
+                                        <!-- Quick View -->
+                                        <div class="product_quick_view text-center">
+                                            <a href="{{ route('products.show', ['category' => $item->product->productCategoryType->pct_name, 'name' => $item->product->product_name]) }}" 
+                                            class="btn btn-warning" 
+                                            title="Quick View">
+                                                Quick View
+                                            </a>
+                                        </div>
 
                 <!-- Remove from Wishlist -->
                 <form method="post" action="{{ route('wishlist.destroy', $item->id) }}">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-danger" title="Remove from wishlist"><i
+                  <button type="submit" class="btn btn-danger btn-remove-from-wishlist" title="Remove from wishlist"><i
                       class="bi bi-x-lg"></i></button>
                 </form>
               </div>
