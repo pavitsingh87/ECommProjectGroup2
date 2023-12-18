@@ -2,20 +2,228 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Product;
 
 class ProductsTableSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        // Create 15 products for each category
-        for ($categoryId = 1; $categoryId <= 4; $categoryId++) {
-            Product::factory()->count(15)->create([
-                'product_category_type_id' => $categoryId,
-            ]);
+        $productsData = [
+            [
+                'product_name' => 'Auston Matthews Toronto Maple Leafs Fanatics Branded Breakaway',
+                'product_description' => 'Auston Matthews Toronto Maple Leafs Fanatics Branded Breakaway',
+                'short_description' => 'similique nisi asperiores',
+                'product_image' => 'product_images/H8XIXTxAq1xgNuw7uztTBHOZ8uo7LoRRiiFhQdxD.jpg',
+                'product_size' => 'Large',
+                'price' => '78.05',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:35:02',
+            ],
+            [
+                'product_name' => 'Grey Classic Tee',
+                'product_description' => 'Enim perferendis et omnis ea excepturi.',
+                'short_description' => 'accusantium sequi',
+                'product_image' => 'product_images/FXOLuF0Gl550zfBQXIr6VhhQ7GDi1yCXM6xqmMpz.jpg',
+                'product_size' => 'Small',
+                'price' => '40.34',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:39:23',
+            ],
+            [
+                'product_name' => 'Purple Classic Tee',
+                'product_description' => 'Omnis ut soluta id eos officia est.',
+                'short_description' => 'totam aliquid et',
+                'product_image' => 'product_images/lrRmrGDg7haDPSOjJtAqQ8M4fB39gKGhwUmQAikW.jpg',
+                'product_size' => 'Large',
+                'price' => '59.07',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:39:53',
+            ],
+            [
+                'product_name' => 'Red Classic Tee',
+                'product_description' => 'Rem id magnam est.',
+                'short_description' => 'facere velit culpa',
+                'product_image' => 'product_images/JN2vbjW6ZeeveuBBSV8FoUBWrzcnQYwyjVtwWadz.jpg',
+                'product_size' => 'Medium',
+                'price' => '26.47',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:40:21',
+            ],
+            [
+                'product_name' => 'natus',
+                'product_description' => 'Et porro pariatur aperiam accusantium magnam similique est.',
+                'short_description' => 'deleniti aut',
+                'product_image' => 'product_images/pUo5SYVqNmsFME4XHvrS9Soctw9f3SXIWRbysYpX.jpg',
+                'product_size' => 'Large',
+                'price' => '35.51',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:09',
+            ],
+            [
+                'product_name' => 'voluptas',
+                'product_description' => 'Quidem quam hic est nobis.',
+                'short_description' => 'est cum',
+                'product_image' => 'product_images/KLbi6SrTqB20z86S2AUphTwpLu0HSSKqUYyH436A.jpg',
+                'product_size' => 'Small',
+                'price' => '80.59',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:17',
+            ],
+            [
+                'product_name' => 'Auston Matthews Toronto Maple Leafs Fanatics Branded Breakaway',
+                'product_description' => 'Auston Matthews Toronto Maple Leafs Fanatics Branded Breakaway',
+                'short_description' => 'similique nisi asperiores',
+                'product_image' => 'product_images/H8XIXTxAq1xgNuw7uztTBHOZ8uo7LoRRiiFhQdxD.jpg',
+                'product_size' => 'Large',
+                'price' => '78.05',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:35:02',
+            ],
+            [
+                'product_name' => 'Grey Classic Tee',
+                'product_description' => 'Enim perferendis et omnis ea excepturi.',
+                'short_description' => 'accusantium sequi',
+                'product_image' => 'product_images/FXOLuF0Gl550zfBQXIr6VhhQ7GDi1yCXM6xqmMpz.jpg',
+                'product_size' => 'Small',
+                'price' => '40.34',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:39:23',
+            ],
+            [
+                'product_name' => 'Purple Classic Tee',
+                'product_description' => 'Omnis ut soluta id eos officia est.',
+                'short_description' => 'totam aliquid et',
+                'product_image' => 'product_images/lrRmrGDg7haDPSOjJtAqQ8M4fB39gKGhwUmQAikW.jpg',
+                'product_size' => 'Large',
+                'price' => '59.07',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:39:53',
+            ],
+            [
+                'product_name' => 'Red Classic Tee',
+                'product_description' => 'Rem id magnam est.',
+                'short_description' => 'facere velit culpa',
+                'product_image' => 'product_images/JN2vbjW6ZeeveuBBSV8FoUBWrzcnQYwyjVtwWadz.jpg',
+                'product_size' => 'Medium',
+                'price' => '26.47',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:40:21',
+            ],
+            [
+                'product_name' => 'Natus',
+                'product_description' => 'Et porro pariatur aperiam accusantium magnam similique est.',
+                'short_description' => 'deleniti aut',
+                'product_image' => 'product_images/pUo5SYVqNmsFME4XHvrS9Soctw9f3SXIWRbysYpX.jpg',
+                'product_size' => 'Large',
+                'price' => '35.51',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:09',
+            ],
+            [
+                'product_name' => 'Voluptas',
+                'product_description' => 'Quidem quam hic est nobis.',
+                'short_description' => 'est cum',
+                'product_image' => 'product_images/KLbi6SrTqB20z86S2AUphTwpLu0HSSKqUYyH436A.jpg',
+                'product_size' => 'Small',
+                'price' => '80.59',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:17',
+            ],
+            [
+                'product_name' => 'Sapiente',
+                'product_description' => 'Tempore nihil saepe molestiae odio iusto aut.',
+                'short_description' => 'non eius impedit',
+                'product_image' => 'product_images/oduBH5bgCVWzdqvJzgnqh7lChHvu009ssnivo6GS.jpg',
+                'product_size' => 'Large',
+                'price' => '72.73',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:27',
+            ],
+            [
+                'product_name' => 'Nihil',
+                'product_description' => 'Eos atque repudiandae et ut aut ipsum quis aperiam.',
+                'short_description' => 'numquam consequatur voluptatem',
+                'product_image' => 'product_images/AJPTC39nOQ6ZE1advvPtSBtGfCsUwJvqwJV3U1cu.jpg',
+                'product_size' => 'Medium',
+                'price' => '44.91',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:35',
+            ],
+            [
+                'product_name' => 'Aut',
+                'product_description' => 'Hic fugit sed nostrum accusamus.',
+                'short_description' => 'dolor unde',
+                'product_image' => 'product_images/0zoJnuvVqYUyQBC8Rdm72fVkSBp0lfvYpeKVzZqw.jpg',
+                'product_size' => 'Small',
+                'price' => '88.65',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:49',
+            ],
+            [
+                'product_name' => 'Totam',
+                'product_description' => 'Cupiditate sed dicta maxime enim et cum.',
+                'short_description' => 'cumque cum',
+                'product_image' => 'product_images/sBEG7GrFMnLxynYnikxqVA5NM80niC4MfKQrWY67.jpg',
+                'product_size' => 'Small',
+                'price' => '72.99',
+                'availability_status' => 'out_of_stock',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:52:59',
+            ],
+            [
+                'product_name' => 'Nisi',
+                'product_description' => 'Nisi tempore ea eum voluptatum non in consectetur.',
+                'short_description' => 'maiores delectus eveniet',
+                'product_image' => 'product_images/XiQTb5Z8FrixzYgCS8mFfQbX1Hmr92YjTlH6ojQu.jpg',
+                'product_size' => 'Medium',
+                'price' => '71.25',
+                'availability_status' => 'available',
+                'product_category_type_id' => 1,
+                'created_at' => '2023-12-11 22:09:22',
+                'updated_at' => '2023-12-12 21:53:08',
+            ],
+            
+        ];
+
+        foreach ($productsData as $productData) {
+            DB::table('products')->insert($productData);
         }
     }
 }
