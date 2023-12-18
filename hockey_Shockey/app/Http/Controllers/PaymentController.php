@@ -56,10 +56,10 @@ class PaymentController extends Controller
             // Determine the transaction status based on response codes
             $responseCode = $response->transaction_response->response_code;
             $transactionStatus = $responseCode == '1' ? 'success' : ($responseCode == '2' ? 'error' : 'pending');
-
+            $order_id = Session::get('order_id');
             // Store the transaction data in the database
             Transaction::create([
-                'ref_number' => $response->ref_number,
+                'ref_number' => $order_id,
                 'result_code' => $response->result_code,
                 'result_message' => $response->result_message,
                 'response_code' => $responseCode,
@@ -69,7 +69,7 @@ class PaymentController extends Controller
                 'status' => $transactionStatus,
                 // Add any other fields you need
             ]);
-            $order_id = Session::get('order_id');
+            
              // Update the order payment_status
             // dd($order_id);
             $order = Order::where('order_id', $order_id)->first();
