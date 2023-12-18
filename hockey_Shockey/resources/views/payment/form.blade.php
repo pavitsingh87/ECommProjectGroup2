@@ -21,54 +21,59 @@
                             <div>
                             <div class="my-3 cardname">
                                 <p class="dis fw-bold mb-2">Cardholder name</p>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" name="cardholder_name">
                             </div>
                             <p class="dis fw-bold mb-2">Card details</p>
                             <div class="d-flex align-items-center justify-content-between card-atm">
-                                <div class="fab fa-cc-visa ps-3"></div>
-                                <input type="text" class="form-control" placeholder=" Card Details"> &nbsp;
+                                <input type="text" class="form-control" name="cc_number" id="cc_number" placeholder=" Card Details"> &nbsp;
                                 <div class="d-flex w-50">
-                                <input type="text" class="form-control px-0" placeholder=" MM/YY"> &nbsp;
-                                <input type="password" maxlength="3" class="form-control px-0" placeholder=" CVV">
+                                <input type="text" class="form-control px-0" placeholder=" MM/YY" name="expiry_date"> &nbsp;
+                                <input type="password" maxlength="3" name="cvv" class="form-control px-0" placeholder=" CVV">
                                 </div>
                             </div>
-                            
+                            <div class="my-3 cardname">
+                                <p class="dis fw-bold mb-2">Cardholder Type</p>
+                                <input class="form-control" type="text" name="card_type" id="card_type" >
+                            </div>
                             <div class="address">
-                                
-                                <div class="d-flex flex-column dis">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <p>Subtotal</p>
-                                    <p>
-                                    <span class="fas fa-dollar-sign"></span>19.00
-                                    </p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="d-flex align-items-center">
-                                    <p class="pe-2">Discount <span class="d-inline-flex align-items-center justify-content-between bg-light px-2 couponCode">
-                                        <span id="code" class="pe-2">BLACKFRIDAY</span>
-                                        <span class="fas fa-times close"></span>
-                                        </span>
-                                    </p>
-                                    </div>
-                                    <p>
-                                    <span class="fas fa-dollar-sign"></span>5.00
-                                    </p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <p>VAT <span>(20%)</span>
-                                    </p>
-                                    <p>
-                                    <span class="fas fa-dollar-sign"></span>2.80
-                                    </p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <p class="fw-bold">Total</p>
-                                    <p class="fw-bold">
-                                    <span class="fas fa-dollar-sign"></span>16.80
-                                    </p>
-                                </div>
-                                <div class="btn btn-primary mt-2">Pay <span class="fas fa-dollar-sign px-1"></span>16.80 </div>
-                                </div>
+                            @if(session('cart'))
+                                @php
+                                    $total = 0;
+                                @endphp
+                                @foreach(session('cart') as $product)
+                                    @php
+                                        $total += $product['price'] * $product['quantity'];
+                                    @endphp
+
+                                @endforeach
+                            @endif
+                            @if(session('cart'))
+                             <div class="d-flex flex-column dis">
+                             <div class="d-flex align-items-center justify-content-between mb-2">
+                                <p>Subtotal</p>
+                                <p>
+                                    <span class="fas fa-dollar-sign"></span>$ {{ $cartTotal }}
+                                </p>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <p>GST <span>(13%)</span></p>
+                                <p>
+                                    <span class="fas fa-dollar-sign"></span>${{ $gstAmount }}
+                                </p>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <p class="fw-bold">Total</p>
+                                <p class="fw-bold">
+                                    <span class="fas fa-dollar-sign"></span>${{ $grandTotal }}
+                                </p>
+                            </div>
+
+                            <button class="btn btn-primary mt-2">Pay <span class="fas fa-dollar-sign px-1"></span>{{ $grandTotal }} </button>
+
+                            </div>
+                                @endif
                             </div>
                             </div>
                         </form>
