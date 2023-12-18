@@ -310,12 +310,14 @@ ul {
 }
 
 .products .card,
-.products-page .card {
+.products-page .card,
+.wishlist .card {
   transition: all 0.3s ease-in-out;
 }
 
 .products .card:hover,
-.products-page .card:hover {
+.products-page .card:hover,
+.wishlist .card:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   /* Add shadow on hover */
 }
@@ -617,16 +619,6 @@ iframe {
   text-decoration: none;
   color: inherit;
 }
-
-/* for box shadow on wishlist cards */
-.wishlist .card {
-  transition: all 0.3s ease-in-out;
-}
-
-.wishlist .card:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
 
 /* for responsiveness */
 @media screen and (max-width: 767px) {
