@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_inventory', function (Blueprint $table) {
-            $table->id();
-            $table->integer('quantity')->nullable();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('product_inventory')) {
+            Schema::create('product_inventory', function (Blueprint $table) {
+                $table->id();
+                $table->integer('quantity')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
