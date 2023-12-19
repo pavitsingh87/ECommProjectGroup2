@@ -32,7 +32,7 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->availability_status }}</td>
                         <td>
-                            <a href="{{ route('admin.products.show', $product->product_id) }}" class="btn btn-info">View</a>
+                            <a href="{{ route('admin.products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}" class="btn btn-info">View</a>
                             <a href="{{ route('admin.products.edit', $product->product_id) }}" class="btn btn-primary">Edit</a>
                             <form action="{{ route('admin.products.destroy', $product->product_id) }}" method="POST" style="display:inline;">
                                 @csrf

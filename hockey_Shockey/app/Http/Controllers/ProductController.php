@@ -114,11 +114,11 @@ class ProductController extends Controller
 
         // Determine the view path based on the request
         $viewPath = request()->is('admin/*') ? 'admin.products.show' : 'products.show';
-        dd($viewPath);
 
         // Pass the product to the view
         return view($viewPath, compact('product'));
     }
+
 
     public function edit(Product $product)
     {
