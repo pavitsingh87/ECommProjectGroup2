@@ -119,6 +119,7 @@ class ProductController extends Controller
         return view($viewPath, compact('product'));
     }
 
+
     public function edit(Product $product)
     {
         $productCategories = ProductCategoryType::all();
