@@ -1,7 +1,5 @@
 <?php
 
-// CheckoutController.php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
-    // Función para mostrar la página de checkout
+    // Function to display the checkout page
     public function checkout()
     {
         Session::put('checkout', 1);
@@ -22,10 +20,10 @@ class CheckoutController extends Controller
         return view('checkout');
     }
 
-    // Función para procesar el checkout
+    // Function to process the checkout
     public function processCheckout(Request $request)
     {
-        // Validar los datos de la solicitud
+        // Validate the request data
         $validatedData = $request->validate([
             'email' => 'required|email',
             'delivery_method' => 'required',
@@ -36,40 +34,40 @@ class CheckoutController extends Controller
             'city' => 'required',
             'state' => 'required',
             'zip_code' => 'required',
-            // Agrega cualquier otro campo que necesites validar
+            // Add any other fields you need to validate
         ]);
 
-        // Generar un order_id único
+        // Generate a unique order_id
         $order_id = $this->generateUniqueOrderId();
 
-        // Verificar si el order_id generado ya existe
+        // Check if the generated order_id already exists
         while (Order::where('order_id', $order_id)->exists()) {
             $order_id = $this->generateUniqueOrderId();
         }
 
-        // Crear una nueva instancia de Order y llenarla con los datos validados
+        // Create a new Order instance and fill it with the validated data
         $order = new Order($validatedData);
         $order->order_id = $order_id;
 
-        // Asociar el pedido con el usuario autenticado actualmente, si está disponible
+        // Associate the order with the currently authenticated user, if available
         if (Auth::check()) {
             $order->user_id = Auth::id();
         }
 
-        // Guardar el pedido en la base de datos
+        // Save the order to the database
         $order->save();
 
-        // Recuperar los elementos del carrito de la sesión o de donde los almacenes
+        // Retrieve cart items from the session or wherever you store them
         $cartItems = session('cart', []);
         
-        // Guardar los elementos del pedido
+        // Save order items
         foreach ($cartItems as $cartItem) {
             $orderItem = new OrderItem([
                 'order_id' => $order->id,
                 'product_id' => $cartItem['product_id'],
                 'quantity' => $cartItem['quantity'],
                 'price' => $cartItem['price'],
-                // Agrega cualquier otro campo que necesites guardar
+                // Add any other fields you need to save
             ]);
 
             $orderItem->save();
@@ -77,24 +75,22 @@ class CheckoutController extends Controller
 
         Session::put('order_id', $order->order_id);
 
-        // Realizar acciones adicionales según sea necesario
-
-        // Redirigir al formulario de pago con el order_id
+        // Redirect to the payment form with the order_id
         return redirect()->route('payment.form');
     }
 
-    // Función auxiliar para generar un order_id único
+    // Helper function to generate a unique order_id
     private function generateUniqueOrderId()
     {
-        return Str::random(8); // Ajusta la longitud según sea necesario
+        return Str::random(8); // Adjust the length as needed
     }
 
-    // Función para obtener las transacciones del usuario
+    // Function to get user transactions
     public function getUserTransactions()
     {
         $userId = Auth::id();
         
-        $query = "
+        $queryTransID = "
             SELECT 
                 transactions.id AS trans_id,
                 transactions.ref_number,
@@ -126,16 +122,16 @@ class CheckoutController extends Controller
             GROUP BY transactions.id, orders.id
         ";
 
-        $result = DB::select($query);
+        $items_Ref_Number = DB::select($queryTransID);
 
-        if (empty($result)) {
+        if (empty($items_Ref_Number)) {
             return response()->json(['error' => 'Data not found'], 404);
         }
 
         $formattedItems = [];
 
-        foreach ($result as $item) {
-            $query1 = "
+        foreach ($items_Ref_Number as $item) {
+            $queryItems = "
                 SELECT 
                     order_items.*,
                     products.*
@@ -145,21 +141,21 @@ class CheckoutController extends Controller
                 LEFT JOIN products ON products.product_id = order_items.product_id 
                 WHERE transactions.ref_number = ?
             ";
-            $result1 = DB::select($query1, [$item->ref_number]);
+            $object_Items = DB::select($queryItems, [$item->ref_number]);
 
-            if (empty($result1)) {
+            if (empty($object_Items)) {
                 return response()->json(['error' => 'Data not found'], 404);
             }
 
             $productsArray = [];
 
-            foreach ($result1 as $item1) {
+            foreach ($object_Items as $itemObject) {
                 $productsArray[] = [
-                    'product_name' => $item1->product_name,
-                    'product_description' => $item1->product_description,
-                    'short_description' => $item1->short_description,
-                    'product_image' => $item1->product_image,
-                    'product_size' => $item1->product_size,
+                    'product_name' => $itemObject->product_name,
+                    'product_description' => $itemObject->product_description,
+                    'short_description' => $itemObject->short_description,
+                    'product_image' => $itemObject->product_image,
+                    'product_size' => $itemObject->product_size,
                 ];
             }       
             
@@ -176,7 +172,7 @@ class CheckoutController extends Controller
 
         $userOrders = $formattedItems;
 
-        // Renderizar la vista 'ordersProfile' con los resultados
+        // Render the 'ordersProfile' view with the results
         return view('ordersProfile', compact('userOrders'));
     }
 }
