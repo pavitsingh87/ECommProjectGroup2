@@ -88,14 +88,17 @@ class CheckoutController extends Controller
     {
         $userId = Auth::id();
 
-        $userTransactions = DB::table('transactions')
+        $userOrders = DB::table('transactions')
             ->join('orders', 'transactions.ref_number', '=', 'orders.order_id')
             ->join('order_items', 'orders.id', '=', 'order_items.order_id')
             ->where('orders.user_id', '=', $userId)
             ->select('transactions.*', 'orders.*', 'order_items.*')
             ->get();
-        dd($userTransactions);
-        return view('/transaction.index', compact('userTransactions'));
+        //dd($userTransactions);
+        return view('ordersProfile', compact('userOrders'));
+
+        //return view('/transaction.index', compact('userTransactions'));
+        
     }
 
 }   
