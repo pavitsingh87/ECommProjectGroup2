@@ -8,7 +8,7 @@ class CreateOrdersTable extends Migration
 {
     public function up()
     {
-        if(!Schema::hasTable('orders')){
+        if(!Schema::hasTable('orders')) {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             // Add other order-related columns
@@ -22,14 +22,13 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zip_code');
-            $table->enum('payment_status', ['pending', 'made', 'cancelled'])->default('pending');
+            $table->enum('payment_status', ['pending', 'success', 'cancelled','error'])->default('pending');
             $table->foreignId('user_id')->constrained(); // Foreign key to link with the users table
-            // Add other order-related columns
+            $table->string('order_id')->unique()->nullable();
             $table->timestamps();
         });
     }
 }
-
     public function down()
     {
         Schema::dropIfExists('orders');

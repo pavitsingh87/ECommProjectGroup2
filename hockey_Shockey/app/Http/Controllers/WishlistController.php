@@ -18,7 +18,9 @@ class WishlistController extends Controller
         }
 
         else{
-            return redirect()->back()->with('success', 'Product is already in your wishlist');
+                // Remove the product from the wishlist
+                $user->wishlist()->where('product_id', $productId)->delete();
+                return redirect()->back()->with('success', 'Product removed from your wishlist');
         }
 
 

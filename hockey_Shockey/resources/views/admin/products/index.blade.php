@@ -13,7 +13,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Category</th>
                     <th>Image</th>
                     <th>Price</th>
@@ -26,7 +25,6 @@
                     <tr>
                         <td>{{ $product->product_id }}</td>
                         <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->short_description }}</td>
                         <td>{{ $product->productCategoryType->pct_name ?? 'N/A' }}</td>
                         <td>
                             <img class="card-img-top" src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image" style="width:150px;">
@@ -34,7 +32,7 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->availability_status }}</td>
                         <td>
-                            <a href="{{ route('admin.products.show', $product->product_id) }}" class="btn btn-info">View</a>
+                            <a href="{{ route('admin.products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}" class="btn btn-info">View</a>
                             <a href="{{ route('admin.products.edit', $product->product_id) }}" class="btn btn-primary">Edit</a>
                             <form action="{{ route('admin.products.destroy', $product->product_id) }}" method="POST" style="display:inline;">
                                 @csrf

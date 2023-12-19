@@ -30,7 +30,7 @@
 
 <!-- Section-->
 <section class="products py-5">
-  <div class="container px-4 px-lg-5">
+  <div class="container px-4 px-lg-5 mb-5">
     <h2 class="fs-1 align-items-center justify-content-center p-3 row"><span></span>Our Products<span></span></h2>
     <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center d-flex">
       @if ($products !== null)
@@ -45,13 +45,22 @@
               <div class="d-flex flex-row justify-content-center align-items-center">
                 <h5 class="m-0">${{ $product->price }}</h5>
               </div>
-              <!-- WishList View -->
-              <form method="post" action="{{ route('wishlist.store', ['productId' => $product->product_id]) }}">
+                <!-- WishList View -->
+                <form method="post" action="{{ route('wishlist.store', ['productId' => $product->product_id]) }}">
                 @csrf
-                <button type="submit" class="btn btn-link text-danger heart-icon">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </form>
+
+                @if(auth()->check() && auth()->user()->wishlist->contains('product_id', $product->product_id))
+                    <!-- If product is in wishlist, show filled heart -->
+                    <button type="submit" class="btn btn-link text-danger heart-icon">
+                        <i class="bi bi-heart-fill "  style="font-size: 1.5rem;"></i>
+                    </button>
+                @else
+                    <!-- If product is not in wishlist, show empty heart -->
+                    <button type="submit" class="btn btn-link text-danger heart-icon">
+                        <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
+                    </button>
+                @endif
+                </form>
               <p class="w-100 text-start card-text">{{ $product->product_name }}</p>
             </div>
           </a>

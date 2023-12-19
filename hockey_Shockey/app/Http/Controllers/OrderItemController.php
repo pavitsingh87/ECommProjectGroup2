@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderItemController extends Controller
 {
@@ -30,6 +31,18 @@ class OrderItemController extends Controller
         ]);
 
         return response()->json($orderItem, 201);
+    }
+
+    public function userOrders()
+    {
+        // Obtener el ID del usuario autenticado
+        $userId = Auth::id();
+
+        // Obtener las órdenes del usuario
+        $userOrders = OrderItem::where('user_id', $userId)
+            ->get();
+
+        return view('orders', compact('userOrders'));
     }
 
     // Add other methods as needed

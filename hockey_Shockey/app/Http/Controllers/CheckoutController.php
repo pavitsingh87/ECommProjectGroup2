@@ -1,29 +1,28 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Order;
-use Illuminate\Support\Facades\Auth; // Make sure to import Auth
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\OrderItem;
-use App\Models\Province;
-use App\Models\Tax;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
-    //checkout controller
+    // Function to display the checkout page
     public function checkout()
     {
         Session::put('checkout', 1);
         $cartItems = Session::get('cart', []);
         return view('checkout');
-
     }
+
+    // Function to process the checkout
     public function processCheckout(Request $request)
     {
-            // Validate the request data
+        // Validate the request data
         $validatedData = $request->validate([
             'email' => 'required|email',
             'delivery_method' => 'required',
@@ -37,7 +36,7 @@ class CheckoutController extends Controller
             // Add any other fields you need to validate
         ]);
 
-        // Generate a random order_id and check its uniqueness
+        // Generate a unique order_id
         $order_id = $this->generateUniqueOrderId();
 
         // Check if the generated order_id already exists
@@ -72,7 +71,9 @@ class CheckoutController extends Controller
 
             $orderItem->save();
         }
+
         Session::put('order_id', $order->order_id);
+
         // Perform any additional actions as needed
 
         // Redirect to the payment form with the order_id
@@ -84,7 +85,8 @@ class CheckoutController extends Controller
     {
         return Str::random(8); // Adjust the length as needed
     }
-    // Función para obtener las transacciones del usuario
+
+    // Function to get user transactions
     public function getUserTransactions()
     {
         $userId = Auth::id();
@@ -171,7 +173,7 @@ class CheckoutController extends Controller
 
         $userOrders = $formattedItems;
 
-        // Renderizar la vista 'ordersProfile' con los resultados
+        // Render the 'ordersProfile' view with the results
         return view('ordersProfile', compact('userOrders'));
     }
-}   
+}

@@ -124,7 +124,6 @@
             });
 
 
-
             //sending ajax request to calculate the new subtotal and total
             $(".quantity").change(function (e) {
                 e.preventDefault();
@@ -156,7 +155,9 @@
                     url: '{{ route("cart.total") }}',
                     method: 'GET',
                     success: function (response) {
-                        $('#cartCounter').text(response.total);
+                        $('.cartCounter').each(function () {
+                            $(this).text(response.total);
+                        });
                     }
                 });
             }
@@ -164,14 +165,23 @@
             // Function to update the wishlist counter
             function updateWishlistCounter() {
                 $.get('/wishlist/count', function (data) {
-                    $('#wishlistCounter').text(data.count);
+                    $('.wishlistCounter').each(function () {
+                        var wishlistCount = data.count;
+                        if (wishlistCount > 0) {
+                        $(this).text(wishlistCount).show();
+                    } else {
+                        //dont show the counter if it is 0
+                        $(this).hide();
+                    }
+                        
+                    });
                 });
             }
         });
         document.addEventListener('DOMContentLoaded', function () {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             const forms = document.querySelectorAll('.needs-validation');
-            
+
             // Loop over them and prevent submission
             Array.from(forms).forEach(form => {
                 form.addEventListener('submit', event => {
@@ -179,41 +189,46 @@
                     event.preventDefault();
                     event.stopPropagation();
                 }
-            
+
                 form.classList.add('was-validated');
                 }, false);
             });
-        
-            // Validación de expresiones regulares para campos específicos
+
             const emailInput = document.getElementById('email');
-            emailInput.addEventListener('input', function () {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(this.value)) {
-                this.setCustomValidity('Please provide a valid email address.');
-                } else {
-                this.setCustomValidity('');
-                }
-            });
-        
+            if (emailInput) {
+                emailInput.addEventListener('input', function () {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.value)) {
+                    this.setCustomValidity('Please provide a valid email address.');
+                    } else {
+                    this.setCustomValidity('');
+                    }
+                });
+            }
+
             const contactNoInput = document.getElementById('contact_no');
-            contactNoInput.addEventListener('input', function () {
-                const contactNoRegex = /^\d{10}$/;
-                if (!contactNoRegex.test(this.value)) {
-                this.setCustomValidity('Please provide a valid 10-digit contact number.');
-                } else {
-                this.setCustomValidity('');
-                }
-            });
-        
+            if (contactNoInput) {
+                contactNoInput.addEventListener('input', function () {
+                    const contactNoRegex = /^\d{10}$/;
+                    if (!contactNoRegex.test(this.value)) {
+                    this.setCustomValidity('Please provide a valid 10-digit contact number.');
+                    } else {
+                    this.setCustomValidity('');
+                    }
+                });
+            }
+
             const postalCodeInput = document.getElementById('postal_code');
-            postalCodeInput.addEventListener('input', function () {
-                const postalCodeRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
-                if (!postalCodeRegex.test(this.value)) {
-                this.setCustomValidity('Please provide a valid postal code.');
-                } else {
-                this.setCustomValidity('');
-                }
-            });
+            if(postalCodeInput) {
+                postalCodeInput.addEventListener('input', function () {
+                    const postalCodeRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
+                    if (!postalCodeRegex.test(this.value)) {
+                    this.setCustomValidity('Please provide a valid postal code.');
+                    } else {
+                    this.setCustomValidity('');
+                    }
+                });
+            }
         });
         $('#cc_number').keypress(function(event) {
             const result = $('#cc_number').validateCreditCard();

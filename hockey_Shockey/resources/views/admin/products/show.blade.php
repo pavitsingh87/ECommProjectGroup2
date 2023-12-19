@@ -25,12 +25,7 @@
         <p>                           <img class="card-img-top" src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image">
 </p>
     </div>
-
-    <div>
-        <strong>Size:</strong>
-        <p>{{ $product->product_size ?: 'N/A' }}</p>
-    </div>
-
+    
     <div>
         <strong>Price:</strong>
         <p>${{ $product->price }}</p>
