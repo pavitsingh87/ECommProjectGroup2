@@ -9,7 +9,7 @@
     @csrf
     @method('PUT')
 
-    <div class="form-group mb-4">
+    <div class="form-group mb-3">
         <strong><label for="product_name" class="mb-1">Product Name</label></strong>
         <input type="text" name="product_name" id="product_name" class="form-control" value="{{ old('product_name', $product->product_name) }}">
         @error('product_name')
