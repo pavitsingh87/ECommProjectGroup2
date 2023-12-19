@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Auth; // Make sure to import Auth
 use Illuminate\Support\Str;
 use App\Models\OrderItem;
+use Illuminate\Support\Facades\DB;
 
 
 class CheckoutController extends Controller
@@ -83,4 +84,18 @@ class CheckoutController extends Controller
     {
         return Str::random(8); // Adjust the length as needed
     }
+    public function getUserTransactions()
+    {
+        $userId = Auth::id();
+
+        $userTransactions = DB::table('transactions')
+            ->join('orders', 'transactions.ref_number', '=', 'orders.order_id')
+            ->join('order_items', 'orders.id', '=', 'order_items.order_id')
+            ->where('orders.user_id', '=', $userId)
+            ->select('transactions.*', 'orders.*', 'order_items.*')
+            ->get();
+        dd($userTransactions);
+        return view('/transaction.index', compact('userTransactions'));
+    }
+
 }   
