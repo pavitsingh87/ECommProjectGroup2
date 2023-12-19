@@ -1,29 +1,36 @@
 <?php
 
+// CheckoutController.php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Order;
-use Illuminate\Support\Facades\Auth; // Make sure to import Auth
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\OrderItem;
+
 use App\Models\Province;
 use App\Models\Tax;
 
+use Illuminate\Support\Facades\DB;
+
+
 class CheckoutController extends Controller
 {
-    //checkout controller
+    // Función para mostrar la página de checkout
     public function checkout()
     {
         Session::put('checkout', 1);
         $cartItems = Session::get('cart', []);
         return view('checkout');
-
     }
+
+    // Función para procesar el checkout
     public function processCheckout(Request $request)
     {
-            // Validate the request data
+        // Validar los datos de la solicitud
         $validatedData = $request->validate([
             'email' => 'required|email',
             'delivery_method' => 'required',
@@ -34,54 +41,58 @@ class CheckoutController extends Controller
             'city' => 'required',
             'state' => 'required',
             'zip_code' => 'required',
-            // Add any other fields you need to validate
+            // Agrega cualquier otro campo que necesites validar
         ]);
 
-        // Generate a random order_id and check its uniqueness
+        // Generar un order_id único
         $order_id = $this->generateUniqueOrderId();
 
-        // Check if the generated order_id already exists
+        // Verificar si el order_id generado ya existe
         while (Order::where('order_id', $order_id)->exists()) {
             $order_id = $this->generateUniqueOrderId();
         }
 
-        // Create a new Order instance and fill it with the validated data
+        // Crear una nueva instancia de Order y llenarla con los datos validados
         $order = new Order($validatedData);
         $order->order_id = $order_id;
 
-        // Associate the order with the currently authenticated user, if available
+        // Asociar el pedido con el usuario autenticado actualmente, si está disponible
         if (Auth::check()) {
             $order->user_id = Auth::id();
         }
 
-        // Save the order to the database
+        // Guardar el pedido en la base de datos
         $order->save();
 
-        // Retrieve cart items from the session or wherever you store them
+        // Recuperar los elementos del carrito de la sesión o de donde los almacenes
         $cartItems = session('cart', []);
         
-        // Save order items
+        // Guardar los elementos del pedido
         foreach ($cartItems as $cartItem) {
             $orderItem = new OrderItem([
                 'order_id' => $order->id,
                 'product_id' => $cartItem['product_id'],
                 'quantity' => $cartItem['quantity'],
                 'price' => $cartItem['price'],
-                // Add any other fields you need to save
+                // Agrega cualquier otro campo que necesites guardar
             ]);
 
             $orderItem->save();
         }
-        Session::put('order_id', $order->order_id);
-        // Perform any additional actions as needed
 
-        // Redirect to the payment form with the order_id
+        Session::put('order_id', $order->order_id);
+
+        // Realizar acciones adicionales según sea necesario
+
+        // Redirigir al formulario de pago con el order_id
         return redirect()->route('payment.form');
     }
 
-    // Helper function to generate a unique order_id
+    // Función auxiliar para generar un order_id único
     private function generateUniqueOrderId()
     {
-        return Str::random(8); // Adjust the length as needed
+        return Str::random(8); // Ajusta la longitud según sea necesario
     }
-}   
+
+    
+}

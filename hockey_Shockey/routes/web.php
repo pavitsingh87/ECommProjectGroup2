@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderItemController;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
@@ -61,7 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
-    Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('admin.products.show');
+    Route::get('/admin/products/{category}/{name}', [ProductController::class, 'show'])->name('admin.products.show');
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
@@ -81,6 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('userprofile');
     Route::get('/change-password', [UserProfileController::class, 'showChangePasswordForm'])->name('change-password');
     Route::post('/update-password', [UserProfileController::class, 'updatePassword'])->name('update-password');
+    Route::get('/orders', [CheckoutController::class, 'getUserTransactions'])->name('ordersProfile');
 
     // Routes for creating a new user viewing, editing, and updating and deleting
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
