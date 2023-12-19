@@ -5,7 +5,7 @@
 <div class="container">
 <h1>Create Product</h1>
 
-<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" novalidate>
     @csrf
 
     <div class="form-group mb-3">
@@ -18,7 +18,7 @@
 
     <div class="form-group mb-3">
         <strong><label for="product_description" class="mb-1">Product Description</label></strong>
-        <textarea name="product_description" id="product_description" class="form-control" required>{{ old('product_description') }}</textarea>
+        <textarea name="product_description" id="product_description" class="form-control">{{ old('product_description') }}</textarea>
         @error('product_description')
             <p class="text-danger">{{ $message }}</p>
         @enderror
