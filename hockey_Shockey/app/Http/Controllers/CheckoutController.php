@@ -8,7 +8,8 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Auth; // Make sure to import Auth
 use Illuminate\Support\Str;
 use App\Models\OrderItem;
-
+use App\Models\Province;
+use App\Models\Tax;
 
 class CheckoutController extends Controller
 {

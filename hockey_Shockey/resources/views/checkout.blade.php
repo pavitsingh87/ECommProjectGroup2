@@ -158,10 +158,29 @@
                         
                     @endforeach
 
+                    <!-- Calculate Taxes -->
+                    @php
+                        // GST (Goods and Services Tax) - Federal Tax
+                        $gstRate = 0.05; // Example GST rate (5%)
+                        $gst = $total * $gstRate;
+
+                        // PST (Provincial Sales Tax) - Adjust based on your province
+                        $pstRate = 0.08; // Example PST rate (8%)
+                        $pst = $total * $pstRate;
+
+                        // Total with Taxes
+                        $totalWithTaxes = $total + $gst + $pst;
+                    @endphp
+
                     <!-- Total -->
                     <div class="mt-4">
-                    <h3>Total: ${{ $total }}</h3>
-
+                        <table class="col-md-12">
+                            <tr><td class="col-md-6"><b>Subtotal: </b></td><td>${{ number_format($total, 2) }}</td></tr>
+                            <tr><td><b>GST (5%):       </b></td><td>${{ number_format($gst, 2) }}</td></tr>
+                            <tr><td><b>PST (8%): </b></td><td>${{ number_format($pst, 2) }}</td></tr>
+                            <tr><td><b>Total with Taxes: </b></td><td>${{ number_format($totalWithTaxes, 2) }}</td></tr>
+                        </table>
+                        
                     </div>
                 @else
                     <p>Your cart is empty.</p>
