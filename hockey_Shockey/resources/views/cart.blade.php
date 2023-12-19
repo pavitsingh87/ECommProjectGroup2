@@ -38,7 +38,7 @@
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                       <div data-th="Quantity">
                         {{-- Display and allow the user to update the quantity --}}
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity"
+                        <input type="text" value="{{ $details['quantity'] }}" class="form-control quantity"
                           data-id="{{ $id }}" />
                       </div>
                     </div>
@@ -57,8 +57,7 @@
 
                   <div class="pt-5">
                     <h6 class="mb-0"><a href="{{ url('/product') }}" class="btn btn-primary"><i
-                          class="bi bi-arrow-left me-2"></i>Back
-                        to shop</a></h6>
+                          class="bi bi-arrow-left me-2"></i>Back to shop</a></h6>
                   </div>
                 </div>
               </div>
@@ -76,18 +75,18 @@
                   <button type="button" class="btn btn-primary" onclick="redirectToCheckout()">Checkout</button>
                   <script>
                     function redirectToCheckout() {
-                        // Assuming you have a global variable in your Blade view indicating the authentication status
-                        var isAuthenticated = @json(auth()->check());
+                      // Assuming you have a global variable in your Blade view indicating the authentication status
+                      var isAuthenticated = @json(auth() -> check());
 
-                        if (isAuthenticated) {
-                            // User is logged in, redirect to the checkout page
-                            window.location.href = "{{ route('checkout.page') }}"; // Replace 'checkout.page' with your actual route name
-                        } else {
-                            // User is not logged in, redirect to the signup page
-                            window.location.href = "{{ route('login') }}"; // Replace 'signup.page' with your actual signup route name
-                        }
+                      if (isAuthenticated) {
+                        // User is logged in, redirect to the checkout page
+                        window.location.href = "{{ route('checkout.page') }}"; // Replace 'checkout.page' with your actual route name
+                      } else {
+                        // User is not logged in, redirect to the signup page
+                        window.location.href = "{{ route('login') }}"; // Replace 'signup.page' with your actual signup route name
+                      }
                     }
-                </script>
+                  </script>
                 </div>
               </div>
             </div>
