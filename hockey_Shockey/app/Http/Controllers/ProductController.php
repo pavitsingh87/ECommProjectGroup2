@@ -129,13 +129,14 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'product_name' => 'required',
-            'product_description' => 'required',
-            'short_description' => 'required',
-            'price' => 'required|numeric',
+            'product_name' => ['required','string', 'max:255'],
+            'product_description' => ['required','string', 'max:255'],
+            'short_description' => ['required','string', 'max:255'],
+            'price' => ['required','numeric'],
             'availability_status' => 'required',
             'product_category_type_id' => 'required|numeric',
         ]);
+
 
         // Handle image upload
         if ($request->hasFile('product_image')) {
