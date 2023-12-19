@@ -16,66 +16,49 @@
                             <p class="dis mb-3">Complete your purchase by providing your payment details</p>
                         </div>
                         <form method="post" action="{{ route('process.payment') }}">
-                        @csrf
-                            
+                            @csrf
                             <div>
-                            <div class="my-3 cardname">
-                                <p class="dis fw-bold mb-2">Cardholder name</p>
-                                <input class="form-control" type="text" name="cardholder_name">
-                            </div>
-                            <p class="dis fw-bold mb-2">Card details</p>
-                            <div class="d-flex align-items-center justify-content-between card-atm">
-                                <input type="text" class="form-control" name="cc_number" id="cc_number" placeholder=" Card Details"> &nbsp;
-                                <div class="d-flex w-50">
-                                <input type="text" class="form-control px-0" placeholder=" MM/YY" name="expiry_date"> &nbsp;
-                                <input type="password" maxlength="3" name="cvv" class="form-control px-0" placeholder=" CVV">
+                                <div class="my-3 cardname">
+                                    <p class="dis fw-bold mb-2">Cardholder name</p>
+                                    <input class="form-control @error('cardholder_name') is-invalid @enderror" type="text" name="cardholder_name" value="{{ old('cardholder_name') }}">
+                                    @error('cardholder_name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <p class="dis fw-bold mb-2">Card details</p>
+                                <div class="d-flex align-items-center justify-content-between card-atm">
+                                    <input type="text" class="form-control @error('cc_number') is-invalid @enderror" name="cc_number" id="cc_number" placeholder=" Card Details" maxlength="16" value="{{ old('cc_number') }}"> &nbsp;
+                                    <div class="d-flex w-100">
+                                        <input type="text" class="form-control @error('expiry_date') is-invalid @enderror" placeholder=" MM/YY" name="expiry_date" value="{{ old('expiry_date') }}"> &nbsp;
+                                        <input type="password" maxlength="3" name="cvv" class="form-control @error('cvv') is-invalid @enderror" placeholder=" CVV" value="{{ old('cvv') }}">
+                                    </div>
+                                </div>
+                                @error('cc_number')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                @error('expiry_date')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                @error('cvv')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="my-3 cardname">
+                                    <p class="dis fw-bold mb-2">Cardholder Type</p>
+                                    <input class="form-control @error('card_type') is-invalid @enderror" type="text" name="card_type" id="card_type" readonly value="{{ old('card_type') }}">
+                                    @error('card_type')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <!-- Rest of your form -->
+
+                                <div class="address">
+                                    <!-- Other form elements -->
+
+                                    <button class="btn btn-primary mt-2">Pay <span class="fas fa-dollar-sign px-1"></span>{{ $grandTotal }} </button>
                                 </div>
                             </div>
-                            <div class="my-3 cardname">
-                                <p class="dis fw-bold mb-2">Cardholder Type</p>
-                                <input class="form-control" type="text" name="card_type" id="card_type" >
-                            </div>
-                            <div class="address">
-                            @if(session('cart'))
-                                @php
-                                    $total = 0;
-                                @endphp
-                                @foreach(session('cart') as $product)
-                                    @php
-                                        $total += $product['price'] * $product['quantity'];
-                                    @endphp
+                        </form>
 
-                                @endforeach
-                            @endif
-                            @if(session('cart'))
-                             <div class="d-flex flex-column dis">
-                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p>Subtotal</p>
-                                <p>
-                                    <span class="fas fa-dollar-sign"></span>$ {{ $cartTotal }}
-                                </p>
-                            </div>
-
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p>GST <span>(13%)</span></p>
-                                <p>
-                                    <span class="fas fa-dollar-sign"></span>${{ $gstAmount }}
-                                </p>
-                            </div>
-
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p class="fw-bold">Total</p>
-                                <p class="fw-bold">
-                                    <span class="fas fa-dollar-sign"></span>${{ $grandTotal }}
-                                </p>
-                            </div>
-
-                            <button class="btn btn-primary mt-2">Pay <span class="fas fa-dollar-sign px-1"></span>{{ $grandTotal }} </button>
-
-                            </div>
-                                @endif
-                            </div>
-                            </div>
                         </form>
                     </div>
                 <br><br>
@@ -98,7 +81,7 @@
                             $total += $product['price'] * $product['quantity'];
                         @endphp
                         <div class="d-flex mb-3">
-                            <img src="http://localhost:8000/storage/product_images/wc1FztG2oiyxe6LjxnwhnlBb0YbSJuqr3ckXEawE.jpg" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
+                            <img src="{{ asset('storage/' . $product['product_image']) }}" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
                             <div>
                                 <h5>{{ $product['product_name'] }}</h5>
                                 <p>$ {{ $product['price'] }} X {{ $product['quantity'] }} = $ {{$product['price'] * $product['quantity']}}</p>
@@ -107,10 +90,29 @@
                         
                     @endforeach
 
+                    <!-- Calculate Taxes -->
+                    @php
+                        // GST (Goods and Services Tax) - Federal Tax
+                        $gstRate = 0.05; // Example GST rate (5%)
+                        $gst = $total * $gstRate;
+
+                        // PST (Provincial Sales Tax) - Adjust based on your province
+                        $pstRate = 0.08; // Example PST rate (8%)
+                        $pst = $total * $pstRate;
+
+                        // Total with Taxes
+                        $totalWithTaxes = $total + $gst + $pst;
+                    @endphp
+
                     <!-- Total -->
                     <div class="mt-4">
-                    <h3>Total: ${{ $total }}</h3>
-
+                        <table class="col-md-12">
+                            <tr><td class="col-md-6"><b>Subtotal: </b></td><td>${{ number_format($total, 2) }}</td></tr>
+                            <tr><td><b>GST (5%):       </b></td><td>${{ number_format($gst, 2) }}</td></tr>
+                            <tr><td><b>PST (8%): </b></td><td>${{ number_format($pst, 2) }}</td></tr>
+                            <tr><td><b>Total with Taxes: </b></td><td>${{ number_format($totalWithTaxes, 2) }}</td></tr>
+                        </table>
+                        
                     </div>
                 @else
                     <p>Your cart is empty.</p>

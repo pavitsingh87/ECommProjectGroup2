@@ -1,5 +1,3 @@
-<!-- resources/views/checkout/user_transactions.blade.php -->
-
 @extends('layouts.main') // Adjust this based on your layout
 
 @section('content')

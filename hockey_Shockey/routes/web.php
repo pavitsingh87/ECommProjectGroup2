@@ -82,9 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('userprofile');
     Route::get('/change-password', [UserProfileController::class, 'showChangePasswordForm'])->name('change-password');
     Route::post('/update-password', [UserProfileController::class, 'updatePassword'])->name('update-password');
-    Route::get('/orders', [CheckoutController::class, 'getUserTransactions'])->name('userOrders');
-    //Route::get('/transactions', [CheckoutController::class, 'getUserTransactions'])->name('transaction.index');
-
+    Route::get('/orders', [CheckoutController::class, 'getUserTransactions'])->name('ordersProfile');
 
     // Routes for creating a new user viewing, editing, and updating and deleting
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
@@ -114,9 +112,6 @@ Route::middleware('auth')->group(function () {
     Route::view('/payment/thankyou', 'payment.thankyou')->name('thankyou');
     Route::view('/payment/error', 'payment.payment_error')->name('payment.error');
     Route::view('/payment/general', 'payment.payment_general')->name('payment.general');
-
-    Route::get('/transactions', [CheckoutController::class, 'getUserTransactions'])->name('transaction.index');
-
 });
 
 // Route Page Cart

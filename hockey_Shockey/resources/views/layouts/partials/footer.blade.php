@@ -4,7 +4,7 @@
       <div class="row w-100 gy-4 gx-5">
         <div class="col-lg-3 col-md-6">
           <a class="navbar-brand" href="#">
-            <img src="images/logo_white.png" alt="" width="150" height="53">
+          <img src="{{ asset('images/logo_white.png') }}" alt="Logo" width="150" height="53">
           </a>
           <p class="small text-white mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt.</p>

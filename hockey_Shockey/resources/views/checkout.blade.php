@@ -139,7 +139,7 @@
                 <br><br>
                 <!-- Product List -->
                 <h2>Your Cart</h2>
-
+                
                 @if(session('cart'))
                     @php
                         $total = 0;
@@ -149,8 +149,8 @@
                             $total += $product['price'] * $product['quantity'];
                         @endphp
                         <div class="d-flex mb-3">
-                            <img src="http://localhost:8000/storage/product_images/wc1FztG2oiyxe6LjxnwhnlBb0YbSJuqr3ckXEawE.jpg" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
-                            <div>
+                        <img src="{{ asset('storage/' . $product['product_image']) }}" alt="{{ $product['product_name'] }}" class="mr-3" style="width: 80px;">
+                        <div>
                                 <h5>{{ $product['product_name'] }}</h5>
                                 <p>$ {{ $product['price'] }} X {{ $product['quantity'] }} = $ {{$product['price'] * $product['quantity']}}</p>
                             </div>
@@ -158,10 +158,29 @@
                         
                     @endforeach
 
+                    <!-- Calculate Taxes -->
+                    @php
+                        // GST (Goods and Services Tax) - Federal Tax
+                        $gstRate = 0.05; // Example GST rate (5%)
+                        $gst = $total * $gstRate;
+
+                        // PST (Provincial Sales Tax) - Adjust based on your province
+                        $pstRate = 0.08; // Example PST rate (8%)
+                        $pst = $total * $pstRate;
+
+                        // Total with Taxes
+                        $totalWithTaxes = $total + $gst + $pst;
+                    @endphp
+
                     <!-- Total -->
                     <div class="mt-4">
-                    <h3>Total: ${{ $total }}</h3>
-
+                        <table class="col-md-12">
+                            <tr><td class="col-md-6"><b>Subtotal: </b></td><td>${{ number_format($total, 2) }}</td></tr>
+                            <tr><td><b>GST (5%):       </b></td><td>${{ number_format($gst, 2) }}</td></tr>
+                            <tr><td><b>PST (8%): </b></td><td>${{ number_format($pst, 2) }}</td></tr>
+                            <tr><td><b>Total with Taxes: </b></td><td>${{ number_format($totalWithTaxes, 2) }}</td></tr>
+                        </table>
+                        
                     </div>
                 @else
                     <p>Your cart is empty.</p>
