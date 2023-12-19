@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
     //protected $fillable = ['user_id', 'total', 'province_id'];
-         
+
     protected $fillable = [
         'email',
         'delivery_method',
@@ -20,11 +20,17 @@ class Order extends Model
         'city',
         'state',
         'zip_code',
-        'user_id','payment_status'
+        'user_id',
+        'payment_status'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id');
     }
 
     public function province()

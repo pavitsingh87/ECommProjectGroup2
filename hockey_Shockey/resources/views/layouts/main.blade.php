@@ -122,7 +122,6 @@
             });
 
 
-
             //sending ajax request to calculate the new subtotal and total
             $(".quantity").change(function (e) {
                 e.preventDefault();

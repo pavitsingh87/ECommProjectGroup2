@@ -9,7 +9,7 @@
             <span class="categories_name">Edit Profile</span></a>
         </li>
         <li>
-          <a class="categories_name" href="#" class="text-dark">
+          <a class="categories_name" href="/orders" class="text-dark">
             <i class="bi bi-caret-right-fill btn-primary"></i>
             <span class="categories_name">My Orders</span></a>
         </li>
