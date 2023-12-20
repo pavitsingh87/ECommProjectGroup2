@@ -29,7 +29,7 @@
                                 <div class="d-flex align-items-center justify-content-between card-atm">
                                     <input type="text" class="form-control @error('cc_number') is-invalid @enderror" name="cc_number" id="cc_number" placeholder=" Card Details" maxlength="16" value="{{ old('cc_number') }}"> &nbsp;
                                     <div class="d-flex w-100">
-                                        <input type="text" class="form-control @error('expiry_date') is-invalid @enderror" placeholder=" MM/YY" name="expiry_date" value="{{ old('expiry_date') }}"> &nbsp;
+                                        <input type="text" class="form-control @error('expiry_date') is-invalid @enderror" placeholder=" MMYY" name="expiry_date" value="{{ old('expiry_date') }}"> &nbsp;
                                         <input type="password" maxlength="3" name="cvv" class="form-control @error('cvv') is-invalid @enderror" placeholder=" CVV" value="{{ old('cvv') }}">
                                     </div>
                                 </div>
