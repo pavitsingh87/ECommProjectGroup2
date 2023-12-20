@@ -16,20 +16,14 @@ class PaymentController extends Controller
     public function processPayment(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
+        $validator = $request->validate([
             'cc_number' => 'required|numeric',
-            'expiry_date' => 'required|date_format:m/y',
+            'expiry_date' => 'required|date_format:my',
             'cvv' => 'required|numeric|digits:3',
-            'reference_number' => 'required|string',
             'card_type' => 'required|in:visa,mastercard,amex', // Adjust card types as needed
             'cardholder_name' => 'required|string',
         ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        
         // Replace these values with your actual credentials
         //dd($request);
         define('BX_LOGIN', '2398711');
