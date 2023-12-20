@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+
 class CartController extends Controller
 {
     // Add a product to the shopping cart
@@ -202,6 +203,14 @@ class CartController extends Controller
         //print_r($cartItems);
         return view('checkout');
 
+    }
+    public function search(Request $request)
+    {
+        // Perform the search based on the user input
+        $query = $request->input('query');
+        $results = Product::where('product_name', 'like', "%$query%")->get();
+
+        return response()->json($results);
     }
 
 }

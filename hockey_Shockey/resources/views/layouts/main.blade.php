@@ -61,6 +61,7 @@
                     .then(response => response.json())
                     .then(data => {
                         // Handle the search results
+                        console.log(data);
                         displayResults(data);
                     })
                     .catch(error => console.error('Error:', error));
@@ -77,7 +78,7 @@
 
                     // Column 1: Image
                     var imageColumn = $('<div style="flex: 0 0 100px; margin-right: 10px;">');
-                    var productImage = $('<a href="' + '{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}' + '"><img src="' + '{{ asset('storage/' . $product->product_image) }}' + '" alt="Product Image" width="100"></a>');
+                    var productImage = $('<a href="' + '{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}' + '"><img src="' + 'storage/product_images/FXOLuF0Gl550zfBQXIr6VhhQ7GDi1yCXM6xqmMpz.jpg' + '" alt="Product Image" width="100"></a>');
                     // Apply background color on hover to the entire li element
                     listItem.hover(function () {
                         $(this).css('background-color', '#f0f0f0'); // Light grey background on hover
