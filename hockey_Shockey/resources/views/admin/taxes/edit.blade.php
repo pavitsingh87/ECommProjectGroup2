@@ -11,32 +11,32 @@
         @csrf
         @method('PUT')
 
-        <div class="form-group">
-            <label for="province">Province</label>
+        <div class="form-group mb-3">
+            <strong><label for="province">Province</label></strong>
             <input type="text" name="province" id="province" class="form-control" value="{{ $tax->province->name }}">
             @error('province')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="form-group">
-            <label for="gst">GST</label>
+        <div class="form-group mb-3">
+            <strong><label for="gst">GST</label></strong>
             <input type="text" name="gst" id="gst" class="form-control" value="{{ old('gst', $tax->gst_rate) }}">
             @error('gst')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="form-group">
-            <label for="pst">PST</label>
+        <div class="form-group mb-3">
+            <strong><label for="pst">PST</label></strong>
             <input type="text" name="pst" id="pst" class="form-control" value="{{ old('pst', $tax->pst_rate) }}">
             @error('pst')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="form-group">
-            <label for="hst">HST</label>
+        <div class="form-group mb-3">
+            <strong><label for="hst">HST</label></strong>
             <input type="text" name="hst" id="hst" class="form-control" value="{{ old('hst', $tax->hst_rate) }}">
             @error('hst')
                 <p class="text-danger">{{ $message }}</p>
