@@ -70,17 +70,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 
-
-
-
-    Route::get('/test-edit-route', function () {
-        $product = App\Models\Product::find(69);
-        $productCategories = App\Models\ProductCategoryType::all();
-
-        return view('admin.products.edit', compact('product' ,'productCategories'));
-    });
-
-
     // Route for Taxes
     Route::get('/admin/taxes', [TaxController::class, 'index'])->name('admin.taxes.index');
     Route::get('/admin/taxes/create', [TaxController::class, 'create'])->name('admin.taxes.create');
