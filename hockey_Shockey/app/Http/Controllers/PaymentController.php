@@ -107,6 +107,7 @@ class PaymentController extends Controller
                 //return redirect()->route('payment.thankyou');
                 Session::forget('cart');
                 Session::forget('order_id');
+                Session::put('auth_code', $response->transaction_response->auth_code);
                 return redirect()->route('thankyou');
 
             } elseif ($transactionStatus === 'error') {
