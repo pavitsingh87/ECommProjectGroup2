@@ -58,6 +58,13 @@ class TaxController extends Controller
 
         public function update(Request $request, Tax $tax)
         {
+                $request->validate([
+                    'gst' => 'required|numeric|min:0',
+                    'pst' => 'required|numeric|min:0',
+                    'hst' => 'required|numeric|min:0',
+                    'province' => 'required|string'
+                ]);
+
                 $updatedGST = $request->input('gst');
                 $updatedPST = $request->input('pst');
                 $updatedHST = $request->input('hst');

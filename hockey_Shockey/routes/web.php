@@ -38,7 +38,9 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified', 'checkRole:1']) 
+    ->name('dashboard.index');
 
 Route::middleware('auth')->group(function () {
 
@@ -61,11 +63,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
 
     // Route for products
+
+    Route::get('/admin/products/{product}/edit', 'App\Http\Controllers\ProductController@edit')->name('admin.products.edit');
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
     Route::get('/admin/products/{category}/{name}', [ProductController::class, 'show'])->name('admin.products.show');
-    Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 
@@ -139,6 +142,8 @@ Route::get('/about', function () {
 // Route Product Page
 Route::get('/products/{category}/{name}', [ProductController::class, 'show'])
     ->name('products.show');
+
+Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
 
 Route::match(['get', 'post'], '/product', [ProductController::class, 'index'])->name('products.index');
 

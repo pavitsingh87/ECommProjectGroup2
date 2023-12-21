@@ -1,31 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        
-    </div>
-    <h1>User Transactions</h1>
+<div class="container mt-5">
+    <div class="row p-4">
+        @include('layouts.partials.sidebarProfile')
+        <div class="col-lg-9">
+            <div class="row">
+                <h2 class="heading">User Transactions</h2>
 
-    @foreach ($userOrders as $order)
-        <div>
-            <h2>Transaction ID: {{ $order['trans_id'] }}</h2>
-            <p>Reference Number: {{ $order['ref_number'] }}</p>
-            <p>Auth Code: {{ $order['auth_code'] }}</p>
-            <p>Status: {{ $order['transaction_status'] }}</p>
-            <p>Created At: {{ $order['created_at'] }}</p>
-            <p>Updated At: {{ $order['updated_at'] }}</p>
+                @foreach ($userOrders as $order)
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Transaction ID: {{ $order['trans_id'] }}</h2>
+                        <p class="card-text">Reference Number: {{ $order['ref_number'] }}</p>
+                        <p class="card-text">Auth Code: {{ $order['auth_code'] }}</p>
+                        <p class="card-text">Status: {{ $order['transaction_status'] }}</p>
+                        <p class="card-text">Created At: {{ $order['created_at'] }}</p>
+                        <p class="card-text">Updated At: {{ $order['updated_at'] }}</p>
 
-            <h3>Products:</h3>
-            <ul>
-                @foreach ($order['productsArray'] as $product)
-                    <li>
-                        <strong>{{ $product['product_name'] }}</strong>
-                        <p>Description: {{ $product['product_description'] }}</p>
-                        <p>Size: {{ $product['product_size'] }}</p>
-                    </li>
+                        <h3 class="mt-4">Products:</h3>
+                        <ul class="list-group d-flex flex-wrap">
+                            @foreach ($order['productsArray'] as $product)
+                            <li class="list-group-item">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="{{ asset('storage/' . $product['product_image']) }}"
+                                        alt="{{ $product['product_name'] }}" class="img-fluid rounded-3 me-3"
+                                        style="max-width: 80px;" />
+                                    <div>
+                                        <h5 class="card-title">{{ $product['product_name'] }}</h5>
+                                        <p class="card-text">Description: {{ $product['product_description'] }}</p>
+                                        <p class="card-text">Size: {{ $product['product_size'] }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
                 @endforeach
-            </ul>
+            </div>
         </div>
-        <hr>
-    @endforeach
+    </div>
+</div>
 @endsection

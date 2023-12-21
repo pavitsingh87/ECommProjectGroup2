@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -74,8 +75,6 @@ class CheckoutController extends Controller
 
         Session::put('order_id', $order->order_id);
 
-        // Perform any additional actions as needed
-
         // Redirect to the payment form with the order_id
         return redirect()->route('payment.form');
     }
@@ -91,7 +90,7 @@ class CheckoutController extends Controller
     {
         $userId = Auth::id();
         
-        $query = "
+        $queryTransID = "
             SELECT 
                 transactions.id AS trans_id,
                 transactions.ref_number,
@@ -123,16 +122,16 @@ class CheckoutController extends Controller
             GROUP BY transactions.id, orders.id
         ";
 
-        $result = DB::select($query);
+        $items_Ref_Number = DB::select($queryTransID);
 
-        if (empty($result)) {
+        if (empty($items_Ref_Number)) {
             return response()->json(['error' => 'Data not found'], 404);
         }
 
         $formattedItems = [];
 
-        foreach ($result as $item) {
-            $query1 = "
+        foreach ($items_Ref_Number as $item) {
+            $queryItems = "
                 SELECT 
                     order_items.*,
                     products.*
@@ -142,21 +141,21 @@ class CheckoutController extends Controller
                 LEFT JOIN products ON products.product_id = order_items.product_id 
                 WHERE transactions.ref_number = ?
             ";
-            $result1 = DB::select($query1, [$item->ref_number]);
+            $object_Items = DB::select($queryItems, [$item->ref_number]);
 
-            if (empty($result1)) {
+            if (empty($object_Items)) {
                 return response()->json(['error' => 'Data not found'], 404);
             }
 
             $productsArray = [];
 
-            foreach ($result1 as $item1) {
+            foreach ($object_Items as $itemObject) {
                 $productsArray[] = [
-                    'product_name' => $item1->product_name,
-                    'product_description' => $item1->product_description,
-                    'short_description' => $item1->short_description,
-                    'product_image' => $item1->product_image,
-                    'product_size' => $item1->product_size,
+                    'product_name' => $itemObject->product_name,
+                    'product_description' => $itemObject->product_description,
+                    'short_description' => $itemObject->short_description,
+                    'product_image' => $itemObject->product_image,
+                    'product_size' => $itemObject->product_size,
                 ];
             }       
             
