@@ -398,3 +398,13 @@ Role: Simron is our talented designer, responsible for creating the visual ident
 - Dipesh Ram Shrestha - HTML, CSS, JavaScript:
 
 Role: Dipesh specializes in front-end development, working with HTML, CSS, and JavaScript. His role involves translating design concepts into functional and responsive web pages. Dipesh ensures that the website's front-end is not only visually appealing but also optimized for performance and usability.
+
+## User Login
+
+username - sample1@example.com
+password - password
+
+## Admin Login
+
+username - sample@example.com
+password - password
