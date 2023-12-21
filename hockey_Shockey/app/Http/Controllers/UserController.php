@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -24,7 +25,12 @@ class UserController extends Controller
         // Validation logic here
         $this->validateUser($request);
 
-        User::create($request->all());
+        $userData = $request->all();
+        $userData['name'] = $request->input('first_name') . ' ' . $request->input('last_name');
+    
+        User::create($userData);
+        //  User::create($request->all());
+
 
         return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
     }
@@ -42,10 +48,10 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         // Validation logic here
+        
         $this->validateUser($request);
 
         $user->update($request->all());
-
         return redirect()->route('admin.users.index')->with('success', 'User updated successfully!');
     }
 
@@ -58,22 +64,29 @@ class UserController extends Controller
 
     private function validateUser(Request $request)
     {
-        return $request->validate([
-            'name' => 'nullable|string|max:255',
-            'first_name' => 'nullable|string|max:255',
-            'last_name' => 'nullable|string|max:255',
-            'gender' => 'nullable|string|max:255',
-            'date_of_birth' => 'nullable|date',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8', // Add more specific password rules if needed
-            'contact_no' => 'nullable|string|max:255',
-            'user_name' => 'nullable|string|max:255',
+        $userId = $request->route('user');
+    
+        $rules = [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($userId)],
+            'contact_no' => 'required|string|max:255',
+            'user_name' => 'required|string|max:255',
             'address_line_1' => 'nullable|string|max:255',
             'address_line_2' => 'nullable|string|max:255',
-            'city' => 'nullable|string|max:255',
-            'country' => 'nullable|string|max:255',
-            'postal_code' => 'nullable|string|max:255',
+            'city' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'postal_code' => 'required|string|max:255|regex:/^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/',
             'role_id' => 'required|integer',
-        ]);
+        ];
+    
+        if ($request->isMethod('post')) {
+            $rules['password'] = 'required|string|min:8';
+        }
+    
+        return $request->validate($rules);
     }
+    
 }
