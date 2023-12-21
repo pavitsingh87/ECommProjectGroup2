@@ -37,12 +37,10 @@ Route::get('/', function () {
     return view('home', compact('products'));
 });
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'checkRole:1']) 
     ->name('dashboard.index');
-
-
-
 
 Route::middleware('auth')->group(function () {
 
@@ -51,6 +49,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.index');
+    
     // Route for Categories
     Route::get('/admin/category', [CategoryController::class, 'index'])->name('admin.category.index');
     Route::get('admin/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
