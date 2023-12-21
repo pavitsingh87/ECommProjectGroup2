@@ -6,7 +6,7 @@
     <h1>Edit User</h1>
 
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Back to Users</a>
-    <form method="post" action="{{ route('admin.users.update', $user->id) }}">
+    <form method="post" action="{{ route('admin.users.update', $user->id) }}" novalidate>
         @csrf
         @method('PUT')
 
@@ -49,7 +49,7 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <p>{{ $user->email }}</p>
-            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }} " >
+            <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }} " >
             @error('email')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -103,7 +103,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="postal_code" class="form-label">Postal Code</label>
+            <label for="postal_code" class="form-label">Postal Code (R2P 1N8)</label>
             <input type="text" class="form-control" id="postal_code" name="postal_code" value="{{ old('postal_code', $user->postal_code) }}">
             @error('postal_code')
                 <div class="text-danger">{{ $message }}</div>
