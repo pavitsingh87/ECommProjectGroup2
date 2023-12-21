@@ -204,13 +204,6 @@ class CartController extends Controller
         return view('checkout');
 
     }
-    public function search(Request $request)
-    {
-        // Perform the search based on the user input
-        $query = $request->input('query');
-        $results = Product::where('product_name', 'like', "%$query%")->get();
-
-        return response()->json($results);
-    }
+    
 
 }

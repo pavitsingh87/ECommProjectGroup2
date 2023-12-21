@@ -176,11 +176,35 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        // Perform the search based on the user input
         $query = $request->input('query');
-        $results = Product::where('product_name', 'like', "%$query%")->get();
 
-        return response()->json($results);
+        // Search for products
+        $productResults = Product::where('product_name', 'like', "%$query%")
+            ->with('productCategoryType:id,pct_name') // Eager load only the necessary fields from productCategoryType
+            ->get();
+
+        // Transform product results
+        $productResults = $productResults->map(function ($product) {
+            return [
+                'product_id' => $product->product_id,
+                'product_name' => $product->product_name,
+                'product_description' => $product->product_description,
+                'short_description' => $product->short_description,
+                'product_image' => $product->product_image,
+                'product_size' => $product->product_size,
+                'price' => $product->price,
+                'availability_status' => $product->availability_status,
+                'category' => [
+                    'category_id' => optional($product->productCategoryType)->id,
+                    'category_name' => optional($product->productCategoryType)->pct_name,
+                ],
+                // Include other relevant product fields if needed
+            ];
+        });
+
+        return response()->json([
+            'product_results' => $productResults
+        ]);
     }
     public function showProducts()
     {
@@ -189,5 +213,10 @@ class ProductController extends Controller
         return $products;
         // Pass the products to the view
         //return view('home', compact('products'));
+    }
+    public function category_name()
+    {
+        $category = ProductCategoryType::where('pct_name', $category_name)->first();
+        return $category;
     }
 }
