@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+
 class CartController extends Controller
 {
     // Add a product to the shopping cart
@@ -203,5 +204,6 @@ class CartController extends Controller
         return view('checkout');
 
     }
+    
 
 }

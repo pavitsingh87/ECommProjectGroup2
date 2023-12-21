@@ -61,6 +61,7 @@
                     .then(response => response.json())
                     .then(data => {
                         // Handle the search results
+                        console.log(data);
                         displayResults(data);
                     })
                     .catch(error => console.error('Error:', error));
@@ -72,12 +73,13 @@
                 productList.empty();
 
                 // Render new product list
-                results.forEach(function (product) {
+                results.product_results.forEach(function (product) {
+                    console.log(product);
                     var listItem = $('<li style="display: flex; align-items: center; margin-bottom: 10px;">');
 
                     // Column 1: Image
                     var imageColumn = $('<div style="flex: 0 0 100px; margin-right: 10px;">');
-                    var productImage = $('<a href="' + '{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}' + '"><img src="' + '{{ asset('storage/' . $product->product_image) }}' + '" alt="Product Image" width="100"></a>');
+                    var productImage = $('<a href="' + '/products/'+product.category.category_name+'/'+product.product_name + '"><img src="' + '/storage/'+product.product_image+'' + '" alt="Product Image" width="100"></a>');
                     // Apply background color on hover to the entire li element
                     listItem.hover(function () {
                         $(this).css('background-color', '#f0f0f0'); // Light grey background on hover
@@ -92,12 +94,13 @@
 
                     // Column 2: Title and Price
                     var infoColumn = $('<div>');
-                    infoColumn.append('<h3><a href="' + '{{ route('products.show', ['category' => $product->productCategoryType->pct_name, 'name' => $product->product_name]) }}' + '">' + product.product_name + '</a></h3>');
+                    infoColumn.append('<h3><a href="' + '/products/'+product.category.category_name+'/'+product.product_name + '">' + product.product_name + '</a></h3>');
                     infoColumn.append('<p>$' + product.price + '</p>');
                     listItem.append(infoColumn);
 
                     productList.append(listItem);
                 });
+                
 
 
 
