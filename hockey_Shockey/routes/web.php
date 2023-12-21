@@ -38,11 +38,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'checkRole:1']) // Agrega el middleware 'checkRole' con el parámetro '1' para el rol de administrador
     ->name('dashboard.index');
-
-
-
 
 Route::middleware('auth')->group(function () {
 
