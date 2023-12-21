@@ -113,6 +113,7 @@ Route::middleware('auth')->group(function () {
 
     // pavit add routes
     Route::view('/payment/thankyou', 'payment.thankyou')->name('thankyou');
+    
     Route::view('/payment/error', 'payment.payment_error')->name('payment.error');
     Route::view('/payment/general', 'payment.payment_general')->name('payment.general');
 });
